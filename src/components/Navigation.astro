@@ -1,15 +1,23 @@
 ---
 /**
- * Top navigation bar — desktop nav + mobile hamburger menu + language switcher.
+ * Top navigation bar — multi-page nav + mobile hamburger menu + language switcher.
+ * Supports active page highlighting and "Investor Portal" CTA button.
  */
 import LanguageSwitcher from './LanguageSwitcher.astro';
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/' || currentPath === '';
+  return currentPath.startsWith(href);
+}
 ---
 
 <!-- Desktop + Mobile Nav Bar -->
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-700 border-b border-transparent">
   <div class="max-w-[1200px] mx-auto px-6 lg:px-20 py-5 flex items-center justify-between">
     <!-- Logo -->
-    <a href="#hero" class="flex items-center gap-3 group">
+    <a href="/" class="flex items-center gap-3 group">
       <div class="logo-circle">
         <span class="text-gold-gradient font-heading text-base font-semibold">A</span>
       </div>
@@ -21,11 +29,30 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
     </a>
 
     <!-- Desktop Nav -->
-    <div class="hidden md:flex items-center gap-10 lg:gap-14">
-      <a href="#about" class="nav-link text-[0.7rem] tracking-[0.15em] uppercase text-nav-text hover:text-nav-text-hover transition-all duration-500 font-normal" data-i18n data-hy="&#1336;&#1398;&#1391;&#1381;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;" data-en="Company">&#1336;&#1398;&#1391;&#1381;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;</a>
-      <a href="#vision" class="nav-link text-[0.7rem] tracking-[0.15em] uppercase text-nav-text hover:text-nav-text-hover transition-all duration-500 font-normal" data-i18n data-hy="&#1357;&#1391;&#1382;&#1378;&#1400;&#1410;&#1398;&#1412;&#1398;&#1381;&#1408;" data-en="Principles">&#1357;&#1391;&#1382;&#1378;&#1400;&#1410;&#1398;&#1412;&#1398;&#1381;&#1408;</a>
-      <a href="#" class="nav-link text-[0.7rem] tracking-[0.15em] uppercase text-nav-text hover:text-nav-text-hover transition-all duration-500 font-normal">Investor Portal</a>
-      <a href="#contact" class="nav-link text-[0.7rem] tracking-[0.15em] uppercase text-gold-accent hover:text-gold-400 transition-all duration-500 font-normal" data-i18n data-hy="&#1343;&#1377;&#1402;&#1406;&#1381;&#1388;" data-en="Request Access">&#1343;&#1377;&#1402;&#1406;&#1381;&#1388;</a>
+    <div class="hidden md:flex items-center gap-8 lg:gap-10">
+      <a href="/about"
+         class:list={['nav-link text-[0.7rem] tracking-[0.15em] uppercase transition-all duration-500 font-normal', isActive('/about') ? 'text-nav-text-active nav-active' : 'text-nav-text hover:text-nav-text-hover']}
+         data-i18n data-hy="&#1336;&#1398;&#1391;&#1381;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;" data-en="About">About</a>
+
+      <a href="/approach"
+         class:list={['nav-link text-[0.7rem] tracking-[0.15em] uppercase transition-all duration-500 font-normal', isActive('/approach') ? 'text-nav-text-active nav-active' : 'text-nav-text hover:text-nav-text-hover']}
+         data-i18n data-hy="&#1348;&#1400;&#1407;&#1381;&#1409;&#1400;&#1410;&#1396;" data-en="Approach">Approach</a>
+
+      <a href="/insights"
+         class:list={['nav-link text-[0.7rem] tracking-[0.15em] uppercase transition-all duration-500 font-normal', isActive('/insights') ? 'text-nav-text-active nav-active' : 'text-nav-text hover:text-nav-text-hover']}
+         data-i18n data-hy="&#1344;&#1381;&#1407;&#1377;&#1382;&#1400;&#1407;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1398;&#1381;&#1408;" data-en="Insights">Insights</a>
+
+      <a href="/contact"
+         class:list={['nav-link text-[0.7rem] tracking-[0.15em] uppercase transition-all duration-500 font-normal', isActive('/contact') ? 'text-nav-text-active nav-active' : 'text-nav-text hover:text-nav-text-hover']}
+         data-i18n data-hy="&#1343;&#1377;&#1402;&#1406;&#1381;&#1388;" data-en="Contact">Contact</a>
+
+      <!-- Investor Portal CTA button -->
+      <a href="/funds"
+         class:list={['investor-portal-btn text-[0.65rem] tracking-[0.15em] uppercase font-medium px-5 py-2 rounded border transition-all duration-500', isActive('/funds') ? 'border-gold-400/60 bg-gold-400/10 text-gold-400' : 'border-gold-400/40 text-gold-400 hover:bg-gold-400/10 hover:border-gold-400/60']}
+         data-i18n data-hy="&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;&#1387; &#1354;&#1400;&#1408;&#1407;&#1377;&#1388;" data-en="Investor Portal">
+        Investor Portal
+      </a>
+
       <LanguageSwitcher />
     </div>
 
@@ -42,16 +69,32 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 <!-- Mobile Menu Overlay -->
 <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] pointer-events-none">
   <div class="mobile-menu-backdrop absolute inset-0 bg-bg-primary/96 backdrop-blur-xl opacity-0 transition-opacity duration-500"></div>
-  <div class="mobile-menu-content absolute inset-0 flex flex-col items-center justify-center gap-10 translate-y-[-20px] opacity-0 transition-all duration-500">
+  <div class="mobile-menu-content absolute inset-0 flex flex-col items-center justify-center gap-8 translate-y-[-20px] opacity-0 transition-all duration-500">
     <button id="mobile-close" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center" aria-label="Close menu">
       <svg class="w-5 h-5 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
-    <a href="#about" class="mobile-nav-link text-3xl tracking-[0.08em] text-text-secondary hover:text-gold-400 transition-all duration-400 font-medium" data-i18n data-hy="&#1336;&#1398;&#1391;&#1381;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;" data-en="Company">&#1336;&#1398;&#1391;&#1381;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;</a>
-    <a href="#vision" class="mobile-nav-link text-3xl tracking-[0.08em] text-text-secondary hover:text-gold-400 transition-all duration-400 font-medium" data-i18n data-hy="&#1357;&#1391;&#1382;&#1378;&#1400;&#1410;&#1398;&#1412;&#1398;&#1381;&#1408;" data-en="Principles">&#1357;&#1391;&#1382;&#1378;&#1400;&#1410;&#1398;&#1412;&#1398;&#1381;&#1408;</a>
-    <a href="#contact" class="mobile-nav-link text-3xl tracking-[0.08em] text-text-secondary hover:text-gold-400 transition-all duration-400 font-medium" data-i18n data-hy="&#1343;&#1377;&#1402;&#1406;&#1381;&#1388;" data-en="Request Access">&#1343;&#1377;&#1402;&#1406;&#1381;&#1388;</a>
-    <div class="mt-6 flex items-center gap-3">
+
+    <a href="/" class:list={['mobile-nav-link text-3xl tracking-[0.08em] hover:text-gold-400 transition-all duration-400 font-medium', isActive('/') ? 'text-gold-400' : 'text-text-secondary']}
+       data-i18n data-hy="&#1331;&#1388;&#1389;&#1377;&#1406;&#1400;&#1408;" data-en="Home">Home</a>
+
+    <a href="/about" class:list={['mobile-nav-link text-3xl tracking-[0.08em] hover:text-gold-400 transition-all duration-400 font-medium', isActive('/about') ? 'text-gold-400' : 'text-text-secondary']}
+       data-i18n data-hy="&#1336;&#1398;&#1391;&#1381;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;" data-en="About">About</a>
+
+    <a href="/approach" class:list={['mobile-nav-link text-3xl tracking-[0.08em] hover:text-gold-400 transition-all duration-400 font-medium', isActive('/approach') ? 'text-gold-400' : 'text-text-secondary']}
+       data-i18n data-hy="&#1348;&#1400;&#1407;&#1381;&#1409;&#1400;&#1410;&#1396;" data-en="Approach">Approach</a>
+
+    <a href="/funds" class:list={['mobile-nav-link text-3xl tracking-[0.08em] hover:text-gold-400 transition-all duration-400 font-medium', isActive('/funds') ? 'text-gold-400' : 'text-text-secondary']}
+       data-i18n data-hy="&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;&#1387; &#1354;&#1400;&#1408;&#1407;&#1377;&#1388;" data-en="Investor Portal">Investor Portal</a>
+
+    <a href="/insights" class:list={['mobile-nav-link text-3xl tracking-[0.08em] hover:text-gold-400 transition-all duration-400 font-medium', isActive('/insights') ? 'text-gold-400' : 'text-text-secondary']}
+       data-i18n data-hy="&#1344;&#1381;&#1407;&#1377;&#1382;&#1400;&#1407;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1398;&#1381;&#1408;" data-en="Insights">Insights</a>
+
+    <a href="/contact" class:list={['mobile-nav-link text-3xl tracking-[0.08em] hover:text-gold-400 transition-all duration-400 font-medium', isActive('/contact') ? 'text-gold-400' : 'text-text-secondary']}
+       data-i18n data-hy="&#1343;&#1377;&#1402;&#1406;&#1381;&#1388;" data-en="Contact">Contact</a>
+
+    <div class="mt-4 flex items-center gap-3">
       <button class="mobile-lang-btn text-sm tracking-[0.15em] uppercase font-medium px-4 py-2 rounded border border-gold-400/25 transition-all duration-300" data-lang="hy">&#1344;Y</button>
       <button class="mobile-lang-btn text-sm tracking-[0.15em] uppercase font-medium px-4 py-2 rounded border border-gold-400/25 transition-all duration-300" data-lang="en">EN</button>
     </div>

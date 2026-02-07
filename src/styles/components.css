@@ -216,6 +216,30 @@ body.cursor-hover .cursor-circle {
   width: 100%;
 }
 
+/* Active page indicator */
+.nav-link.nav-active::after {
+  width: 100%;
+}
+
+/* Investor Portal button */
+.investor-portal-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.investor-portal-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(212,175,55,0.05) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.investor-portal-btn:hover::before {
+  opacity: 1;
+}
+
 /* ═══════════ LANGUAGE SWITCHER ═══════════ */
 .lang-btn {
   color: rgba(160, 160, 160, 0.6);
@@ -307,4 +331,19 @@ button:hover .ham-2 { bottom: 3px; }
 
 .mobile-nav-link:hover::after {
   width: 50%;
+}
+
+/* ═══════════ FORM ELEMENTS ═══════════ */
+input, textarea, select {
+  font-family: var(--font-body);
+}
+
+select option {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  accent-color: #D4AF37;
 }

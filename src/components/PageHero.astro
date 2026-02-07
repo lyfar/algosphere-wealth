@@ -1,0 +1,46 @@
+---
+/**
+ * Page hero — smaller hero section for subpages with title + subtitle.
+ */
+interface Props {
+  title: string;
+  titleHy?: string;
+  subtitle?: string;
+  subtitleHy?: string;
+  label?: string;
+  labelHy?: string;
+}
+
+const { title, titleHy, subtitle, subtitleHy, label, labelHy } = Astro.props;
+---
+
+<section class="relative pt-40 pb-24 sm:pt-48 sm:pb-32 overflow-hidden noise-overlay">
+  <!-- Starfield-like ambient dots -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.03)_0%,transparent_60%)]"></div>
+  <div class="absolute top-0 right-1/4 w-[400px] h-[400px] ambient-blob bg-gold-400"></div>
+
+  <div class="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-20">
+    <!-- Label -->
+    {label && (
+      <div class="gs-reveal mb-6">
+        <div class="section-accent"></div>
+        <p class="section-label" data-i18n data-hy={labelHy || label} data-en={label}>{labelHy || label}</p>
+      </div>
+    )}
+
+    <!-- Title -->
+    <h1 class="gs-reveal font-heading text-4xl sm:text-5xl lg:text-[4rem] text-text-primary font-semibold leading-[1.08] mb-6" data-i18n data-hy={titleHy || title} data-en={title}>
+      {title}
+    </h1>
+
+    <!-- Subtitle -->
+    {subtitle && (
+      <p class="gs-reveal text-[17px] text-card-body font-light leading-[1.75] max-w-[640px] mt-8" data-i18n data-hy={subtitleHy || subtitle} data-en={subtitle}>
+        {subtitle}
+      </p>
+    )}
+
+    <!-- Gold line -->
+    <div class="gs-line-h mt-10" style="width: 80px; height: 1px; background: linear-gradient(90deg, rgba(212,175,55,0.5), transparent);"></div>
+  </div>
+</section>

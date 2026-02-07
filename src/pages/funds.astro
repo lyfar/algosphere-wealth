@@ -1,0 +1,259 @@
+---
+/**
+ * Funds page — Public info about fund structure + Qualified Investor gate.
+ */
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+import '../styles/components.css';
+import '../styles/animations.css';
+
+import Navigation from '../components/Navigation.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import GlassCard from '../components/GlassCard.astro';
+import GoldDivider from '../components/GoldDivider.astro';
+import PageFooter from '../components/PageFooter.astro';
+import SubpageScripts from '../components/SubpageScripts.astro';
+---
+
+<Layout title="Funds — Algosphere Asset Management" description="Closed-end, non-public investment funds managed by Algosphere. For qualified investors only.">
+
+  <Navigation />
+
+  <PageHero
+    title="Investment Funds"
+    titleHy="&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1366;&#1400;&#1398;&#1380;&#1381;&#1408;"
+    subtitle="Algosphere manages closed-end, non-public investment funds designed for qualified investors seeking exposure to Armenia's most compelling opportunities."
+    subtitleHy="Algosphere-&#1384; &#1391;&#1377;&#1404;&#1377;&#1406;&#1377;&#1408;&#1400;&#1410;&#1396; &#1383; &#1411;&#1377;&#1391;, &#1400;&#1401; &#1392;&#1408;&#1377;&#1402;&#1377;&#1408;&#1377;&#1391;&#1377;&#1397;&#1387;&#1398; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1411;&#1400;&#1398;&#1380;&#1381;&#1408;&#1417;"
+    label="Investor Portal"
+    labelHy="&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;&#1387; &#1354;&#1400;&#1408;&#1407;&#1377;&#1388;"
+  />
+
+  <GoldDivider />
+
+  <!-- Fund Structure Overview -->
+  <section class="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
+    <div class="absolute top-0 left-0 w-[500px] h-[500px] ambient-blob bg-gold-400"></div>
+
+    <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
+      <SectionHeader label="Fund Structure" labelHy="&#1366;&#1400;&#1398;&#1380;&#1387; &#1343;&#1377;&#1404;&#1400;&#1410;&#1409;&#1406;&#1377;&#1390;&#1412;" />
+
+      <h2 class="gs-reveal font-heading text-2xl sm:text-3xl lg:text-4xl text-text-primary font-semibold mb-12 leading-[1.15] mt-6">
+        <span data-i18n data-hy="&#1363;&#1377;&#1391;, &#1400;&#1401; &#1392;&#1408;&#1377;&#1402;&#1377;&#1408;&#1377;&#1391;&#1377;&#1397;&#1387;&#1398; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; <span class='text-gold-gradient'>&#1366;&#1400;&#1398;&#1380;&#1381;&#1408;</span>" data-en="Closed-End, Non-Public <span class='text-gold-gradient'>Investment Funds</span>">Closed-End, Non-Public <span class="text-gold-gradient">Investment Funds</span></span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div class="gs-reveal space-y-6 text-[16px] text-card-body font-light leading-[1.8]">
+          <p data-i18n
+             data-hy="Algosphere-&#1387; &#1411;&#1400;&#1398;&#1380;&#1381;&#1408;&#1384; &#1391;&#1377;&#1404;&#1400;&#1410;&#1409;&#1406;&#1377;&#1390; &#1381;&#1398; &#1400;&#1408;&#1402;&#1381;&#1405; &#1411;&#1377;&#1391;, &#1400;&#1401; &#1392;&#1408;&#1377;&#1402;&#1377;&#1408;&#1377;&#1391;&#1377;&#1397;&#1387;&#1398; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1411;&#1400;&#1398;&#1380;&#1381;&#1408;&#1417;"
+             data-en="Algosphere's funds are structured as closed-end, non-public investment funds under Armenian law and regulated by the Central Bank of Armenia. This structure provides several key advantages for our investors:">
+            Algosphere's funds are structured as closed-end, non-public investment funds under Armenian law and regulated by the Central Bank of Armenia. This structure provides several key advantages for our investors:
+          </p>
+          <ul class="space-y-3 ml-6">
+            <li class="flex items-start gap-3">
+              <span class="text-gold-400/60 mt-1.5">&#9670;</span>
+              <span data-i18n data-hy="&#1333;&#1408;&#1391;&#1377;&#1408;&#1377;&#1386;&#1377;&#1396;&#1391;&#1381;&#1407; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1392;&#1400;&#1408;&#1387;&#1382;&#1400;&#1398;" data-en="Long-term investment horizon allowing patient capital deployment">Long-term investment horizon allowing patient capital deployment</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-gold-400/60 mt-1.5">&#9670;</span>
+              <span data-i18n data-hy="&#1354;&#1408;&#1400;&#1414;&#1381;&#1405;&#1387;&#1400;&#1398;&#1377;&#1388; &#1391;&#1377;&#1404;&#1377;&#1406;&#1377;&#1408;&#1400;&#1410;&#1396;" data-en="Professional fund administration and independent custody">Professional fund administration and independent custody</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-gold-400/60 mt-1.5">&#9670;</span>
+              <span data-i18n data-hy="&#1343;&#1377;&#1398;&#1400;&#1398;&#1377;&#1406;&#1400;&#1408; &#1392;&#1377;&#1399;&#1406;&#1381;&#1407;&#1406;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1398;&#1381;&#1408;" data-en="Regular reporting and full regulatory compliance">Regular reporting and full regulatory compliance</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-gold-400/60 mt-1.5">&#9670;</span>
+              <span data-i18n data-hy="&#1344;&#1377;&#1408;&#1391;&#1377;&#1397;&#1387;&#1398; &#1377;&#1408;&#1407;&#1400;&#1398;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1398;&#1381;&#1408;" data-en="Tax efficiency under Armenian investment fund legislation">Tax efficiency under Armenian investment fund legislation</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="gs-reveal-right">
+          <div class="glass-card p-8 lg:p-10">
+            <h3 class="font-heading text-xl text-card-title font-semibold mb-6" data-i18n data-hy="&#1366;&#1400;&#1398;&#1380;&#1387; &#1359;&#1381;&#1394;&#1381;&#1391;&#1377;&#1407;&#1406;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;" data-en="Fund Highlights">Fund Highlights</h3>
+            <div class="space-y-5">
+              <div class="flex justify-between items-center py-3 border-b border-white/[0.06]">
+                <span class="text-card-body-muted text-[14px] font-light" data-i18n data-hy="&#1366;&#1400;&#1398;&#1380;&#1387; &#1359;&#1381;&#1405;&#1377;&#1391;" data-en="Fund Type">Fund Type</span>
+                <span class="text-text-primary text-[14px] font-medium" data-i18n data-hy="&#1363;&#1377;&#1391;, &#1400;&#1401; &#1392;&#1408;&#1377;&#1402;&#1377;&#1408;&#1377;&#1391;&#1377;&#1397;&#1387;&#1398;" data-en="Closed-end, Non-public">Closed-end, Non-public</span>
+              </div>
+              <div class="flex justify-between items-center py-3 border-b border-white/[0.06]">
+                <span class="text-card-body-muted text-[14px] font-light" data-i18n data-hy="&#1343;&#1377;&#1408;&#1379;&#1377;&#1406;&#1400;&#1408;&#1387;&#1401;" data-en="Regulator">Regulator</span>
+                <span class="text-text-primary text-[14px] font-medium" data-i18n data-hy="&#1344;&#1344; &#1343;&#1381;&#1398;&#1407;&#1408;&#1400;&#1398;&#1377;&#1391;&#1377;&#1398; &#1330;&#1377;&#1398;&#1391;" data-en="Central Bank of Armenia">Central Bank of Armenia</span>
+              </div>
+              <div class="flex justify-between items-center py-3 border-b border-white/[0.06]">
+                <span class="text-card-body-muted text-[14px] font-light" data-i18n data-hy="&#1337;&#1387;&#1408;&#1377;&#1397;&#1387;&#1398; &#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;&#1398;&#1381;&#1408;" data-en="Target Investors">Target Investors</span>
+                <span class="text-text-primary text-[14px] font-medium" data-i18n data-hy="&#1352;&#1408;&#1377;&#1391;&#1377;&#1406;&#1400;&#1408;&#1406;&#1377;&#1390; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;&#1398;&#1381;&#1408;" data-en="Qualified Investors">Qualified Investors</span>
+              </div>
+              <div class="flex justify-between items-center py-3 border-b border-white/[0.06]">
+                <span class="text-card-body-muted text-[14px] font-light" data-i18n data-hy="&#1329;&#1400;&#1410;&#1380;&#1387;&#1407;&#1400;&#1408;" data-en="Auditor">Auditor</span>
+                <span class="text-text-primary text-[14px] font-medium" data-i18n data-hy="&#1329;&#1398;&#1391;&#1377;&#1389; &#1381;&#1408;&#1408;&#1400;&#1408;&#1380; &#1391;&#1400;&#1394;&#1396;" data-en="Independent Third Party">Independent Third Party</span>
+              </div>
+              <div class="flex justify-between items-center py-3">
+                <span class="text-card-body-muted text-[14px] font-light" data-i18n data-hy="&#1354;&#1377;&#1392;&#1377;&#1402;&#1377;&#1398;" data-en="Custodian">Custodian</span>
+                <span class="text-text-primary text-[14px] font-medium" data-i18n data-hy="&#1329;&#1398;&#1391;&#1377;&#1389; &#1402;&#1377;&#1392;&#1377;&#1402;&#1377;&#1398;" data-en="Segregated Custody">Segregated Custody</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider />
+
+  <!-- Qualified Investor Gate -->
+  <section class="relative py-24 sm:py-32 lg:py-40 overflow-hidden" id="investor-gate">
+    <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] ambient-blob bg-gold-400"></div>
+
+    <div class="section-inner max-w-[800px] mx-auto px-6 lg:px-20 relative z-10">
+      <!-- Gate UI -->
+      <div id="gate-locked" class="text-center">
+        <div class="gs-reveal">
+          <div class="w-16 h-16 mx-auto mb-8 border border-gold-400/30 rounded-full flex items-center justify-center">
+            <svg class="w-7 h-7 text-gold-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+            </svg>
+          </div>
+
+          <p class="section-label mb-5" data-i18n data-hy="&#1352;&#1408;&#1377;&#1391;&#1377;&#1406;&#1400;&#1408;&#1406;&#1377;&#1390; &#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;&#1398;&#1381;&#1408;&#1387; &#1344;&#1377;&#1396;&#1377;&#1408;" data-en="For Qualified Investors">For Qualified Investors</p>
+
+          <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl text-text-primary font-semibold mb-6 leading-[1.15]">
+            <span data-i18n data-hy="&#1348;&#1400;&#1410;&#1407;&#1412; &#1380;&#1381;&#1402;&#1387; <span class='text-gold-gradient'>&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;&#1387; &#1354;&#1400;&#1408;&#1407;&#1377;&#1388;</span>" data-en="Access the <span class='text-gold-gradient'>Investor Portal</span>">Access the <span class="text-gold-gradient">Investor Portal</span></span>
+          </h2>
+
+          <p class="text-card-body text-[16px] font-light leading-[1.75] max-w-lg mx-auto mb-10" data-i18n
+             data-hy="&#1344;&#1381;&#1407;&#1415;&#1397;&#1377;&#1388; &#1387;&#1398;&#1414;&#1400;&#1408;&#1396;&#1377;&#1409;&#1387;&#1377;&#1398; &#1392;&#1377;&#1405;&#1377;&#1398;&#1381;&#1388;&#1387; &#1383; &#1396;&#1387;&#1377;&#1397;&#1398; &#1400;&#1408;&#1377;&#1391;&#1377;&#1406;&#1400;&#1408;&#1406;&#1377;&#1390; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;&#1398;&#1381;&#1408;&#1387;&#1398;&#1417;"
+             data-en="The following materials contain information about our investment funds and are available only to qualified investors as defined by Armenian law. By proceeding, you confirm that you meet the qualification criteria.">
+            The following materials contain information about our investment funds and are available only to qualified investors as defined by Armenian law. By proceeding, you confirm that you meet the qualification criteria.
+          </p>
+
+          <!-- Self-certification checkbox -->
+          <div class="glass-card p-8 max-w-md mx-auto text-left">
+            <label class="flex items-start gap-4 cursor-pointer group" id="investor-cert-label">
+              <input type="checkbox" id="investor-cert" class="mt-1 w-5 h-5 rounded border-gold-400/40 bg-transparent accent-gold-400 cursor-pointer" />
+              <span class="text-card-body text-[14px] font-light leading-[1.7]" data-i18n
+                    data-hy="&#1344;&#1377;&#1405;&#1407;&#1377;&#1407;&#1400;&#1410;&#1396; &#1381;&#1396;, &#1400;&#1408; &#1381;&#1405; &#1400;&#1408;&#1377;&#1391;&#1377;&#1406;&#1400;&#1408;&#1406;&#1377;&#1390; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394; &#1381;&#1396; &#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;&#1387; &#1413;&#1408;&#1381;&#1398;&#1405;&#1380;&#1408;&#1400;&#1410;&#1385;&#1397;&#1377;&#1396;&#1378;&#1417;"
+                    data-en="I confirm that I am a qualified investor as defined under Armenian legislation and I understand that investments in closed-end funds carry risk, including the possible loss of capital.">
+                I confirm that I am a qualified investor as defined under Armenian legislation and I understand that investments in closed-end funds carry risk, including the possible loss of capital.
+              </span>
+            </label>
+            <button id="gate-enter-btn" disabled
+                    class="mt-6 w-full px-6 py-3 border border-gold-400/30 text-gold-400/50 text-[0.75rem] tracking-[0.15em] uppercase font-medium rounded transition-all duration-500 disabled:cursor-not-allowed disabled:opacity-50 hover:enabled:bg-gold-400/10 hover:enabled:border-gold-400/60 hover:enabled:text-gold-400">
+              <span data-i18n data-hy="&#1348;&#1400;&#1410;&#1407;&#1412; &#1379;&#1400;&#1408;&#1390;&#1381;&#1388;" data-en="Proceed to Portal">Proceed to Portal</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gated Content (hidden by default) -->
+      <div id="gate-unlocked" class="hidden">
+        <div class="text-center mb-16">
+          <div class="w-16 h-16 mx-auto mb-8 border border-gold-400/30 rounded-full flex items-center justify-center">
+            <svg class="w-7 h-7 text-gold-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+            </svg>
+          </div>
+
+          <h2 class="font-heading text-2xl sm:text-3xl text-text-primary font-semibold mb-4">
+            <span class="text-gold-gradient" data-i18n data-hy="&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;&#1387; &#1354;&#1400;&#1408;&#1407;&#1377;&#1388;" data-en="Investor Portal">Investor Portal</span>
+          </h2>
+          <p class="text-card-body-muted text-[14px] font-light" data-i18n data-hy="&#1330;&#1377;&#1408;&#1387; &#1379;&#1377;&#1388;&#1400;&#1410;&#1405;&#1407;, &#1400;&#1408;&#1377;&#1391;&#1377;&#1406;&#1400;&#1408;&#1406;&#1377;&#1390; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;" data-en="Welcome, Qualified Investor">Welcome, Qualified Investor</p>
+        </div>
+
+        <!-- Placeholder fund cards -->
+        <div class="space-y-6">
+          <div class="glass-card p-8">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="font-heading text-xl text-card-title font-semibold" data-i18n data-hy="Algosphere &#1329;&#1395;&#1387;&#1398; &#1366;&#1400;&#1398;&#1380; I" data-en="Algosphere Growth Fund I">Algosphere Growth Fund I</h3>
+                <p class="text-card-body-muted text-[13px] font-light mt-1" data-i18n data-hy="&#1363;&#1377;&#1391; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1411;&#1400;&#1398;&#1380;" data-en="Closed-end investment fund">Closed-end investment fund</p>
+              </div>
+              <span class="text-[0.65rem] tracking-[0.15em] uppercase text-gold-soft border border-gold-400/20 px-3 py-1 rounded" data-i18n data-hy="&#1344;&#1377;&#1406;&#1377;&#1412;&#1377;&#1379;&#1408;&#1400;&#1410;&#1396;" data-en="Fundraising">Fundraising</span>
+            </div>
+            <p class="text-card-body text-[15px] font-light leading-[1.75] mb-6" data-i18n
+               data-hy="&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396; &#1383; &#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;&#1387; &#1377;&#1408;&#1377;&#1379; &#1377;&#1395;&#1400;&#1394; &#1377;&#1391;&#1407;&#1387;&#1406;&#1398;&#1381;&#1408;&#1400;&#1410;&#1396; &#1415; &#1377;&#1398;&#1399;&#1377;&#1408;&#1386; &#1379;&#1400;&#1410;&#1397;&#1412;&#1400;&#1410;&#1396;&#1417;"
+               data-en="Focused on high-growth sectors within the Armenian economy including technology, real estate, and infrastructure. Target net returns and detailed fund documents available upon request.">
+              Focused on high-growth sectors within the Armenian economy including technology, real estate, and infrastructure. Target net returns and detailed fund documents available upon request.
+            </p>
+            <a href="/contact" class="inline-flex items-center gap-2 text-[0.75rem] tracking-[0.15em] uppercase text-gold-accent hover:text-gold-400 transition-all duration-500 font-normal group">
+              <span data-i18n data-hy="&#1344;&#1377;&#1408;&#1409;&#1396;&#1377;&#1398; &#1392;&#1377;&#1396;&#1377;&#1408;" data-en="Request Documents">Request Documents</span>
+              <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="glass-card p-8 opacity-60">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="font-heading text-xl text-card-title font-semibold" data-i18n data-hy="Algosphere &#1333;&#1391;&#1377;&#1396;&#1407;&#1377;&#1397;&#1387;&#1398; &#1366;&#1400;&#1398;&#1380; II" data-en="Algosphere Income Fund II">Algosphere Income Fund II</h3>
+                <p class="text-card-body-muted text-[13px] font-light mt-1" data-i18n data-hy="&#1363;&#1377;&#1391; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1411;&#1400;&#1398;&#1380;" data-en="Closed-end investment fund">Closed-end investment fund</p>
+              </div>
+              <span class="text-[0.65rem] tracking-[0.15em] uppercase text-card-body-muted border border-white/10 px-3 py-1 rounded" data-i18n data-hy="&#1348;&#1399;&#1377;&#1391;&#1400;&#1410;&#1396;" data-en="Coming Soon">Coming Soon</span>
+            </div>
+            <p class="text-card-body-muted text-[15px] font-light leading-[1.75]" data-i18n
+               data-hy="&#1348;&#1377;&#1398;&#1408;&#1377;&#1396;&#1377;&#1405;&#1398;&#1381;&#1408;&#1384; &#1399;&#1400;&#1410;&#1407;&#1400;&#1406; &#1391;&#1392;&#1377;&#1397;&#1407;&#1377;&#1408;&#1377;&#1408;&#1406;&#1381;&#1398;&#1417;"
+               data-en="Income-focused strategy targeting fixed-income and yield-generating assets in the Armenian market. Details to be announced.">
+              Income-focused strategy targeting fixed-income and yield-generating assets in the Armenian market. Details to be announced.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center">
+          <p class="text-card-body-muted text-[13px] font-light" data-i18n
+             data-hy="&#1348;&#1377;&#1398;&#1408;&#1377;&#1396;&#1377;&#1405;&#1398; &#1387;&#1398;&#1414;&#1400;&#1408;&#1396;&#1377;&#1409;&#1387;&#1377;&#1397;&#1387; &#1392;&#1377;&#1396;&#1377;&#1408; &#1391;&#1377;&#1402;&#1406;&#1381;&#1412; &#1396;&#1381;&#1382; &#1392;&#1381;&#1407;&#1417;"
+             data-en="For detailed fund documentation including PPMs, subscription agreements, and performance data, please contact us directly.">
+            For detailed fund documentation including PPMs, subscription agreements, and performance data, please contact us directly.
+          </p>
+          <a href="/contact" class="inline-block mt-6 px-8 py-3 border border-gold-400/40 text-gold-400 text-[0.75rem] tracking-[0.15em] uppercase font-medium rounded hover:bg-gold-400/10 hover:border-gold-400/60 transition-all duration-500" data-i18n data-hy="&#1343;&#1377;&#1402;&#1406;&#1381;&#1388;" data-en="Contact Us">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider />
+
+  <PageFooter />
+
+  <SubpageScripts />
+
+  <!-- Investor Gate Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const checkbox = document.getElementById('investor-cert') as HTMLInputElement;
+      const enterBtn = document.getElementById('gate-enter-btn') as HTMLButtonElement;
+      const locked = document.getElementById('gate-locked') as HTMLElement;
+      const unlocked = document.getElementById('gate-unlocked') as HTMLElement;
+
+      if (!checkbox || !enterBtn || !locked || !unlocked) return;
+
+      checkbox.addEventListener('change', () => {
+        enterBtn.disabled = !checkbox.checked;
+        if (checkbox.checked) {
+          enterBtn.classList.remove('text-gold-400/50', 'border-gold-400/30');
+          enterBtn.classList.add('text-gold-400', 'border-gold-400/50');
+        } else {
+          enterBtn.classList.add('text-gold-400/50', 'border-gold-400/30');
+          enterBtn.classList.remove('text-gold-400', 'border-gold-400/50');
+        }
+      });
+
+      enterBtn.addEventListener('click', () => {
+        if (!checkbox.checked) return;
+        locked.style.opacity = '0';
+        locked.style.transition = 'opacity 0.5s ease';
+        setTimeout(() => {
+          locked.classList.add('hidden');
+          unlocked.classList.remove('hidden');
+          unlocked.style.opacity = '0';
+          unlocked.style.transition = 'opacity 0.5s ease';
+          requestAnimationFrame(() => {
+            unlocked.style.opacity = '1';
+          });
+        }, 500);
+      });
+    });
+  </script>
+
+</Layout>

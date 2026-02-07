@@ -1,0 +1,254 @@
+---
+/**
+ * Approach page — Investment philosophy, process flow, risk management.
+ */
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+import '../styles/components.css';
+import '../styles/animations.css';
+
+import Navigation from '../components/Navigation.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import GlassCard from '../components/GlassCard.astro';
+import GoldDivider from '../components/GoldDivider.astro';
+import PageFooter from '../components/PageFooter.astro';
+import SubpageScripts from '../components/SubpageScripts.astro';
+---
+
+<Layout title="Our Approach — Algosphere Asset Management" description="Disciplined, data-driven investment strategies. Learn about Algosphere's systematic approach to fund management.">
+
+  <Navigation />
+
+  <PageHero
+    title="Disciplined Strategies, Measurable Outcomes"
+    titleHy="&#1343;&#1377;&#1408;&#1379;&#1377;&#1402;&#1377;&#1392;&#1400;&#1406; &#1356;&#1377;&#1382;&#1396;&#1377;&#1406;&#1377;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1398;&#1381;&#1408;, &#1353;&#1377;&#1411;&#1381;&#1388;&#1387; &#1329;&#1408;&#1380;&#1397;&#1400;&#1410;&#1398;&#1412;&#1398;&#1381;&#1408;"
+    subtitle="Our investment philosophy is built on the belief that systematic analysis and rigorous risk management consistently outperform impulsive decision-making. Every investment passes through our four-stage process before a single unit of capital is deployed."
+    subtitleHy="&#1348;&#1381;&#1408; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1411;&#1387;&#1388;&#1387;&#1405;&#1400;&#1411;&#1377;&#1397;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1384; &#1392;&#1387;&#1396;&#1398;&#1406;&#1377;&#1390; &#1383; &#1392;&#1377;&#1396;&#1377;&#1391;&#1377;&#1408;&#1379;&#1377;&#1397;&#1387;&#1398; &#1406;&#1381;&#1408;&#1388;&#1400;&#1410;&#1390;&#1400;&#1410;&#1385;&#1397;&#1377;&#1398; &#1415; &#1389;&#1387;&#1405;&#1407; &#1404;&#1387;&#1405;&#1391;&#1381;&#1408;&#1387; &#1391;&#1377;&#1404;&#1377;&#1406;&#1377;&#1408;&#1396;&#1377;&#1398; &#1406;&#1408;&#1377;&#1417;"
+    label="Investment Approach"
+    labelHy="&#1348;&#1400;&#1407;&#1381;&#1409;&#1400;&#1410;&#1396;"
+  />
+
+  <GoldDivider />
+
+  <!-- Investment Process Flow -->
+  <section class="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] ambient-blob bg-gold-400"></div>
+
+    <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
+      <div class="text-center mb-16 lg:mb-24">
+        <SectionHeader label="Our Process" labelHy="&#1348;&#1381;&#1408; &#1331;&#1400;&#1408;&#1390;&#1384;&#1398;&#1385;&#1377;&#1409;&#1384;" centered>
+          <h2 class="font-heading text-3xl sm:text-4xl lg:text-[3rem] text-text-primary font-semibold leading-[1.1]">
+            <span data-i18n data-hy="&#1364;&#1377;&#1404;&#1377;&#1405;&#1407;&#1387;&#1395;&#1377;&#1398; <span class='text-gold-gradient'>&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1331;&#1400;&#1408;&#1390;&#1384;&#1398;&#1385;&#1377;&#1409;</span>" data-en="Four-Stage <span class='text-gold-gradient'>Investment Process</span>">Four-Stage <span class="text-gold-gradient">Investment Process</span></span>
+          </h2>
+        </SectionHeader>
+      </div>
+
+      <!-- Process Flow -->
+      <div class="grid md:grid-cols-4 gap-6 lg:gap-4">
+
+        <!-- Stage 1: Sourcing -->
+        <div class="gs-reveal-scale relative">
+          <div class="glass-card p-8 lg:p-8 text-center h-full">
+            <!-- Step number -->
+            <div class="w-12 h-12 mx-auto mb-6 border border-gold-400/30 rounded-full flex items-center justify-center">
+              <span class="text-gold-gradient font-heading text-xl font-semibold">01</span>
+            </div>
+            <h3 class="font-heading text-xl text-card-title font-semibold mb-4" data-i18n data-hy="&#1329;&#1394;&#1378;&#1397;&#1400;&#1410;&#1408;&#1387; &#1344;&#1377;&#1397;&#1407;&#1398;&#1377;&#1378;&#1381;&#1408;&#1400;&#1410;&#1396;" data-en="Sourcing">Sourcing</h3>
+            <p class="text-card-body-muted text-[14px] font-light leading-[1.75]" data-i18n
+               data-hy="&#1344;&#1398;&#1377;&#1408;&#1377;&#1406;&#1400;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1398;&#1381;&#1408;&#1387; &#1392;&#1377;&#1397;&#1407;&#1398;&#1377;&#1378;&#1381;&#1408;&#1400;&#1410;&#1396;&#1417;"
+               data-en="Systematic identification of opportunities through proprietary screening, local networks, and deep market analysis. We focus on asset classes where Armenia offers a genuine competitive advantage.">
+              Systematic identification of opportunities through proprietary screening, local networks, and deep market analysis. We focus on asset classes where Armenia offers a genuine competitive advantage.
+            </p>
+          </div>
+          <!-- Arrow connector (hidden on mobile) -->
+          <div class="hidden md:block absolute top-1/2 -right-4 lg:-right-2 transform -translate-y-1/2 z-20">
+            <svg class="w-6 h-6 text-gold-400/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Stage 2: Diligence -->
+        <div class="gs-reveal-scale relative">
+          <div class="glass-card p-8 lg:p-8 text-center h-full">
+            <div class="w-12 h-12 mx-auto mb-6 border border-gold-400/30 rounded-full flex items-center justify-center">
+              <span class="text-gold-gradient font-heading text-xl font-semibold">02</span>
+            </div>
+            <h3 class="font-heading text-xl text-card-title font-semibold mb-4" data-i18n data-hy="&#1358;&#1381;&#1408;&#1388;&#1400;&#1410;&#1390;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;" data-en="Diligence">Diligence</h3>
+            <p class="text-card-body-muted text-[14px] font-light leading-[1.75]" data-i18n
+               data-hy="&#1341;&#1400;&#1408;&#1384; &#1406;&#1381;&#1408;&#1388;&#1400;&#1410;&#1390;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1417;"
+               data-en="Multi-layered due diligence combining quantitative modeling, on-the-ground research, legal review, and independent third-party validation. No investment proceeds without unanimous committee approval.">
+              Multi-layered due diligence combining quantitative modeling, on-the-ground research, legal review, and independent third-party validation. No investment proceeds without unanimous committee approval.
+            </p>
+          </div>
+          <div class="hidden md:block absolute top-1/2 -right-4 lg:-right-2 transform -translate-y-1/2 z-20">
+            <svg class="w-6 h-6 text-gold-400/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Stage 3: Execution -->
+        <div class="gs-reveal-scale relative">
+          <div class="glass-card p-8 lg:p-8 text-center h-full">
+            <div class="w-12 h-12 mx-auto mb-6 border border-gold-400/30 rounded-full flex items-center justify-center">
+              <span class="text-gold-gradient font-heading text-xl font-semibold">03</span>
+            </div>
+            <h3 class="font-heading text-xl text-card-title font-semibold mb-4" data-i18n data-hy="&#1339;&#1408;&#1377;&#1391;&#1377;&#1398;&#1377;&#1409;&#1400;&#1410;&#1396;" data-en="Execution">Execution</h3>
+            <p class="text-card-body-muted text-[14px] font-light leading-[1.75]" data-i18n
+               data-hy="&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1398;&#1381;&#1408;&#1387; &#1387;&#1408;&#1377;&#1391;&#1377;&#1398;&#1377;&#1409;&#1400;&#1410;&#1396;&#1417;"
+               data-en="Precise capital deployment with pre-defined entry criteria, position sizing, and risk parameters. Our execution framework minimizes market impact while maximizing structural protection for investors.">
+              Precise capital deployment with pre-defined entry criteria, position sizing, and risk parameters. Our execution framework minimizes market impact while maximizing structural protection for investors.
+            </p>
+          </div>
+          <div class="hidden md:block absolute top-1/2 -right-4 lg:-right-2 transform -translate-y-1/2 z-20">
+            <svg class="w-6 h-6 text-gold-400/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Stage 4: Monitoring -->
+        <div class="gs-reveal-scale">
+          <div class="glass-card p-8 lg:p-8 text-center h-full">
+            <div class="w-12 h-12 mx-auto mb-6 border border-gold-400/30 rounded-full flex items-center justify-center">
+              <span class="text-gold-gradient font-heading text-xl font-semibold">04</span>
+            </div>
+            <h3 class="font-heading text-xl text-card-title font-semibold mb-4" data-i18n data-hy="&#1348;&#1400;&#1398;&#1387;&#1407;&#1400;&#1408;&#1387;&#1398;&#1379;" data-en="Monitoring">Monitoring</h3>
+            <p class="text-card-body-muted text-[14px] font-light leading-[1.75]" data-i18n
+               data-hy="&#1348;&#1399;&#1407;&#1377;&#1391;&#1377;&#1398; &#1396;&#1400;&#1398;&#1387;&#1407;&#1400;&#1408;&#1387;&#1398;&#1379;&#1417;"
+               data-en="Continuous portfolio monitoring with automated risk alerts, regular rebalancing triggers, and systematic performance attribution. We maintain active dialogue with investee management teams to protect and enhance value.">
+              Continuous portfolio monitoring with automated risk alerts, regular rebalancing triggers, and systematic performance attribution. We maintain active dialogue with investee management teams to protect and enhance value.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider />
+
+  <!-- Risk Management -->
+  <section class="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
+    <div class="absolute bottom-0 left-1/3 w-[500px] h-[500px] ambient-blob bg-gold-400"></div>
+
+    <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
+      <SectionHeader label="Risk Management" labelHy="&#1356;&#1387;&#1405;&#1391;&#1381;&#1408;&#1387; &#1343;&#1377;&#1404;&#1377;&#1406;&#1377;&#1408;&#1400;&#1410;&#1396;" />
+
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 mt-12">
+        <div class="gs-reveal">
+          <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl text-text-primary font-semibold mb-8 leading-[1.15]">
+            <span data-i18n data-hy="&#1356;&#1387;&#1405;&#1391;&#1381;&#1408;&#1387; <span class='text-gold-gradient'>&#1344;&#1377;&#1396;&#1377;&#1391;&#1377;&#1408;&#1379;</span>" data-en="Our Risk <span class='text-gold-gradient'>Framework</span>">Our Risk <span class="text-gold-gradient">Framework</span></span>
+          </h2>
+          <div class="space-y-6 text-[16px] text-card-body font-light leading-[1.8]">
+            <p data-i18n
+               data-hy="&#1356;&#1387;&#1405;&#1391;&#1381;&#1408;&#1387; &#1391;&#1377;&#1404;&#1377;&#1406;&#1377;&#1408;&#1400;&#1410;&#1396;&#1384; &#1396;&#1381;&#1408; &#1379;&#1400;&#1408;&#1390;&#1400;&#1410;&#1398;&#1381;&#1400;&#1410;&#1385;&#1397;&#1377;&#1398; &#1392;&#1387;&#1396;&#1412;&#1400;&#1410;&#1396; &#1383;&#1417;"
+               data-en="Risk management is not a separate function at Algosphere — it is woven into every layer of our investment process. We believe that superior risk management is the foundation of superior returns.">
+              Risk management is not a separate function at Algosphere — it is woven into every layer of our investment process. We believe that superior risk management is the foundation of superior returns.
+            </p>
+            <p data-i18n
+               data-hy="&#1348;&#1381;&#1408; &#1396;&#1400;&#1407;&#1381;&#1409;&#1400;&#1410;&#1396;&#1384; &#1384;&#1398;&#1380;&#1379;&#1408;&#1391;&#1400;&#1410;&#1396; &#1383; &#1404;&#1387;&#1405;&#1391;&#1381;&#1408;&#1387; &#1378;&#1377;&#1382;&#1396;&#1377;&#1385;&#1387;&#1406; &#1407;&#1381;&#1405;&#1377;&#1391;&#1398;&#1381;&#1408;&#1417;"
+               data-en="Our framework encompasses market risk, credit risk, liquidity risk, operational risk, and concentration risk — each with defined limits, monitoring protocols, and escalation procedures.">
+              Our framework encompasses market risk, credit risk, liquidity risk, operational risk, and concentration risk — each with defined limits, monitoring protocols, and escalation procedures.
+            </p>
+          </div>
+        </div>
+
+        <div class="gs-reveal-right space-y-5">
+          <!-- Risk pillars -->
+          <div class="glass-card p-6 flex items-start gap-4">
+            <div class="w-10 h-10 border border-glass-border rounded-xl flex items-center justify-center bg-gold-400/[0.03] shrink-0">
+              <svg class="w-5 h-5 text-gold-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-text-primary text-[15px] font-medium mb-1" data-i18n data-hy="&#1354;&#1400;&#1382;&#1387;&#1409;&#1387;&#1377;&#1397;&#1387; &#1357;&#1377;&#1392;&#1396;&#1377;&#1398;&#1377;&#1411;&#1377;&#1391;&#1400;&#1410;&#1396;&#1398;&#1381;&#1408;" data-en="Position Limits">Position Limits</p>
+              <p class="text-card-body-muted text-[14px] font-light leading-relaxed" data-i18n
+                 data-hy="&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1398;&#1381;&#1408;&#1387; &#1405;&#1377;&#1392;&#1396;&#1377;&#1398;&#1377;&#1411;&#1377;&#1391;&#1396;&#1377;&#1398; &#1391;&#1377;&#1398;&#1400;&#1398;&#1398;&#1381;&#1408;"
+                 data-en="Maximum single-position and sector concentration limits enforced systematically across all portfolios">Maximum single-position and sector concentration limits enforced systematically across all portfolios</p>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 flex items-start gap-4">
+            <div class="w-10 h-10 border border-glass-border rounded-xl flex items-center justify-center bg-gold-400/[0.03] shrink-0">
+              <svg class="w-5 h-5 text-gold-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-text-primary text-[15px] font-medium mb-1" data-i18n data-hy="&#1357;&#1385;&#1408;&#1381;&#1405;-&#1385;&#1381;&#1405;&#1407;&#1387;&#1398;&#1379;" data-en="Stress Testing">Stress Testing</p>
+              <p class="text-card-body-muted text-[14px] font-light leading-relaxed" data-i18n
+                 data-hy="&#1354;&#1400;&#1408;&#1407;&#1411;&#1381;&#1388;&#1387; &#1405;&#1385;&#1408;&#1381;&#1405;-&#1385;&#1381;&#1405;&#1407;&#1387;&#1398;&#1379;&#1417;"
+                 data-en="Regular scenario analysis and stress testing against historical and hypothetical market disruptions">Regular scenario analysis and stress testing against historical and hypothetical market disruptions</p>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 flex items-start gap-4">
+            <div class="w-10 h-10 border border-glass-border rounded-xl flex items-center justify-center bg-gold-400/[0.03] shrink-0">
+              <svg class="w-5 h-5 text-gold-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-text-primary text-[15px] font-medium mb-1" data-i18n data-hy="&#1339;&#1408;&#1377;&#1409;&#1406;&#1377;&#1390;&#1377;&#1397;&#1387;&#1398; &#1329;&#1398;&#1406;&#1407;&#1377;&#1398;&#1379;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;" data-en="Operational Security">Operational Security</p>
+              <p class="text-card-body-muted text-[14px] font-light leading-relaxed" data-i18n
+                 data-hy="&#1331;&#1400;&#1408;&#1390;&#1377;&#1404;&#1398;&#1377;&#1391;&#1377;&#1398; &#1377;&#1398;&#1406;&#1407;&#1377;&#1398;&#1379;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1417;"
+                 data-en="Segregated custody, independent fund administration, and multi-signatory authorization for all capital movements">Segregated custody, independent fund administration, and multi-signatory authorization for all capital movements</p>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 flex items-start gap-4">
+            <div class="w-10 h-10 border border-glass-border rounded-xl flex items-center justify-center bg-gold-400/[0.03] shrink-0">
+              <svg class="w-5 h-5 text-gold-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-text-primary text-[15px] font-medium mb-1" data-i18n data-hy="&#1339;&#1408;&#1377;&#1409;&#1406;&#1377;&#1390;&#1377;&#1391;&#1377;&#1398;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;" data-en="Liquidity Management">Liquidity Management</p>
+              <p class="text-card-body-muted text-[14px] font-light leading-relaxed" data-i18n
+                 data-hy="&#1339;&#1408;&#1377;&#1409;&#1406;&#1377;&#1390;&#1377;&#1391;&#1377;&#1398;&#1400;&#1410;&#1385;&#1397;&#1377;&#1398; &#1391;&#1377;&#1404;&#1377;&#1406;&#1377;&#1408;&#1400;&#1410;&#1396;&#1417;"
+                 data-en="Structured liquidity reserves and redemption frameworks designed to meet obligations while maintaining investment discipline">Structured liquidity reserves and redemption frameworks designed to meet obligations while maintaining investment discipline</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider />
+
+  <!-- Philosophy -->
+  <section class="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.03)_0%,transparent_50%)]"></div>
+
+    <div class="section-inner max-w-[800px] mx-auto px-6 lg:px-20 relative z-10 text-center">
+      <div class="gs-reveal">
+        <p class="section-label mb-6" data-i18n data-hy="&#1348;&#1381;&#1408; &#1344;&#1377;&#1396;&#1400;&#1382;&#1396;&#1400;&#1410;&#1398;&#1412;&#1384;" data-en="Our Conviction">Our Conviction</p>
+        <blockquote class="font-heading text-2xl sm:text-3xl lg:text-4xl text-text-primary font-semibold leading-[1.2] italic mb-8">
+          <span data-i18n
+                data-hy="&laquo;&#1340;&#1377;&#1406;&#1377;&#1379;&#1400;&#1410;&#1397;&#1398; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1377;&#1408;&#1380;&#1397;&#1400;&#1410;&#1398;&#1412;&#1398;&#1381;&#1408;&#1384; &#1380;&#1377;&#1404;&#1398;&#1400;&#1410;&#1396; &#1381;&#1398; &#1400;&#1401; &#1385;&#1381; &#1378;&#1377;&#1389;&#1407;&#1387;&#1409;, &#1377;&#1397;&#1388; &#1392;&#1377;&#1396;&#1378;&#1381;&#1408;&#1400;&#1410;&#1385;&#1397;&#1377;&#1396;&#1378; &#1415; &#1391;&#1377;&#1408;&#1379;&#1377;&#1402;&#1377;&#1392;&#1400;&#1406; &#1396;&#1400;&#1407;&#1381;&#1409;&#1400;&#1410;&#1396;&#1400;&#1406;&#1417;&raquo;"
+                data-en="&ldquo;The best investment outcomes are not born of luck, but of patience, discipline, and a systematic approach to both opportunity and risk.&rdquo;">
+            &ldquo;The best investment outcomes are not born of luck, but of patience, discipline, and a systematic approach to both opportunity and risk.&rdquo;
+          </span>
+        </blockquote>
+        <div class="h-px w-16 mx-auto bg-gradient-to-r from-transparent via-gold-400/30 to-transparent mb-8"></div>
+        <a href="/funds" class="inline-flex items-center gap-3 text-[0.75rem] tracking-[0.15em] uppercase text-gold-accent hover:text-gold-400 transition-all duration-500 font-normal group">
+          <span data-i18n data-hy="&#1339;&#1396;&#1377;&#1398;&#1377;&#1388; &#1396;&#1381;&#1408; &#1411;&#1400;&#1398;&#1380;&#1381;&#1408;&#1387; &#1396;&#1377;&#1405;&#1387;&#1398;" data-en="Explore Our Funds">Explore Our Funds</span>
+          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider />
+
+  <PageFooter />
+
+  <SubpageScripts />
+
+</Layout>

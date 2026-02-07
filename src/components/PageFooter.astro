@@ -1,0 +1,59 @@
+---
+/**
+ * Page footer — reusable footer section wrapping Contact info + Footer bar.
+ * Used on all pages for consistent bottom section.
+ */
+import Footer from './Footer.astro';
+---
+
+<footer class="relative py-24 sm:py-32 overflow-hidden">
+  <div class="absolute top-1/3 right-0 w-[400px] h-[400px] ambient-blob bg-gold-400"></div>
+
+  <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
+    <!-- Simple footer with nav + copyright -->
+    <div class="grid md:grid-cols-3 gap-12 mb-16">
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-4 mb-6">
+          <div class="logo-circle">
+            <span class="text-gold-gradient font-heading text-base font-semibold">A</span>
+          </div>
+          <div>
+            <p class="text-text-primary text-[13px] tracking-[0.2em] uppercase font-light">Algosphere</p>
+            <p class="text-gold-soft text-[10px] tracking-[0.15em] uppercase mt-0.5">Asset Management</p>
+          </div>
+        </div>
+        <p class="text-card-body-muted text-[14px] font-light leading-[1.8] max-w-xs" data-i18n
+           data-hy="&#1363;&#1377;&#1391; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1411;&#1400;&#1398;&#1380;&#1381;&#1408;&#1387; &#1391;&#1377;&#1404;&#1377;&#1406;&#1377;&#1408;&#1400;&#1410;&#1396;&#1417;"
+           data-en="Premium closed-end investment fund management licensed by the Central Bank of Armenia.">
+          Premium closed-end investment fund management licensed by the Central Bank of Armenia.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <p class="text-[0.7rem] tracking-[0.2em] uppercase text-gold-soft font-medium mb-6" data-i18n data-hy="&#1329;&#1408;&#1377;&#1379; &#1392;&#1377;&#1405;&#1409;&#1381;" data-en="Quick Links">Quick Links</p>
+        <div class="space-y-3">
+          <a href="/about" class="block text-card-body-muted text-[14px] font-light hover:text-gold-400 transition-colors duration-400" data-i18n data-hy="&#1336;&#1398;&#1391;&#1381;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;" data-en="About Us">About Us</a>
+          <a href="/approach" class="block text-card-body-muted text-[14px] font-light hover:text-gold-400 transition-colors duration-400" data-i18n data-hy="&#1348;&#1400;&#1407;&#1381;&#1409;&#1400;&#1410;&#1396;" data-en="Our Approach">Our Approach</a>
+          <a href="/funds" class="block text-card-body-muted text-[14px] font-light hover:text-gold-400 transition-colors duration-400" data-i18n data-hy="&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1411;&#1400;&#1398;&#1380;&#1381;&#1408;" data-en="Investment Funds">Investment Funds</a>
+          <a href="/insights" class="block text-card-body-muted text-[14px] font-light hover:text-gold-400 transition-colors duration-400" data-i18n data-hy="&#1344;&#1381;&#1407;&#1377;&#1382;&#1400;&#1407;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1398;&#1381;&#1408;" data-en="Insights">Insights</a>
+          <a href="/legal" class="block text-card-body-muted text-[14px] font-light hover:text-gold-400 transition-colors duration-400" data-i18n data-hy="&#1339;&#1408;&#1377;&#1406;&#1377;&#1391;&#1377;&#1398;" data-en="Legal">Legal</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="text-[0.7rem] tracking-[0.2em] uppercase text-gold-soft font-medium mb-6" data-i18n data-hy="&#1343;&#1377;&#1402;" data-en="Contact">Contact</p>
+        <div class="space-y-3 text-card-body-muted text-[14px] font-light">
+          <p>&#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;, &#1333;&#1408;&#1415;&#1377;&#1398;-0015</p>
+          <p>&#1329;&#1408;&#1380;&#1377;&#1408;&#1377;&#1391;&#1387; 7/6, 186</p>
+          <a href="tel:+37411700013" class="block hover:text-gold-400 transition-colors duration-400">+374 11 70 00 13</a>
+          <a href="mailto:info@algosphere.am" class="block hover:text-gold-400 transition-colors duration-400">info@algosphere.am</a>
+        </div>
+      </div>
+    </div>
+
+    <Footer />
+  </div>
+</footer>

@@ -25,12 +25,12 @@ export function initLenis(): Lenis {
   });
   gsap.ticker.lagSmoothing(0);
 
-  // Anchor links use Lenis
+  // Anchor links use Lenis (only same-page hash links)
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
-      e.preventDefault();
       const href = (a as HTMLAnchorElement).getAttribute('href');
-      if (!href) return;
+      if (!href || href === '#') return;
+      e.preventDefault();
       const target = document.querySelector(href);
       if (target) lenis.scrollTo(target as HTMLElement, { offset: 0 });
     });

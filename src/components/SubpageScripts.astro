@@ -1,0 +1,23 @@
+---
+/**
+ * Scripts for subpages — Lenis, scroll reveals, cursor, navbar, language.
+ * No hero animation or starfield/particles (those are home-only).
+ */
+---
+
+<script>
+  import { initLenis, initParallax, initScrollAnimations } from '../scripts/animations';
+  import { initCustomCursor } from '../scripts/cursor';
+  import { initNavbar, initMobileMenu } from '../scripts/navigation';
+  import { switchLanguage, initLanguageSwitcher } from '../scripts/language';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initLenis();
+    initCustomCursor();
+    initNavbar();
+    initMobileMenu(switchLanguage);
+    initLanguageSwitcher();
+    initParallax();
+    initScrollAnimations();
+  });
+</script>

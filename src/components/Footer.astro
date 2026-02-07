@@ -1,10 +1,10 @@
 ---
 /**
- * Footer bar — copyright + location.
+ * Footer bar — copyright + location + legal links.
  */
 ---
 
-<div class="mt-32 pt-8 border-t border-white/[0.06]">
+<div class="pt-8 border-t border-white/[0.06]">
   <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
     <div class="flex items-center gap-3">
       <div class="logo-circle" style="width: 28px; height: 28px;">
@@ -14,6 +14,10 @@
         &copy; {new Date().getFullYear()} Algosphere Asset Management
       </p>
     </div>
-    <p class="text-footer-muted text-[11px] font-light tracking-[0.08em]" data-i18n data-hy="&#1333;&#1408;&#1415;&#1377;&#1398;, &#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;" data-en="Yerevan, Armenia">&#1333;&#1408;&#1415;&#1377;&#1398;, &#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;</p>
+    <div class="flex items-center gap-4">
+      <a href="/legal" class="text-footer-muted text-[11px] font-light tracking-[0.08em] hover:text-gold-400 transition-colors duration-400" data-i18n data-hy="&#1339;&#1408;&#1377;&#1406;&#1377;&#1391;&#1377;&#1398;" data-en="Legal">Legal</a>
+      <span class="text-footer-muted text-[8px]">&middot;</span>
+      <p class="text-footer-muted text-[11px] font-light tracking-[0.08em]" data-i18n data-hy="&#1333;&#1408;&#1415;&#1377;&#1398;, &#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;" data-en="Yerevan, Armenia">&#1333;&#1408;&#1415;&#1377;&#1398;, &#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;</p>
+    </div>
   </div>
 </div>
