@@ -38,11 +38,12 @@ import '../styles/global.css';
         </div>
       </div>
 
-      <!-- Mobile Hamburger -->
-      <button id="hamburger-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] group" aria-label="Toggle menu">
-        <span class="hamburger-line w-6 h-[1.5px] bg-gray-400 transition-all duration-300 origin-center"></span>
-        <span class="hamburger-line w-6 h-[1.5px] bg-gray-400 transition-all duration-300 origin-center"></span>
-        <span class="hamburger-line w-4 h-[1.5px] bg-gray-400 transition-all duration-300 origin-center ml-auto"></span>
+      <!-- Mobile Menu Button — premium minimal -->
+      <button id="hamburger-btn" class="md:hidden relative w-9 h-9 flex items-center justify-center" aria-label="Toggle menu">
+        <div class="hamburger-icon">
+          <span class="ham-line ham-1"></span>
+          <span class="ham-line ham-2"></span>
+        </div>
       </button>
     </div>
   </nav>
@@ -449,10 +450,7 @@ import '../styles/global.css';
         content!.classList.remove('opacity-0', 'translate-y-[-20px]');
         content!.classList.add('opacity-100', 'translate-y-0');
         document.body.style.overflow = 'hidden';
-        const lines = btn!.querySelectorAll('.hamburger-line');
-        lines[0].classList.add('rotate-45', 'translate-y-[6.5px]');
-        lines[1].classList.add('opacity-0', 'scale-x-0');
-        lines[2].classList.add('-rotate-45', 'translate-y-[-6.5px]', 'w-6');
+        btn!.querySelector('.hamburger-icon')?.classList.add('ham-open');
       }
 
       function closeMenu() {
@@ -463,10 +461,7 @@ import '../styles/global.css';
         content!.classList.add('opacity-0', 'translate-y-[-20px]');
         content!.classList.remove('opacity-100', 'translate-y-0');
         document.body.style.overflow = '';
-        const lines = btn!.querySelectorAll('.hamburger-line');
-        lines[0].classList.remove('rotate-45', 'translate-y-[6.5px]');
-        lines[1].classList.remove('opacity-0', 'scale-x-0');
-        lines[2].classList.remove('-rotate-45', 'translate-y-[-6.5px]', 'w-6');
+        btn!.querySelector('.hamburger-icon')?.classList.remove('ham-open');
       }
 
       btn.addEventListener('click', () => {
