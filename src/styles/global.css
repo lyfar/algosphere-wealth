@@ -14,7 +14,7 @@
   --font-body: 'Inter', system-ui, sans-serif;
 }
 
-/* Base styles */
+/* ═══════════ BASE ═══════════ */
 html {
   scroll-behavior: smooth;
   background-color: #0A0A12;
@@ -22,7 +22,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: #e2e2e8;
+  color: #d0d0d8;
   background-color: #0A0A12;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -34,60 +34,68 @@ body {
   color: #fff;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
+/* ═══════════ SCROLLBAR ═══════════ */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0A0A12; }
+::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.25); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(212, 175, 55, 0.45); }
 
-::-webkit-scrollbar-track {
-  background: #0A0A12;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(212, 175, 55, 0.3);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(212, 175, 55, 0.5);
-}
-
-/* Gold gradient text utility */
+/* ═══════════ GOLD GRADIENT TEXT ═══════════ */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #D4AF37 0%, #F5E6A3 50%, #C9A84C 100%);
+  background: linear-gradient(135deg, #D4AF37 0%, #F5E6A3 45%, #D4AF37 55%, #C9A84C 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glass card */
+/* ═══════════ GLASS CARD ═══════════ */
 .glass-card {
-  background: rgba(19, 22, 40, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 175, 55, 0.12);
-  border-radius: 16px;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  background: linear-gradient(135deg, rgba(19, 22, 40, 0.7) 0%, rgba(13, 15, 26, 0.5) 100%);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  border: 1px solid rgba(212, 175, 55, 0.08);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.2) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
 
 .glass-card:hover {
-  border-color: rgba(212, 175, 55, 0.3);
-  background: rgba(19, 22, 40, 0.8);
-  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.2);
+  background: linear-gradient(135deg, rgba(19, 22, 40, 0.85) 0%, rgba(13, 15, 26, 0.7) 100%);
+  transform: translateY(-6px);
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.4),
-    0 0 40px rgba(212, 175, 55, 0.06);
+    0 25px 80px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(212, 175, 55, 0.04),
+    inset 0 1px 0 rgba(212, 175, 55, 0.1);
 }
 
-/* Gold divider */
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+/* ═══════════ GOLD DIVIDER ═══════════ */
 .gold-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.4) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.35) 50%, transparent 100%);
   margin: 0 auto;
-  width: 60%;
+  width: 50%;
+  max-width: 600px;
 }
 
-/* Animated starfield */
+/* ═══════════ STARFIELD ═══════════ */
 .starfield {
   position: absolute;
   inset: 0;
@@ -96,91 +104,19 @@ body {
 
 .star {
   position: absolute;
-  width: 2px;
-  height: 2px;
   background: #fff;
   border-radius: 50%;
-  animation: twinkle var(--duration, 3s) ease-in-out infinite alternate;
+  animation: twinkle var(--dur, 3s) ease-in-out infinite alternate;
   opacity: 0;
 }
 
 @keyframes twinkle {
-  0% { opacity: 0; transform: scale(0.5); }
-  50% { opacity: var(--max-opacity, 0.8); }
-  100% { opacity: 0.1; transform: scale(1); }
+  0%   { opacity: 0; transform: scale(0.5); }
+  50%  { opacity: var(--peak, 0.7); }
+  100% { opacity: 0.05; transform: scale(1.2); }
 }
 
-/* Scroll indicator */
-@keyframes scrollBounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-  40% { transform: translateY(-10px) translateX(-50%); }
-  60% { transform: translateY(-5px) translateX(-50%); }
-}
-
-.scroll-indicator {
-  animation: scrollBounce 2s ease-in-out infinite;
-}
-
-/* Section reveal animations */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
-              transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-/* Subtle gold glow */
-.gold-glow {
-  box-shadow: 0 0 60px rgba(212, 175, 55, 0.08);
-}
-
-/* Nav transition */
-.nav-solid {
-  background: rgba(10, 10, 18, 0.95) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.1) !important;
-}
-
-/* Logo circle */
-.logo-circle {
-  width: 48px;
-  height: 48px;
-  border: 1.5px solid #D4AF37;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.4s ease;
-}
-
-.logo-circle:hover {
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-}
-
-/* Value item */
-.value-item {
-  position: relative;
-  padding-left: 24px;
-}
-
-.value-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 8px;
-  height: 8px;
-  border: 1px solid #D4AF37;
-  transform: rotate(45deg);
-}
-
-/* Particle canvas */
+/* ═══════════ PARTICLE CANVAS ═══════════ */
 #particles-canvas {
   position: absolute;
   inset: 0;
@@ -189,12 +125,187 @@ body {
   pointer-events: none;
 }
 
-/* Subtle noise texture overlay */
+/* ═══════════ SCROLL INDICATOR ═══════════ */
+.scroll-indicator {
+  animation: scrollPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { transform: translateY(0) translateX(-50%); opacity: 0.6; }
+  50%      { transform: translateY(8px) translateX(-50%); opacity: 1; }
+}
+
+/* ═══════════ NAV ═══════════ */
+.nav-solid {
+  background: rgba(10, 10, 18, 0.92) !important;
+  backdrop-filter: blur(24px) saturate(1.3) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.3) !important;
+  border-bottom-color: rgba(212, 175, 55, 0.08) !important;
+}
+
+/* ═══════════ LOGO CIRCLE ═══════════ */
+.logo-circle {
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid rgba(212, 175, 55, 0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+}
+
+.logo-circle::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0);
+  transition: all 0.5s ease;
+}
+
+.logo-circle:hover {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.9);
+}
+
+.logo-circle:hover::after {
+  border-color: rgba(212, 175, 55, 0.15);
+}
+
+/* ═══════════ HERO LOGO ═══════════ */
+.hero-logo-ring {
+  position: relative;
+}
+
+.hero-logo-ring::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.08);
+  animation: ringPulse 4s ease-in-out infinite;
+}
+
+.hero-logo-ring::after {
+  content: '';
+  position: absolute;
+  inset: -24px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.04);
+  animation: ringPulse 4s ease-in-out infinite 1s;
+}
+
+@keyframes ringPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.08); opacity: 0.4; }
+}
+
+/* ═══════════ VALUE DIAMOND ═══════════ */
+.value-item {
+  position: relative;
+  padding-left: 28px;
+}
+
+.value-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+}
+
+.value-item:hover::before {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.8);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+}
+
+/* ═══════════ GSAP INITIAL STATES ═══════════ */
+.gs-hero-el {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.gs-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.gs-reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+.gs-reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+}
+
+.gs-reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.gs-line-h {
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+/* ═══════════ NOISE OVERLAY ═══════════ */
+.noise-overlay {
+  position: relative;
+}
+
 .noise-overlay::after {
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   pointer-events: none;
+  z-index: 1;
+}
+
+/* ═══════════ CONTACT ICON HOVER ═══════════ */
+.contact-row {
+  transition: all 0.3s ease;
+}
+
+.contact-row:hover .contact-icon {
+  color: rgba(212, 175, 55, 0.9);
+  transform: scale(1.1);
+}
+
+.contact-icon {
+  transition: all 0.3s ease;
+}
+
+/* ═══════════ SECTION ACCENT LINE ═══════════ */
+.section-accent {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #D4AF37, rgba(212, 175, 55, 0.2));
+  margin-bottom: 1.5rem;
+}
+
+/* ═══════════ STATS / NUMBERS (premium flair) ═══════════ */
+.stat-number {
+  font-family: var(--font-heading);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* ═══════════ AMBIENT GRADIENT BLOBS ═══════════ */
+.ambient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  opacity: 0.03;
 }
