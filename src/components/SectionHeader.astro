@@ -1,0 +1,27 @@
+---
+/**
+ * Reusable section header with accent line + label.
+ * Can be centered or left-aligned.
+ */
+interface Props {
+  label: string;
+  labelHy?: string;
+  centered?: boolean;
+  class?: string;
+}
+
+const { label, labelHy, centered = false, class: className = '' } = Astro.props;
+---
+
+<div class:list={['gs-reveal', centered && 'flex flex-col items-center', className]}>
+  <div class:list={['section-accent', centered && 'mx-auto']}></div>
+  <p
+    class="section-label mb-5"
+    data-i18n
+    data-hy={labelHy || label}
+    data-en={label}
+  >
+    {labelHy || label}
+  </p>
+  <slot />
+</div>

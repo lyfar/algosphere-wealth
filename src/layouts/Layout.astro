@@ -1,4 +1,8 @@
 ---
+/**
+ * Base layout — wraps every page.
+ * Imports design tokens, component styles, animation states.
+ */
 interface Props {
   title: string;
   description?: string;
@@ -15,9 +19,12 @@ const { title, description = 'Algosphere Asset Management — Where Vision Meets
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0A0A0A" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
     <title>{title}</title>
 
     <!-- Open Graph -->
@@ -25,6 +32,11 @@ const { title, description = 'Algosphere Asset Management — Where Vision Meets
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://algosphere.lyfar.com" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
   </head>
   <body class="antialiased">
     <noscript>
@@ -40,7 +52,9 @@ const { title, description = 'Algosphere Asset Management — Where Vision Meets
         }
       </style>
     </noscript>
+
     <slot />
+
     <!-- Custom cursor (desktop only) -->
     <div id="cursor-dot" class="custom-cursor cursor-dot"></div>
     <div id="cursor-circle" class="custom-cursor cursor-circle"></div>

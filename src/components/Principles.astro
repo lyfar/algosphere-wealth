@@ -1,0 +1,76 @@
+---
+/**
+ * Vision / Mission / Values section — 3 glass cards.
+ */
+import SectionHeader from './SectionHeader.astro';
+import GlassCard from './GlassCard.astro';
+---
+
+<section id="vision" class="relative py-32 sm:py-40 lg:py-48 overflow-hidden">
+  <div class="absolute bottom-0 left-1/4 w-[500px] h-[500px] ambient-blob bg-gold-400"></div>
+
+  <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-20 lg:mb-28">
+      <SectionHeader
+        label="Our Principles"
+        labelHy="&#1359;&#1381;&#1405;&#1388;&#1377;&#1391;&#1377;&#1398;, &#1329;&#1404;&#1377;&#1412;&#1381;&#1388;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;, &#1329;&#1408;&#1386;&#1381;&#1412;&#1398;&#1381;&#1408;"
+        centered
+      >
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-[3.5rem] text-text-primary font-semibold leading-[1.1]">
+          <span data-i18n data-hy="&#1343;&#1377;&#1404;&#1400;&#1410;&#1409;&#1406;&#1377;&#1390; <span class='text-gold-gradient'>&#1331;&#1381;&#1408;&#1377;&#1382;&#1377;&#1398;&#1409;&#1400;&#1410;&#1385;&#1397;&#1377;&#1398; &#1406;&#1408;&#1377;</span>" data-en="Built on <span class='text-gold-gradient'>Excellence</span>">Built on <span class="text-gold-gradient">Excellence</span></span>
+        </h2>
+      </SectionHeader>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+
+      <!-- Vision -->
+      <GlassCard
+        title="Vision"
+        titleHy="&#1359;&#1381;&#1405;&#1388;&#1377;&#1391;&#1377;&#1398;"
+        iconPath="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+        iconPath2="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+      >
+        <p class="text-card-body font-light leading-[1.8] text-[15px]" data-i18n data-hy="&#1350;&#1402;&#1377;&#1405;&#1407;&#1381;&#1388;&#1400;&#1406; &#1396;&#1381;&#1408; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;&#1398;&#1381;&#1408;&#1387; &#1392;&#1377;&#1396;&#1377;&#1408; &#1381;&#1408;&#1391;&#1377;&#1408;&#1377;&#1386;&#1377;&#1396;&#1391;&#1381;&#1407; &#1377;&#1408;&#1386;&#1381;&#1412;&#1387; &#1405;&#1407;&#1381;&#1394;&#1390;&#1396;&#1377;&#1398;&#1384;, &#1413;&#1379;&#1407;&#1377;&#1379;&#1400;&#1408;&#1390;&#1381;&#1388;&#1400;&#1406; &#1398;&#1400;&#1408;&#1377;&#1408;&#1377;&#1408;&#1377;&#1391;&#1377;&#1398; &#1415; &#1395;&#1391;&#1400;&#1410;&#1398; &#1388;&#1400;&#1410;&#1390;&#1400;&#1410;&#1396;&#1398;&#1381;&#1408;&#1417;" data-en="Creating long-term value for our investors through innovative and flexible solutions while ensuring transparency, integrity, and regulatory compliance.">
+          Creating long-term value for our investors through innovative and flexible solutions while ensuring transparency, integrity, and regulatory compliance.
+        </p>
+      </GlassCard>
+
+      <!-- Mission -->
+      <GlassCard
+        title="Mission"
+        titleHy="&#1329;&#1404;&#1377;&#1412;&#1381;&#1388;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;"
+        iconPath="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+      >
+        <p class="text-card-body font-light leading-[1.8] text-[15px]" data-i18n data-hy="&#1332;&#1377;&#1404;&#1398;&#1377;&#1388; &#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;&#1387; &#1377;&#1391;&#1407;&#1387;&#1406;&#1398;&#1381;&#1408;&#1387; &#1391;&#1377;&#1404;&#1377;&#1406;&#1377;&#1408;&#1396;&#1377;&#1398; &#1377;&#1404;&#1377;&#1403;&#1377;&#1407;&#1377;&#1408; &#1384;&#1398;&#1391;&#1381;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;, &#1400;&#1408;&#1384; &#1395;&#1377;&#1398;&#1377;&#1401;&#1406;&#1377;&#1390; &#1383; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1411;&#1400;&#1398;&#1380;&#1381;&#1408;&#1387; &#1391;&#1377;&#1404;&#1377;&#1406;&#1377;&#1408;&#1396;&#1377;&#1398; &#1396;&#1381;&#1390; &#1411;&#1400;&#1408;&#1393;&#1377;&#1404;&#1400;&#1410;&#1385;&#1397;&#1377;&#1396;&#1378;:" data-en="To become Armenia's leading asset management company, recognized for extensive experience in investment fund management and trusted by discerning investors.">
+          To become Armenia's leading asset management company, recognized for extensive experience in investment fund management and trusted by discerning investors.
+        </p>
+      </GlassCard>
+
+      <!-- Values -->
+      <GlassCard
+        title="Values"
+        titleHy="&#1329;&#1408;&#1386;&#1381;&#1412;&#1398;&#1381;&#1408;"
+        iconPath="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+      >
+        <div class="space-y-5">
+          <div class="value-item">
+            <p class="text-text-primary text-[15px] font-medium mb-0.5" data-i18n data-hy="&#1329;&#1382;&#1398;&#1406;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;" data-en="Integrity">Integrity</p>
+            <p class="text-card-body-muted text-[13px] font-light leading-relaxed" data-i18n data-hy="&#1348;&#1381;&#1398;&#1412; &#1396;&#1381;&#1408; &#1377;&#1399;&#1389;&#1377;&#1407;&#1377;&#1398;&#1412;&#1400;&#1410;&#1396; &#1377;&#1404;&#1377;&#1403;&#1398;&#1400;&#1408;&#1380;&#1406;&#1400;&#1410;&#1396; &#1381;&#1398;&#1412; &#1383;&#1385;&#1387;&#1391;&#1377;&#1397;&#1387; &#1391;&#1377;&#1398;&#1400;&#1398;&#1398;&#1381;&#1408;&#1400;&#1406;" data-en="Unwavering commitment to ethical standards">Unwavering commitment to ethical standards</p>
+          </div>
+          <div class="value-item">
+            <p class="text-text-primary text-[15px] font-medium mb-0.5" data-i18n data-hy="&#1350;&#1400;&#1408;&#1377;&#1408;&#1377;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;" data-en="Innovation">Innovation</p>
+            <p class="text-card-body-muted text-[13px] font-light leading-relaxed" data-i18n data-hy="&#1348;&#1381;&#1398;&#1412; &#1391;&#1387;&#1408;&#1377;&#1404;&#1400;&#1410;&#1396; &#1381;&#1398;&#1412; &#1377;&#1404;&#1377;&#1403;&#1377;&#1407;&#1377;&#1408; &#1407;&#1381;&#1389;&#1398;&#1400;&#1388;&#1400;&#1379;&#1387;&#1377;&#1398;&#1381;&#1408;" data-en="Forward-thinking investment strategies">Forward-thinking investment strategies</p>
+          </div>
+          <div class="value-item">
+            <p class="text-text-primary text-[15px] font-medium mb-0.5" data-i18n data-hy="&#1344;&#1377;&#1395;&#1377;&#1389;&#1400;&#1408;&#1380;&#1377;&#1391;&#1381;&#1398;&#1407;&#1408;&#1400;&#1398;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;" data-en="Client-Centricity">Client-Centricity</p>
+            <p class="text-card-body-muted text-[13px] font-light leading-relaxed" data-i18n data-hy="&#1348;&#1381;&#1408; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;&#1398;&#1381;&#1408;&#1387; &#1398;&#1402;&#1377;&#1407;&#1377;&#1391;&#1398;&#1381;&#1408;&#1398; &#1400;&#1410; &#1399;&#1377;&#1392;&#1381;&#1408;&#1384; &#1396;&#1381;&#1408; &#1377;&#1404;&#1377;&#1403;&#1398;&#1377;&#1392;&#1381;&#1408;&#1385;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1398; &#1381;&#1398;" data-en="Your success defines our purpose">Your success defines our purpose</p>
+          </div>
+        </div>
+      </GlassCard>
+
+    </div>
+  </div>
+</section>

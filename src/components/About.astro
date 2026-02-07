@@ -1,0 +1,33 @@
+---
+/**
+ * About section — company intro with ambient glow.
+ */
+import SectionHeader from './SectionHeader.astro';
+---
+
+<section id="about" class="relative py-32 sm:py-40 lg:py-48 overflow-hidden">
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] ambient-blob bg-gold-400"></div>
+
+  <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
+    <!-- Label -->
+    <SectionHeader label="About Us" labelHy="&#1348;&#1381;&#1408; &#1396;&#1377;&#1405;&#1387;&#1398;" />
+
+    <!-- Heading -->
+    <h2 class="gs-reveal font-heading text-3xl sm:text-4xl lg:text-[3.5rem] text-text-primary font-semibold mb-16 leading-[1.1]">
+      <span data-i18n data-hy="&#1355;&#1387;&#1399;&#1407; &#1397;&#1400;&#1410;&#1408;&#1377;&#1412;&#1377;&#1398;&#1401;&#1397;&#1400;&#1410;&#1408;<br /><span class='text-gold-gradient'>&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1352;&#1408;&#1400;&#1399;&#1400;&#1410;&#1396;</span>" data-en="Precision in Every<br /><span class='text-gold-gradient'>Investment Decision</span>">Precision in Every<br /><span class="text-gold-gradient">Investment Decision</span></span>
+    </h2>
+
+    <!-- Body -->
+    <div class="gs-reveal max-w-[720px]">
+      <p class="text-[17px] text-card-body font-light leading-[1.75] tracking-[0.01em]" data-i18n data-hy="ALGOSPHERE ASSET MANAGEMENT &#1384;&#1398;&#1391;&#1381;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1384; &#1396;&#1377;&#1405;&#1398;&#1377;&#1379;&#1387;&#1407;&#1377;&#1409;&#1377;&#1390; &#1383; &#1411;&#1377;&#1391;, &#1400;&#1401; &#1392;&#1408;&#1377;&#1402;&#1377;&#1408;&#1377;&#1391;&#1377;&#1397;&#1387;&#1398; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1411;&#1400;&#1398;&#1380;&#1381;&#1408;&#1387; &#1391;&#1377;&#1404;&#1377;&#1406;&#1377;&#1408;&#1396;&#1377;&#1398; &#1396;&#1381;&#1403;&#1417; &#1348;&#1381;&#1408; &#1398;&#1402;&#1377;&#1407;&#1377;&#1391;&#1398; &#1383; &#1377;&#1404;&#1377;&#1403;&#1377;&#1408;&#1391;&#1381;&#1388; &#1377;&#1404;&#1377;&#1406;&#1381;&#1388; &#1377;&#1408;&#1380;&#1397;&#1400;&#1410;&#1398;&#1377;&#1406;&#1381;&#1407; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1404;&#1377;&#1382;&#1396;&#1377;&#1406;&#1377;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1398;&#1381;&#1408;, &#1377;&#1403;&#1377;&#1391;&#1409;&#1381;&#1388; &#1391;&#1377;&#1397;&#1400;&#1410;&#1398; &#1414;&#1387;&#1398;&#1377;&#1398;&#1405;&#1377;&#1391;&#1377;&#1398; &#1377;&#1395;&#1387;&#1398; &#1415; &#1405;&#1407;&#1381;&#1394;&#1390;&#1381;&#1388; &#1406;&#1405;&#1407;&#1377;&#1392;&#1381;&#1388;&#1387; &#1379;&#1400;&#1408;&#1390;&#1384;&#1398;&#1391;&#1381;&#1408;&#1377;&#1397;&#1387;&#1398; &#1392;&#1377;&#1408;&#1377;&#1378;&#1381;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1398;&#1381;&#1408;:" data-en="Algosphere Asset Management specializes in managing closed, non-public investment funds. Rooted in a tradition of Armenian entrepreneurship and prudent stewardship, we pursue long-term value creation through disciplined strategies, unwavering transparency, and trusted partnerships.">
+        Algosphere Asset Management specializes in managing closed, non-public investment funds. Rooted in a tradition of Armenian entrepreneurship and prudent stewardship, we pursue long-term value creation through disciplined strategies, unwavering transparency, and trusted partnerships.
+      </p>
+    </div>
+
+    <!-- Est. line -->
+    <div class="gs-reveal mt-16 flex items-center gap-4">
+      <div class="h-px w-10 bg-gradient-to-r from-gold-400/20 to-transparent gs-line-h"></div>
+      <p class="text-[0.65rem] tracking-[0.25em] uppercase text-est-text font-light">Est. 2024 &middot; Yerevan</p>
+    </div>
+  </div>
+</section>
