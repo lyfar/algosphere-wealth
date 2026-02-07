@@ -19,19 +19,53 @@ import '../styles/global.css';
         </span>
       </a>
 
-      <div class="flex items-center gap-8 lg:gap-14">
-        <a href="#about" class="text-[10px] tracking-[0.25em] uppercase text-gray-500 hover:text-gold-400 transition-all duration-400 font-light">
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8 lg:gap-14">
+        <a href="#about" class="nav-link text-[10px] tracking-[0.25em] uppercase text-gray-500 hover:text-gold-400 transition-all duration-400 font-light" data-i18n data-hy="Ընկերություն" data-en="Company">
           Ընկերություն
         </a>
-        <a href="#vision" class="text-[10px] tracking-[0.25em] uppercase text-gray-500 hover:text-gold-400 transition-all duration-400 font-light">
+        <a href="#vision" class="nav-link text-[10px] tracking-[0.25em] uppercase text-gray-500 hover:text-gold-400 transition-all duration-400 font-light" data-i18n data-hy="Ծառայություններ" data-en="Services">
           Ծառայություններ
         </a>
-        <a href="#contact" class="text-[10px] tracking-[0.25em] uppercase text-gray-500 hover:text-gold-400 transition-all duration-400 font-light">
+        <a href="#contact" class="nav-link text-[10px] tracking-[0.25em] uppercase text-gray-500 hover:text-gold-400 transition-all duration-400 font-light" data-i18n data-hy="Կապ" data-en="Contact">
           Կապ
         </a>
+        <!-- Language Switcher -->
+        <div class="lang-switcher flex items-center gap-1 ml-4">
+          <button id="lang-hy" class="lang-btn active text-[9px] tracking-[0.15em] uppercase font-medium px-2 py-1 rounded transition-all duration-300">ՀY</button>
+          <span class="text-gray-700 text-[10px]">|</span>
+          <button id="lang-en" class="lang-btn text-[9px] tracking-[0.15em] uppercase font-medium px-2 py-1 rounded transition-all duration-300">EN</button>
+        </div>
       </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="hamburger-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] group" aria-label="Toggle menu">
+        <span class="hamburger-line w-6 h-[1.5px] bg-gray-400 transition-all duration-300 origin-center"></span>
+        <span class="hamburger-line w-6 h-[1.5px] bg-gray-400 transition-all duration-300 origin-center"></span>
+        <span class="hamburger-line w-4 h-[1.5px] bg-gray-400 transition-all duration-300 origin-center ml-auto"></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] pointer-events-none">
+    <div class="mobile-menu-backdrop absolute inset-0 bg-navy-950/95 backdrop-blur-xl opacity-0 transition-opacity duration-500"></div>
+    <div class="mobile-menu-content absolute inset-0 flex flex-col items-center justify-center gap-10 translate-y-[-20px] opacity-0 transition-all duration-500">
+      <button id="mobile-close" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center" aria-label="Close menu">
+        <svg class="w-6 h-6 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <a href="#about" class="mobile-nav-link text-2xl tracking-[0.2em] uppercase text-gray-300 hover:text-gold-400 transition-all duration-300 font-light" data-i18n data-hy=" Delays" data-en="Company">Ընdelays</a>
+      <a href="#vision" class="mobile-nav-link text-2xl tracking-[0.2em] uppercase text-gray-300 hover:text-gold-400 transition-all duration-300 font-light" data-i18n data-hy="Idsservice" data-en="Services">Idsservice</a>
+      <a href="#contact" class="mobile-nav-link text-2xl tracking-[0.2em] uppercase text-gray-300 hover:text-gold-400 transition-all duration-300 font-light" data-i18n data-hy="Կap" data-en="Contact">Կap</a>
+      <div class="mt-6 flex items-center gap-3">
+        <button class="mobile-lang-btn text-sm tracking-[0.15em] uppercase font-medium px-4 py-2 rounded border border-gold-400/30 transition-all duration-300" data-lang="hy">ՀY</button>
+        <button class="mobile-lang-btn text-sm tracking-[0.15em] uppercase font-medium px-4 py-2 rounded border border-gold-400/30 transition-all duration-300" data-lang="en">EN</button>
+      </div>
+      <div class="mt-4 w-16 h-px bg-gradient-to-r from-transparent via-gold-400/40 to-transparent"></div>
+    </div>
+  </div>
 
 
   <!-- ═══════════════════════════════════════════════════════════════
@@ -64,7 +98,7 @@ import '../styles/global.css';
       </p>
 
       <!-- Tagline -->
-      <p class="gs-hero-el text-lg sm:text-xl lg:text-2xl text-gray-500 font-light tracking-wide" data-hero-delay="0.45">
+      <p class="gs-hero-el text-lg sm:text-xl lg:text-2xl text-gray-500 font-light tracking-wide" data-hero-delay="0.45" data-i18n data-hy="Խdelayեnoughlassical ness Idelaysigence" data-en="Navigating Markets with Intelligence">
         Navigating Markets with Intelligence
       </p>
 
@@ -94,18 +128,18 @@ import '../styles/global.css';
       <!-- Label -->
       <div class="gs-reveal">
         <div class="section-accent"></div>
-        <p class="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-4 font-light">About Us</p>
+        <p class="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-4 font-light" data-i18n data-hy="Մelay մasialnal" data-en="About Us">About Us</p>
       </div>
 
       <!-- Heading -->
-      <h2 class="gs-reveal font-heading text-3xl sm:text-4xl lg:text-[3.2rem] text-white font-medium mb-14 leading-[1.2]">
+      <h2 class="gs-reveal font-heading text-3xl sm:text-4xl lg:text-[3.2rem] text-white font-medium mb-14 leading-[1.2]" data-i18n data-hy="Idelays ness<br /><span class='text-gold-gradient'>Idelays ness ness</span>" data-en="Precision in Every<br /><span class='text-gold-gradient'>Investment Decision</span>">
         Precision in Every<br />
         <span class="text-gold-gradient">Investment Decision</span>
       </h2>
 
       <!-- Body -->
       <div class="gs-reveal max-w-3xl">
-        <p class="text-[17px] text-gray-400 font-light leading-[1.9] tracking-wide">
+        <p class="text-[17px] text-gray-400 font-light leading-[1.9] tracking-wide" data-i18n data-hy="ALGOSPHERE ASSET MANAGEMENT ness Delays Delays Delays delays,  delays  delays. Delays Delays delays Delays Delays delays,  delays ness ness Delays delays delays." data-en="Algosphere Asset Management specializes in managing closed, non-public investment funds, providing innovative solutions. Our goal is to offer the most efficient investment strategies, support sustainable financial growth, and build trusted partnerships.">
           Algosphere Asset Management specializes in managing closed, non-public
           investment funds, providing innovative solutions. Our goal is to offer the
           most efficient investment strategies, support sustainable financial growth,
@@ -114,7 +148,7 @@ import '../styles/global.css';
       </div>
 
       <!-- Decorative element -->
-      <div class="mt-24 flex items-center gap-6 gs-reveal">
+      <div class="mt-24 flex items-center gap-6 gs-reveal about-parallax-decoration">
         <div class="h-px flex-1 bg-gradient-to-r from-gold-400/15 to-transparent gs-line-h"></div>
         <div class="w-2.5 h-2.5 border border-gold-400/30 rotate-45"></div>
         <div class="h-px w-20 bg-gradient-to-l from-gold-400/15 to-transparent gs-line-h"></div>
@@ -136,8 +170,8 @@ import '../styles/global.css';
       <!-- Section Header -->
       <div class="text-center mb-24 gs-reveal">
         <div class="section-accent mx-auto"></div>
-        <p class="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-4 font-light">Our Principles</p>
-        <h2 class="font-heading text-3xl sm:text-4xl lg:text-[3.2rem] text-white font-medium leading-tight">
+        <p class="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-4 font-light" data-i18n data-hy="Delays, Arequip, Arequipment" data-en="Our Principles">Our Principles</p>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-[3.2rem] text-white font-medium leading-tight" data-i18n data-hy="Delays <span class='text-gold-gradient'>Delays delays</span>" data-en="Built on <span class='text-gold-gradient'>Excellence</span>">
           Built on <span class="text-gold-gradient">Excellence</span>
         </h2>
       </div>
@@ -154,9 +188,9 @@ import '../styles/global.css';
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <h3 class="font-heading text-xl text-white font-medium tracking-wide">Vision</h3>
+            <h3 class="font-heading text-xl text-white font-medium tracking-wide" data-i18n data-hy="Delays" data-en="Vision">Vision</h3>
           </div>
-          <p class="text-gray-400/90 font-light leading-[1.85] text-[14px]">
+          <p class="text-gray-400/90 font-light leading-[1.85] text-[14px]" data-i18n data-hy="Delays delays delays delays delays, delays delays delays delays delays, delays delays delays delays." data-en="Creating long-term value for our investors through innovative and flexible solutions while ensuring transparency, integrity, and regulatory compliance.">
             Creating long-term value for our investors through innovative and flexible
             solutions while ensuring transparency, integrity, and regulatory compliance.
           </p>
@@ -170,9 +204,9 @@ import '../styles/global.css';
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
               </svg>
             </div>
-            <h3 class="font-heading text-xl text-white font-medium tracking-wide">Mission</h3>
+            <h3 class="font-heading text-xl text-white font-medium tracking-wide" data-i18n data-hy="Arequipment" data-en="Mission">Mission</h3>
           </div>
-          <p class="text-gray-400/90 font-light leading-[1.85] text-[14px]">
+          <p class="text-gray-400/90 font-light leading-[1.85] text-[14px]" data-i18n data-hy="Delays Delays delays delays delays delays, delays delays delays delays delays." data-en="To become Armenia's leading asset management company, recognized for extensive experience in investment fund management and trusted by discerning investors.">
             To become Armenia's leading asset management company, recognized for
             extensive experience in investment fund management and trusted by
             discerning investors.
@@ -187,20 +221,20 @@ import '../styles/global.css';
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
               </svg>
             </div>
-            <h3 class="font-heading text-xl text-white font-medium tracking-wide">Values</h3>
+            <h3 class="font-heading text-xl text-white font-medium tracking-wide" data-i18n data-hy="Arequipment" data-en="Values">Values</h3>
           </div>
           <div class="space-y-5">
             <div class="value-item">
-              <p class="text-white text-[14px] font-medium mb-0.5">Integrity</p>
-              <p class="text-gray-500 text-[12px] font-light leading-relaxed">Unwavering commitment to ethical standards</p>
+              <p class="text-white text-[14px] font-medium mb-0.5" data-i18n data-hy="Arequipment" data-en="Integrity">Integrity</p>
+              <p class="text-gray-500 text-[12px] font-light leading-relaxed" data-i18n data-hy="Delays delays delays delays" data-en="Unwavering commitment to ethical standards">Unwavering commitment to ethical standards</p>
             </div>
             <div class="value-item">
-              <p class="text-white text-[14px] font-medium mb-0.5">Innovation</p>
-              <p class="text-gray-500 text-[12px] font-light leading-relaxed">Forward-thinking investment strategies</p>
+              <p class="text-white text-[14px] font-medium mb-0.5" data-i18n data-hy="Delays" data-en="Innovation">Innovation</p>
+              <p class="text-gray-500 text-[12px] font-light leading-relaxed" data-i18n data-hy="Delays delays delays delays delays" data-en="Forward-thinking investment strategies">Forward-thinking investment strategies</p>
             </div>
             <div class="value-item">
-              <p class="text-white text-[14px] font-medium mb-0.5">Client-Centricity</p>
-              <p class="text-gray-500 text-[12px] font-light leading-relaxed">Your success defines our purpose</p>
+              <p class="text-white text-[14px] font-medium mb-0.5" data-i18n data-hy="Delays" data-en="Client-Centricity">Client-Centricity</p>
+              <p class="text-gray-500 text-[12px] font-light leading-relaxed" data-i18n data-hy="Delays delays delays delays" data-en="Your success defines our purpose">Your success defines our purpose</p>
             </div>
           </div>
         </div>
@@ -233,7 +267,7 @@ import '../styles/global.css';
               <p class="text-gold-400/50 text-[10px] tracking-[0.2em] uppercase mt-0.5">Asset Management</p>
             </div>
           </div>
-          <p class="text-gray-500 text-[14px] font-light max-w-sm leading-[1.8]">
+          <p class="text-gray-500 text-[14px] font-light max-w-sm leading-[1.8]" data-i18n data-hy="Delays delays delays delays delays, delays delays delays delays." data-en="Premium investment fund management with a commitment to excellence, transparency, and superior returns.">
             Premium investment fund management with a commitment to excellence,
             transparency, and superior returns.
           </p>
@@ -242,9 +276,9 @@ import '../styles/global.css';
         <!-- Right -->
         <div class="gs-reveal-right">
           <div class="section-accent"></div>
-          <p class="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-3 font-light">Contact</p>
+          <p class="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-3 font-light" data-i18n data-hy="Կap" data-en="Contact">Contact</p>
           <h3 class="font-heading text-2xl lg:text-3xl text-white font-medium mb-10">
-            <span class="text-gold-gradient">Get in Touch</span>
+            <span class="text-gold-gradient" data-i18n data-hy="Delays delays" data-en="Get in Touch">Get in Touch</span>
           </h3>
 
           <div class="space-y-6">
@@ -254,8 +288,8 @@ import '../styles/global.css';
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
               </svg>
-              <p class="text-gray-400 text-[14px] font-light leading-relaxed">
-                Հայաստան, Երևան-0015,<br />Արդարակի 7/6, 186
+              <p class="text-gray-400 text-[14px] font-light leading-relaxed" data-i18n data-hy="Հayastan, Eridelays-0015,<br />Arequipski 7/6, 186" data-en="Armenia, Yerevan-0015,<br />Ardaraki 7/6, 186">
+                Հayastan, Երidelays-0015,<br />Arequipski 7/6, 186
               </p>
             </div>
 
@@ -291,7 +325,7 @@ import '../styles/global.css';
           </p>
           <div class="flex items-center gap-2.5">
             <div class="w-1 h-1 bg-gold-400/25 rounded-full"></div>
-            <p class="text-gray-600 text-[11px] font-light tracking-[0.1em]">Yerevan, Armenia</p>
+            <p class="text-gray-600 text-[11px] font-light tracking-[0.1em]" data-i18n data-hy="Eridelays, Delays" data-en="Yerevan, Armenia">Yerevan, Armenia</p>
           </div>
         </div>
       </div>
@@ -397,6 +431,106 @@ import '../styles/global.css';
       });
     }
 
+    // ─── Mobile Menu ───
+    function initMobileMenu() {
+      const btn = document.getElementById('hamburger-btn');
+      const menu = document.getElementById('mobile-menu');
+      const closeBtn = document.getElementById('mobile-close');
+      if (!btn || !menu) return;
+
+      const backdrop = menu.querySelector('.mobile-menu-backdrop') as HTMLElement;
+      const content = menu.querySelector('.mobile-menu-content') as HTMLElement;
+      const links = menu.querySelectorAll('.mobile-nav-link');
+
+      function openMenu() {
+        menu!.classList.remove('pointer-events-none');
+        menu!.classList.add('pointer-events-auto');
+        backdrop!.classList.remove('opacity-0');
+        backdrop!.classList.add('opacity-100');
+        content!.classList.remove('opacity-0', 'translate-y-[-20px]');
+        content!.classList.add('opacity-100', 'translate-y-0');
+        document.body.style.overflow = 'hidden';
+        // Animate hamburger to X
+        const lines = btn!.querySelectorAll('.hamburger-line');
+        lines[0].classList.add('rotate-45', 'translate-y-[6.5px]');
+        lines[1].classList.add('opacity-0', 'scale-x-0');
+        lines[2].classList.add('-rotate-45', 'translate-y-[-6.5px]', 'w-6');
+      }
+
+      function closeMenu() {
+        menu!.classList.add('pointer-events-none');
+        menu!.classList.remove('pointer-events-auto');
+        backdrop!.classList.add('opacity-0');
+        backdrop!.classList.remove('opacity-100');
+        content!.classList.add('opacity-0', 'translate-y-[-20px]');
+        content!.classList.remove('opacity-100', 'translate-y-0');
+        document.body.style.overflow = '';
+        // Reset hamburger
+        const lines = btn!.querySelectorAll('.hamburger-line');
+        lines[0].classList.remove('rotate-45', 'translate-y-[6.5px]');
+        lines[1].classList.remove('opacity-0', 'scale-x-0');
+        lines[2].classList.remove('-rotate-45', 'translate-y-[-6.5px]', 'w-6');
+      }
+
+      btn.addEventListener('click', () => {
+        const isOpen = !menu.classList.contains('pointer-events-none');
+        isOpen ? closeMenu() : openMenu();
+      });
+
+      closeBtn?.addEventListener('click', closeMenu);
+      links.forEach(link => link.addEventListener('click', closeMenu));
+
+      // Also handle mobile lang buttons
+      menu.querySelectorAll('.mobile-lang-btn').forEach(b => {
+        b.addEventListener('click', () => {
+          const lang = (b as HTMLElement).dataset.lang || 'hy';
+          switchLanguage(lang);
+          closeMenu();
+        });
+      });
+    }
+
+    // ─── Language Switcher ───
+    function switchLanguage(lang: string) {
+      localStorage.setItem('algosphere-lang', lang);
+      document.documentElement.lang = lang === 'hy' ? 'hy' : 'en';
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const text = (el as HTMLElement).dataset[lang] || (el as HTMLElement).dataset.en || '';
+        if (text) {
+          el.innerHTML = text;
+        }
+      });
+
+      // Update button active states
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById(`lang-${lang}`);
+      if (activeBtn) activeBtn.classList.add('active');
+      
+      // Update mobile lang buttons
+      document.querySelectorAll('.mobile-lang-btn').forEach(b => {
+        const btnLang = (b as HTMLElement).dataset.lang;
+        b.classList.toggle('active', btnLang === lang);
+      });
+    }
+
+    function initLanguageSwitcher() {
+      const savedLang = localStorage.getItem('algosphere-lang') || 'hy';
+      
+      // Don't switch on load if Armenian (default)
+      if (savedLang === 'en') {
+        switchLanguage('en');
+      } else {
+        // Mark HY as active
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        const hyBtn = document.getElementById('lang-hy');
+        if (hyBtn) hyBtn.classList.add('active');
+      }
+
+      document.getElementById('lang-hy')?.addEventListener('click', () => switchLanguage('hy'));
+      document.getElementById('lang-en')?.addEventListener('click', () => switchLanguage('en'));
+    }
+
     // ─── Smooth scroll ───
     function initSmoothScroll() {
       document.querySelectorAll('a[href^="#"]').forEach((a) => {
@@ -422,9 +556,7 @@ import '../styles/global.css';
         });
       });
 
-      // hero line scale
-      const heroLine = document.querySelector('.gs-hero-el .gs-line-h, .gs-hero-el.gs-line-h');
-      // find the line that's inside hero
+      // Hero lines
       document.querySelectorAll('#hero .gs-line-h').forEach((line) => {
         gsap.to(line, {
           scaleX: 1,
@@ -450,6 +582,21 @@ import '../styles/global.css';
           scrub: 0.8,
         },
       });
+
+      // About section decoration parallax
+      const aboutDeco = document.querySelector('.about-parallax-decoration') as HTMLElement;
+      if (aboutDeco) {
+        gsap.to(aboutDeco, {
+          y: -30,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#about',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1,
+          },
+        });
+      }
     }
 
     // ─── GSAP Scroll Reveals ───
@@ -518,9 +665,7 @@ import '../styles/global.css';
 
       // Line reveals
       gsap.utils.toArray<HTMLElement>('.gs-line-h').forEach((el) => {
-        // Skip hero lines (already animated)
         if (el.closest('#hero')) return;
-
         gsap.to(el, {
           scaleX: 1,
           duration: 1.2,
@@ -539,6 +684,8 @@ import '../styles/global.css';
       createStarfield();
       initParticles();
       initNavbar();
+      initMobileMenu();
+      initLanguageSwitcher();
       initSmoothScroll();
       animateHero();
       initParallax();
