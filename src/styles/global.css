@@ -3,6 +3,7 @@
 /* ═══════════════════════════════════════════════════════════════
    DESIGN TOKENS — LUXURY PALETTE
    All colors centralized. Change palette here → updates everywhere.
+   Phase 3: Armenian Cultural Design Elements
    ═══════════════════════════════════════════════════════════════ */
 @theme {
   /* ── Backgrounds ── */
@@ -10,6 +11,14 @@
   --color-bg-secondary: #141414;
   --color-bg-card: #1A1A1A;
   --color-bg-elevated: #242424;
+
+  /* ── Navy Section Backgrounds (Phase 3) ── */
+  --color-bg-navy: #0D1B3E;
+  --color-bg-navy-light: #132347;
+
+  /* ── Armenian Cultural Accents (Phase 3) ── */
+  --color-accent-burgundy: #722F37;
+  --color-gold-warm: #D4A853;
 
   /* ── Text — WCAG AA compliant on #0A0A0A ── */
   --color-text-primary: #F5F5F5;
@@ -41,9 +50,9 @@
   --color-glass-bg: rgba(255, 255, 255, 0.05);
   --color-glass-border: rgba(255, 255, 255, 0.08);
 
-  /* ── Fonts ── */
-  --font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  /* ── Fonts (Phase 3: Armenian fallbacks via Noto Sans Armenian) ── */
+  --font-heading: 'Cormorant Garamond', 'Noto Sans Armenian', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', 'Noto Sans Armenian', system-ui, -apple-system, sans-serif;
 }
 
 /* ═══════════ BASE ═══════════ */
@@ -107,19 +116,188 @@ h1, h2, h3, h4 {
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.02;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 1;
 }
 
-/* ═══════════ AMBIENT GRADIENT BLOBS ═══════════ */
+/* ═══════════ GLOBAL NOISE TEXTURE (subtle, entire page) ═══════════ */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ═══════════ AMBIENT GRADIENT BLOBS (enhanced) ═══════════ */
 .ambient-blob {
   position: absolute;
   border-radius: 50%;
   filter: blur(120px);
   pointer-events: none;
+  opacity: 0.035;
+}
+
+/* Navy-tinted ambient blob variant */
+.ambient-blob-navy {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  pointer-events: none;
+  opacity: 0.06;
+  background: var(--color-bg-navy-light);
+}
+
+/* Burgundy-tinted ambient blob (very subtle) */
+.ambient-blob-burgundy {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  pointer-events: none;
   opacity: 0.025;
+  background: var(--color-accent-burgundy);
+}
+
+/* ═══════════ NAVY SECTION BACKGROUNDS (Phase 3) ═══════════ */
+.section-navy {
+  background-color: var(--color-bg-navy);
+  position: relative;
+}
+
+.section-navy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--color-bg-primary), var(--color-bg-navy));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.section-navy::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to top, var(--color-bg-primary), var(--color-bg-navy));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ═══════════ SECTION TRANSITIONS (smooth gradient blending) ═══════════ */
+.section-transition-down {
+  position: relative;
+}
+
+.section-transition-down::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--color-bg-primary), transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ═══════════ AREVAKHACH — WHEEL OF ETERNITY (Phase 3) ═══════════ */
+/* Armenian pre-Christian solar symbol — very subtle background pattern */
+.arevakhach-bg {
+  position: relative;
+}
+
+.arevakhach-bg::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  /* Arevakhach — Wheel of Eternity: 6-armed rotating swirl symbol */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-width='0.75' opacity='1'%3E%3Ccircle cx='200' cy='200' r='150'/%3E%3Ccircle cx='200' cy='200' r='120'/%3E%3Ccircle cx='200' cy='200' r='90'/%3E%3Ccircle cx='200' cy='200' r='60'/%3E%3C!-- 6 arms of the wheel --%3E%3Cpath d='M200 50 Q230 130 200 200'/%3E%3Cpath d='M200 50 Q170 130 200 200'/%3E%3Cpath d='M330 125 Q270 155 200 200'/%3E%3Cpath d='M330 125 Q285 180 200 200'/%3E%3Cpath d='M330 275 Q270 245 200 200'/%3E%3Cpath d='M330 275 Q285 220 200 200'/%3E%3Cpath d='M200 350 Q170 270 200 200'/%3E%3Cpath d='M200 350 Q230 270 200 200'/%3E%3Cpath d='M70 275 Q130 245 200 200'/%3E%3Cpath d='M70 275 Q115 220 200 200'/%3E%3Cpath d='M70 125 Q130 155 200 200'/%3E%3Cpath d='M70 125 Q115 180 200 200'/%3E%3C!-- Center circle --%3E%3Ccircle cx='200' cy='200' r='15' fill='%23D4AF37' opacity='0.3'/%3E%3C!-- Small circles at arm endpoints --%3E%3Ccircle cx='200' cy='50' r='6'/%3E%3Ccircle cx='330' cy='125' r='6'/%3E%3Ccircle cx='330' cy='275' r='6'/%3E%3Ccircle cx='200' cy='350' r='6'/%3E%3Ccircle cx='70' cy='275' r='6'/%3E%3Ccircle cx='70' cy='125' r='6'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .arevakhach-bg::before {
+    width: 500px;
+    height: 500px;
+    opacity: 0.02;
+  }
+}
+
+/* ═══════════ KHACHKAR-INSPIRED DIVIDER PATTERN (Phase 3) ═══════════ */
+/* Armenian cross-stone geometric border — used as refined section dividers */
+.khachkar-divider {
+  position: relative;
+  height: 3px;
+  margin: 0 auto;
+  width: 60%;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.khachkar-divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 50%;
+  margin-right: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.25) 100%);
+}
+
+.khachkar-divider::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  left: 50%;
+  margin-left: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.25) 0%, transparent 100%);
+}
+
+/* Center ornament — khachkar-inspired diamond */
+.khachkar-divider-center {
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  transform: rotate(45deg);
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.khachkar-divider-center::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* ═══════════ WARM GOLD GRADIENT TEXT (Phase 3) ═══════════ */
+.text-gold-warm-gradient {
+  background: linear-gradient(135deg, #D4A853, #F0D78C, #BF953F, #D4A853);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ═══════════ SECTION PARALLAX ═══════════ */

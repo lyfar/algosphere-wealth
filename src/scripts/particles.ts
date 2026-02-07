@@ -38,17 +38,17 @@ export function initParticles(): void {
   let h = (canvas.height = canvas.offsetHeight);
 
   const isMobile = window.innerWidth < 768;
-  const count = isMobile ? 25 : 45;
+  const count = isMobile ? 30 : 55;
 
   const pts: { x: number; y: number; vx: number; vy: number; r: number; a: number }[] = [];
   for (let i = 0; i < count; i++) {
     pts.push({
       x: Math.random() * w,
       y: Math.random() * h,
-      vx: (Math.random() - 0.5) * 0.15,
-      vy: (Math.random() - 0.5) * 0.15,
-      r: Math.random() * 1.2 + 0.3,
-      a: Math.random() * 0.3 + 0.05,
+      vx: (Math.random() - 0.5) * 0.18,
+      vy: (Math.random() - 0.5) * 0.18,
+      r: Math.random() * 1.4 + 0.4,
+      a: Math.random() * 0.35 + 0.08,
     });
   }
 
@@ -59,9 +59,9 @@ export function initParticles(): void {
         const dx = pts[i].x - pts[j].x;
         const dy = pts[i].y - pts[j].y;
         const d = Math.sqrt(dx * dx + dy * dy);
-        if (d < 140) {
+        if (d < 160) {
           ctx!.beginPath();
-          ctx!.strokeStyle = `rgba(212,175,55,${0.03 * (1 - d / 140)})`;
+          ctx!.strokeStyle = `rgba(212,175,55,${0.04 * (1 - d / 160)})`;
           ctx!.lineWidth = 0.5;
           ctx!.moveTo(pts[i].x, pts[i].y);
           ctx!.lineTo(pts[j].x, pts[j].y);

@@ -1,7 +1,7 @@
 ---
 /**
- * Home page — cinematic hero + brief value prop + principle cards + CTA.
- * Shorter than before — detailed content lives on subpages.
+ * Home page — cinematic hero + key metrics + value prop cards + insights teaser + CTA.
+ * Phase 2: Content & Design Polish
  */
 import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
@@ -22,11 +22,62 @@ import PageFooter from '../components/PageFooter.astro';
 
   <Hero />
 
+  <!-- Animated Key Metrics Bar -->
+  <section class="relative py-16 sm:py-20 overflow-hidden" style="border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.02)_0%,transparent_70%)]"></div>
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+        <div class="text-center gs-reveal-scale">
+          <p class="font-heading text-3xl sm:text-4xl lg:text-5xl font-semibold mb-3">
+            <span class="text-gold-gradient">2024</span>
+          </p>
+          <p class="text-[0.68rem] tracking-[0.18em] uppercase text-card-body-muted font-medium" data-i18n
+             data-hy="&#1344;&#1387;&#1396;&#1398;&#1377;&#1380;&#1408;&#1406;&#1377;&#1390;"
+             data-en="Established">Established</p>
+        </div>
+        <div class="text-center gs-reveal-scale">
+          <div class="flex items-center justify-center gap-2 mb-3">
+            <svg class="w-6 h-6 text-gold-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
+            <p class="font-heading text-3xl sm:text-4xl lg:text-5xl font-semibold text-gold-gradient" data-i18n
+               data-hy="&#1343;&#1330;"
+               data-en="CBA">CBA</p>
+          </div>
+          <p class="text-[0.68rem] tracking-[0.18em] uppercase text-card-body-muted font-medium" data-i18n
+             data-hy="&#1340;&#1387;&#1409;&#1381;&#1398;&#1382;&#1377;&#1406;&#1400;&#1408;&#1406;&#1377;&#1390;"
+             data-en="Licensed">Licensed</p>
+        </div>
+        <div class="text-center gs-reveal-scale">
+          <p class="font-heading text-3xl sm:text-4xl lg:text-5xl font-semibold mb-3">
+            <span class="text-gold-gradient" data-i18n
+                  data-hy="&#1363;&#1377;&#1391;"
+                  data-en="Closed">Closed</span>
+          </p>
+          <p class="text-[0.68rem] tracking-[0.18em] uppercase text-card-body-muted font-medium" data-i18n
+             data-hy="&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1366;&#1400;&#1398;&#1380;&#1381;&#1408;"
+             data-en="End Funds">End Funds</p>
+        </div>
+        <div class="text-center gs-reveal-scale">
+          <p class="font-heading text-3xl sm:text-4xl lg:text-5xl font-semibold mb-3">
+            <span class="text-gold-gradient" data-i18n
+                  data-hy="&#1352;&#1408;&#1377;&#1391;&#1377;&#1406;&#1400;&#1408;&#1406;&#1377;&#1390;"
+                  data-en="Qualified">Qualified</span>
+          </p>
+          <p class="text-[0.68rem] tracking-[0.18em] uppercase text-card-body-muted font-medium" data-i18n
+             data-hy="&#1348;&#1387;&#1377;&#1397;&#1398; &#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;&#1398;&#1381;&#1408;"
+             data-en="Investors Only">Investors Only</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <GoldDivider />
 
   <!-- Brief About Teaser -->
   <section class="relative py-32 sm:py-40 lg:py-48 overflow-hidden">
     <div class="absolute top-0 right-0 w-[500px] h-[500px] ambient-blob bg-gold-400"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] ambient-blob-navy"></div>
 
     <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
       <SectionHeader label="About Us" labelHy="&#1348;&#1381;&#1408; &#1396;&#1377;&#1405;&#1387;&#1398;" />
@@ -36,12 +87,11 @@ import PageFooter from '../components/PageFooter.astro';
       </h2>
 
       <div class="gs-reveal max-w-[720px]">
-        <p class="text-[17px] text-card-body font-light leading-[1.75] tracking-[0.01em]" data-i18n data-hy="ALGOSPHERE ASSET MANAGEMENT &#1384;&#1398;&#1391;&#1381;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1384; &#1396;&#1377;&#1405;&#1398;&#1377;&#1379;&#1387;&#1407;&#1377;&#1409;&#1377;&#1390; &#1383; &#1411;&#1377;&#1391;, &#1400;&#1401; &#1392;&#1408;&#1377;&#1402;&#1377;&#1408;&#1377;&#1391;&#1377;&#1397;&#1387;&#1398; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1411;&#1400;&#1398;&#1380;&#1381;&#1408;&#1387; &#1391;&#1377;&#1404;&#1377;&#1406;&#1377;&#1408;&#1396;&#1377;&#1398; &#1396;&#1381;&#1403;&#1417;" data-en="Algosphere Asset Management enters Armenia's rapidly growing capital markets at an inflection point. With mathematical precision and deep local expertise, we manage closed-end investment funds for discerning investors who seek disciplined, transparent, and long-term value creation.">
+        <p class="text-[17px] text-card-body font-light leading-[1.75] tracking-[0.01em]" data-i18n data-hy="ALGOSPHERE ASSET MANAGEMENT &#1384;&#1398;&#1391;&#1381;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1384; &#1396;&#1377;&#1405;&#1398;&#1377;&#1379;&#1387;&#1407;&#1377;&#1409;&#1390; &#1383; &#1411;&#1377;&#1391;, &#1400;&#1401; &#1392;&#1408;&#1377;&#1402;&#1377;&#1408;&#1377;&#1391;&#1377;&#1397;&#1387;&#1398; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1411;&#1400;&#1398;&#1380;&#1381;&#1408;&#1387; &#1391;&#1377;&#1404;&#1377;&#1406;&#1377;&#1408;&#1396;&#1377;&#1398; &#1396;&#1381;&#1403;&#1417;" data-en="Algosphere Asset Management enters Armenia's rapidly growing capital markets at an inflection point. With mathematical precision and deep local expertise, we manage closed-end investment funds for discerning investors who seek disciplined, transparent, and long-term value creation.">
           Algosphere Asset Management enters Armenia's rapidly growing capital markets at an inflection point. With mathematical precision and deep local expertise, we manage closed-end investment funds for discerning investors who seek disciplined, transparent, and long-term value creation.
         </p>
       </div>
 
-      <!-- CTA to About page -->
       <div class="gs-reveal mt-12">
         <a href="/about" class="inline-flex items-center gap-3 text-[0.75rem] tracking-[0.15em] uppercase text-gold-accent hover:text-gold-400 transition-all duration-500 font-normal group">
           <span data-i18n data-hy="&#1339;&#1396;&#1377;&#1398;&#1377;&#1388; &#1377;&#1406;&#1381;&#1388;&#1387;&#1398;" data-en="Learn More">Learn More</span>
@@ -55,8 +105,8 @@ import PageFooter from '../components/PageFooter.astro';
 
   <GoldDivider />
 
-  <!-- Why Algosphere — Cards -->
-  <section class="relative py-32 sm:py-40 lg:py-48 overflow-hidden">
+  <!-- Why Algosphere — 4 Cards (Phase 3: navy bg + Arevakhach) -->
+  <section class="relative py-32 sm:py-40 lg:py-48 overflow-hidden section-navy arevakhach-bg">
     <div class="absolute bottom-0 left-1/4 w-[500px] h-[500px] ambient-blob bg-gold-400"></div>
 
     <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
@@ -72,43 +122,52 @@ import PageFooter from '../components/PageFooter.astro';
         </SectionHeader>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-        <!-- Algorithmic Precision -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <GlassCard
           title="Algorithmic Precision"
           titleHy="&#1329;&#1388;&#1379;&#1400;&#1408;&#1387;&#1385;&#1396;&#1377;&#1391;&#1377;&#1398; &#1355;&#1387;&#1399;&#1407;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;"
           iconPath="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"
         >
-          <p class="text-card-body font-light leading-[1.8] text-[15px]" data-i18n
-             data-hy="&#1348;&#1381;&#1408; &#1377;&#1398;&#1400;&#1410;&#1398;&#1384;&#1373; &laquo;algo&raquo;&#1373; &#1377;&#1408;&#1407;&#1377;&#1409;&#1400;&#1388;&#1400;&#1410;&#1396; &#1383; &#1396;&#1381;&#1408; &#1396;&#1400;&#1407;&#1381;&#1409;&#1400;&#1410;&#1396;&#1384;&#1417; &#1359;&#1406;&#1397;&#1377;&#1388;&#1398;&#1381;&#1408;&#1387; &#1406;&#1408;&#1377; &#1392;&#1387;&#1396;&#1398;&#1406;&#1377;&#1390;, &#1391;&#1377;&#1408;&#1379;&#1377;&#1402;&#1377;&#1392;&#1400;&#1406; &#1400;&#1408;&#1400;&#1399;&#1400;&#1410;&#1396;&#1398;&#1381;&#1408;&#1417;"
-             data-en="Our name says it all — &lsquo;algo&rsquo; reflects our commitment to data-driven, mathematically disciplined investment strategies that remove emotion from every decision.">
-            Our name says it all — &lsquo;algo&rsquo; reflects our commitment to data-driven, mathematically disciplined investment strategies that remove emotion from every decision.
+          <p class="text-card-body font-light leading-[1.8] text-[14px]" data-i18n
+             data-hy="&#1348;&#1381;&#1408; &#1377;&#1398;&#1400;&#1410;&#1398;&#1384;&#1373; &laquo;algo&raquo;&#1373; &#1377;&#1408;&#1407;&#1377;&#1409;&#1400;&#1388;&#1400;&#1410;&#1396; &#1383; &#1396;&#1381;&#1408; &#1396;&#1400;&#1407;&#1381;&#1409;&#1400;&#1410;&#1396;&#1384;&#1417; &#1359;&#1406;&#1397;&#1377;&#1388;&#1398;&#1381;&#1408;&#1387; &#1406;&#1408;&#1377; &#1392;&#1387;&#1396;&#1398;&#1406;&#1377;&#1390; &#1400;&#1408;&#1400;&#1399;&#1400;&#1410;&#1396;&#1398;&#1381;&#1408;&#1417;"
+             data-en="Data-driven, mathematically disciplined strategies that remove emotion from every investment decision.">
+            Data-driven, mathematically disciplined strategies that remove emotion from every investment decision.
           </p>
         </GlassCard>
 
-        <!-- CBA Licensed -->
         <GlassCard
           title="CBA Licensed"
           titleHy="&#1343;&#1330; &#1340;&#1387;&#1409;&#1381;&#1398;&#1382;&#1377;&#1406;&#1400;&#1408;&#1406;&#1377;&#1390;"
           iconPath="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
         >
-          <p class="text-card-body font-light leading-[1.8] text-[15px]" data-i18n
-             data-hy="&#1340;&#1387;&#1409;&#1381;&#1398;&#1382;&#1377;&#1406;&#1400;&#1408;&#1406;&#1377;&#1390; &#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;&#1387; &#1343;&#1381;&#1398;&#1407;&#1408;&#1400;&#1398;&#1377;&#1391;&#1377;&#1398; &#1330;&#1377;&#1398;&#1391;&#1387; &#1391;&#1400;&#1394;&#1396;&#1387;&#1409;&#1417; &#1348;&#1381;&#1398;&#1412; &#1379;&#1400;&#1408;&#1390;&#1400;&#1410;&#1396; &#1381;&#1398;&#1412; &#1377;&#1396;&#1381;&#1398;&#1377;&#1378;&#1377;&#1408;&#1393;&#1408; &#1391;&#1377;&#1408;&#1379;&#1377;&#1406;&#1400;&#1408;&#1396;&#1377;&#1398; &#1401;&#1377;&#1411;&#1377;&#1398;&#1387;&#1399;&#1398;&#1381;&#1408;&#1400;&#1406;&#1417;"
-             data-en="Fully licensed by the Central Bank of Armenia. We operate under the highest regulatory standards, ensuring complete transparency and investor protection.">
-            Fully licensed by the Central Bank of Armenia. We operate under the highest regulatory standards, ensuring complete transparency and investor protection.
+          <p class="text-card-body font-light leading-[1.8] text-[14px]" data-i18n
+             data-hy="&#1340;&#1387;&#1409;&#1381;&#1398;&#1382;&#1377;&#1406;&#1400;&#1408;&#1406;&#1377;&#1390; &#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;&#1387; &#1343;&#1381;&#1398;&#1407;&#1408;&#1400;&#1398;&#1377;&#1391;&#1377;&#1398; &#1330;&#1377;&#1398;&#1391;&#1387; &#1391;&#1400;&#1394;&#1396;&#1387;&#1409;&#1417; &#1329;&#1396;&#1381;&#1398;&#1377;&#1378;&#1377;&#1408;&#1393;&#1408; &#1391;&#1377;&#1408;&#1379;&#1377;&#1406;&#1400;&#1408;&#1396;&#1377;&#1398; &#1401;&#1377;&#1411;&#1377;&#1398;&#1387;&#1399;&#1398;&#1381;&#1408;&#1417;"
+             data-en="Fully licensed by the Central Bank of Armenia, operating under the highest regulatory standards.">
+            Fully licensed by the Central Bank of Armenia, operating under the highest regulatory standards.
           </p>
         </GlassCard>
 
-        <!-- Armenian Heritage -->
         <GlassCard
           title="Armenian Heritage"
           titleHy="&#1344;&#1377;&#1397;&#1391;&#1377;&#1391;&#1377;&#1398; &#1338;&#1377;&#1404;&#1377;&#1398;&#1379;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;"
           iconPath="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418"
         >
-          <p class="text-card-body font-light leading-[1.8] text-[15px]" data-i18n
-             data-hy="&#1344;&#1377;&#1397;&#1391;&#1377;&#1391;&#1377;&#1398; &#1393;&#1381;&#1404;&#1398;&#1381;&#1408;&#1391;&#1377;&#1407;&#1400;&#1410;&#1385;&#1397;&#1377;&#1398; &#1377;&#1406;&#1377;&#1398;&#1380;&#1400;&#1410;&#1397;&#1385;&#1384; &#1392;&#1377;&#1398;&#1380;&#1387;&#1402;&#1400;&#1410;&#1396; &#1383; &#1396;&#1387;&#1403;&#1377;&#1382;&#1379;&#1377;&#1397;&#1387;&#1398; &#1411;&#1400;&#1408;&#1393;&#1377;&#1404;&#1400;&#1410;&#1385;&#1397;&#1377;&#1398; &#1392;&#1381;&#1407;&#1417;"
-             data-en="Connecting the global Armenian diaspora — 7 to 10 million strong — with compelling investment opportunities in one of the world's fastest-growing frontier markets.">
-            Connecting the global Armenian diaspora — 7 to 10 million strong — with compelling investment opportunities in one of the world's fastest-growing frontier markets.
+          <p class="text-card-body font-light leading-[1.8] text-[14px]" data-i18n
+             data-hy="&#1344;&#1377;&#1397;&#1391;&#1377;&#1391;&#1377;&#1398; &#1405;&#1411;&#1397;&#1400;&#1410;&#1404;&#1412;&#1387; 7&#8211;10 &#1396;&#1387;&#1388;&#1387;&#1400;&#1398; &#1398;&#1381;&#1408;&#1391;&#1377;&#1397;&#1377;&#1409;&#1400;&#1410;&#1409;&#1387;&#1401;&#1398;&#1381;&#1408;&#1387; &#1391;&#1377;&#1402;&#1384; &#1405;&#1377;&#1392;&#1396;&#1377;&#1398;&#1377;&#1397;&#1387;&#1398; &#1399;&#1400;&#1410;&#1391;&#1377;&#1397;&#1387; &#1392;&#1398;&#1377;&#1408;&#1377;&#1406;&#1400;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1398;&#1381;&#1408;&#1387; &#1392;&#1381;&#1407;&#1417;"
+             data-en="Connecting the 7&#8211;10 million strong Armenian diaspora with compelling frontier market opportunities.">
+            Connecting the 7&#8211;10 million strong Armenian diaspora with compelling frontier market opportunities.
+          </p>
+        </GlassCard>
+
+        <GlassCard
+          title="Disciplined Process"
+          titleHy="&#1343;&#1377;&#1408;&#1379;&#1377;&#1402;&#1377;&#1392;&#1400;&#1406; &#1331;&#1400;&#1408;&#1390;&#1384;&#1398;&#1385;&#1377;&#1409;"
+          iconPath="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"
+        >
+          <p class="text-card-body font-light leading-[1.8] text-[14px]" data-i18n
+             data-hy="&#1364;&#1377;&#1404;&#1377;&#1405;&#1407;&#1387;&#1395;&#1377;&#1398; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1379;&#1400;&#1408;&#1390;&#1384;&#1398;&#1385;&#1377;&#1409;&#1417; &#1329;&#1394;&#1378;&#1397;&#1400;&#1410;&#1408;&#1387; &#1392;&#1377;&#1397;&#1407;&#1398;&#1377;&#1378;&#1381;&#1408;&#1400;&#1410;&#1396;, &#1406;&#1381;&#1408;&#1388;&#1400;&#1410;&#1390;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;, &#1387;&#1408;&#1377;&#1391;&#1377;&#1398;&#1377;&#1409;&#1400;&#1410;&#1396; &#1415; &#1396;&#1400;&#1398;&#1387;&#1407;&#1400;&#1408;&#1387;&#1398;&#1379;&#1417;"
+             data-en="Four-stage investment process: Sourcing, Diligence, Execution, and continuous Portfolio Monitoring.">
+            Four-stage investment process: Sourcing, Diligence, Execution, and continuous Portfolio Monitoring.
           </p>
         </GlassCard>
       </div>
@@ -117,9 +176,84 @@ import PageFooter from '../components/PageFooter.astro';
 
   <GoldDivider />
 
-  <!-- CTA Section -->
-  <section class="relative py-32 sm:py-40 overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.03)_0%,transparent_50%)]"></div>
+  <!-- Latest Insights Teaser -->
+  <section class="relative py-32 sm:py-40 lg:py-48 overflow-hidden">
+    <div class="absolute top-1/4 left-0 w-[500px] h-[500px] ambient-blob bg-gold-400"></div>
+
+    <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-16 lg:mb-20">
+        <div>
+          <SectionHeader label="Latest Insights" labelHy="&#1358;&#1381;&#1408;&#1403;&#1387;&#1398; &#1344;&#1381;&#1407;&#1377;&#1382;&#1400;&#1407;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1398;&#1381;&#1408;" />
+          <h2 class="gs-reveal font-heading text-3xl sm:text-4xl lg:text-[3rem] text-text-primary font-semibold leading-[1.1] mt-4">
+            <span data-i18n data-hy="&#1348;&#1407;&#1377;&#1390;&#1381;&#1388;&#1377;&#1391;&#1381;&#1408;&#1402; <span class='text-gold-gradient'>&#1329;&#1404;&#1377;&#1403;&#1398;&#1400;&#1408;&#1380;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;</span>" data-en="Thought <span class='text-gold-gradient'>Leadership</span>">Thought <span class="text-gold-gradient">Leadership</span></span>
+          </h2>
+        </div>
+        <div class="gs-reveal mt-6 sm:mt-0">
+          <a href="/insights" class="inline-flex items-center gap-3 text-[0.75rem] tracking-[0.15em] uppercase text-gold-accent hover:text-gold-400 transition-all duration-500 font-normal group">
+            <span data-i18n data-hy="&#1332;&#1387;&#1407;&#1381;&#1388; &#1378;&#1400;&#1388;&#1400;&#1408;&#1384;" data-en="View All Insights">View All Insights</span>
+            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Featured: Why Armenia -->
+        <article class="gs-reveal-scale glass-card p-8 flex flex-col lg:col-span-2 md:col-span-2">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-[0.6rem] tracking-[0.2em] uppercase text-gold-soft border border-gold-400/20 px-3 py-1 rounded" data-i18n data-hy="&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1337;&#1381;&#1382;&#1387;&#1405;" data-en="Investment Thesis">Investment Thesis</span>
+            <span class="text-card-body-muted text-[11px] font-light">Q1 2025</span>
+          </div>
+          <h3 class="font-heading text-2xl sm:text-3xl text-card-title font-semibold mb-4 leading-[1.15]" data-i18n
+              data-hy="&#1339;&#1398;&#1401;&#1400;&#1410; &#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;. <span class='text-gold-gradient'>&#1357;&#1377;&#1392;&#1396;&#1377;&#1398;&#1377;&#1397;&#1387;&#1398; &#1399;&#1400;&#1410;&#1391;&#1377;&#1397;&#1387; &#1392;&#1398;&#1377;&#1408;&#1377;&#1406;&#1400;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1384;</span>"
+              data-en="Why Armenia: <span class='text-gold-gradient'>The Frontier Market Opportunity</span>">
+            Why Armenia: <span class="text-gold-gradient">The Frontier Market Opportunity</span>
+          </h3>
+          <p class="text-card-body-muted text-[15px] font-light leading-[1.75] flex-1" data-i18n
+             data-hy="&#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;&#1384; &#1382;&#1377;&#1408;&#1379;&#1377;&#1398;&#1400;&#1410;&#1396; &#1383; &#1400;&#1408;&#1402;&#1381;&#1405; &#1405;&#1377;&#1392;&#1396;&#1377;&#1398;&#1377;&#1397;&#1387;&#1398; &#1399;&#1400;&#1410;&#1391;&#1377;&#1397;&#1387; &#1377;&#1396;&#1381;&#1398;&#1377;&#1379;&#1408;&#1377;&#1406;&#1387;&#1401; &#1402;&#1377;&#1407;&#1396;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1398;&#1381;&#1408;&#1387;&#1409; &#1396;&#1381;&#1391;&#1384;&#1417; $2.6 &#1396;&#1388;&#1408;&#1380; &#1407;&#1381;&#1389;&#1398;&#1400;&#1388;&#1400;&#1379;&#1387;&#1377;&#1391;&#1377;&#1398; &#1377;&#1408;&#1407;&#1377;&#1380;&#1408;&#1377;&#1398;&#1412;, 200+ &#1414;&#1387;&#1398;&#1407;&#1381;&#1412; &#1384;&#1398;&#1391;&#1381;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;, NVIDIA-&#1387; $500&#1348; &#1379;&#1400;&#1408;&#1390;&#1384;&#1398;&#1391;&#1381;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398; &#1415; ServiceTitan &#1396;&#1387;&#1377;&#1381;&#1394;&#1403;&#1397;&#1400;&#1410;&#1408;&#1384;&#1417;"
+             data-en="Armenia is quietly emerging as one of the most compelling frontier market stories. With $2.6B in tech output, 200+ fintechs, NVIDIA's $500M AI partnership, and the ServiceTitan unicorn &mdash; the country's growth trajectory is remarkable.">
+            Armenia is quietly emerging as one of the most compelling frontier market stories. With $2.6B in tech output, 200+ fintechs, NVIDIA's $500M AI partnership, and the ServiceTitan unicorn &mdash; the country's growth trajectory is remarkable.
+          </p>
+          <div class="mt-6 pt-5 border-t border-white/[0.06]">
+            <a href="/insights" class="inline-flex items-center gap-2 text-[0.7rem] tracking-[0.15em] uppercase text-gold-accent hover:text-gold-400 transition-all duration-500 font-normal group">
+              <span data-i18n data-hy="&#1343;&#1377;&#1408;&#1380;&#1377;&#1388; &#1392;&#1400;&#1380;&#1406;&#1377;&#1390;&#1384;" data-en="Read Article">Read Article</span>
+              <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Commentary card -->
+        <article class="gs-reveal-scale glass-card p-8 flex flex-col">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-[0.6rem] tracking-[0.15em] uppercase text-gold-soft border border-gold-400/20 px-2.5 py-0.5 rounded" data-i18n data-hy="&#1351;&#1400;&#1410;&#1391;&#1377;" data-en="Market">Market</span>
+            <span class="text-card-body-muted text-[11px] font-light">Q4 2024</span>
+          </div>
+          <h3 class="font-heading text-xl text-card-title font-semibold mb-4 leading-[1.2]" data-i18n
+              data-hy="&#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;&#1387; &#1407;&#1398;&#1407;&#1381;&#1405;&#1377;&#1391;&#1377;&#1398; &#1377;&#1395;&#1387;&#1398;. Q4 &#1377;&#1396;&#1411;&#1400;&#1411;&#1400;&#1389;&#1400;&#1410;&#1396;"
+              data-en="Armenian Economic Review: Q4 Recap">
+            Armenian Economic Review: Q4 Recap
+          </h3>
+          <p class="text-card-body-muted text-[14px] font-light leading-[1.7] flex-1" data-i18n
+             data-hy="&#1344;&#1344;&#1329;-&#1398; &#1399;&#1377;&#1408;&#1400;&#1410;&#1398;&#1377;&#1391;&#1400;&#1410;&#1396; &#1383; &#1377;&#1395;&#1381;&#1388; &#1391;&#1377;&#1397;&#1400;&#1410;&#1398; &#1407;&#1381;&#1396;&#1402;&#1400;&#1406;&#1417; &#1359;&#1381;&#1389;&#1398;&#1400;&#1388;&#1400;&#1379;&#1387;&#1377;&#1391;&#1377;&#1398; &#1400;&#1388;&#1400;&#1408;&#1407;&#1384; &#1399;&#1377;&#1408;&#1400;&#1410;&#1398;&#1377;&#1391;&#1400;&#1410;&#1396; &#1383; &#1379;&#1408;&#1377;&#1406;&#1381;&#1388; &#1413;&#1407;&#1377;&#1408;&#1381;&#1408;&#1391;&#1408;&#1397;&#1377; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1398;&#1381;&#1408;&#1417;"
+             data-en="GDP growth moderated to a sustainable pace while remaining above regional averages. Technology sector continues to attract FDI.">
+            GDP growth moderated to a sustainable pace while remaining above regional averages. Technology sector continues to attract FDI.
+          </p>
+          <div class="flex items-center gap-2 mt-6 pt-5 border-t border-white/[0.06]">
+            <span class="text-gold-soft text-[12px] font-light" data-i18n data-hy="&#1351;&#1400;&#1410;&#1407;&#1400;&#1406;" data-en="Coming Soon">Coming Soon</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider />
+
+  <!-- CTA Section (Phase 3: navy bg) -->
+  <section class="relative py-32 sm:py-40 overflow-hidden section-navy">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.04)_0%,transparent_50%)]"></div>
 
     <div class="section-inner max-w-[800px] mx-auto px-6 lg:px-20 relative z-10 text-center">
       <div class="gs-reveal">
@@ -129,12 +263,13 @@ import PageFooter from '../components/PageFooter.astro';
         </h2>
         <p class="text-card-body text-[17px] font-light leading-[1.75] mb-12 max-w-lg mx-auto" data-i18n
            data-hy="&#1339;&#1396;&#1377;&#1398;&#1377;&#1388; &#1396;&#1381;&#1408; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1396;&#1400;&#1407;&#1381;&#1409;&#1400;&#1410;&#1396;&#1384; &#1391;&#1377;&#1396; &#1391;&#1377;&#1402;&#1406;&#1381;&#1412; &#1396;&#1381;&#1408; &#1385;&#1387;&#1396;&#1387; &#1392;&#1381;&#1407;&#1417;"
-           data-en="Whether you're a qualified investor seeking exposure to Armenia's growth story or simply exploring new horizons — we'd welcome a conversation.">
-          Whether you're a qualified investor seeking exposure to Armenia's growth story or simply exploring new horizons — we'd welcome a conversation.
+           data-en="Whether you're a qualified investor seeking exposure to Armenia's growth story or simply exploring new horizons &mdash; we'd welcome a conversation.">
+          Whether you're a qualified investor seeking exposure to Armenia's growth story or simply exploring new horizons &mdash; we'd welcome a conversation.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <a href="/funds" class="inline-block px-8 py-3 border border-gold-400/40 text-gold-400 text-[0.75rem] tracking-[0.15em] uppercase font-medium rounded hover:bg-gold-400/10 hover:border-gold-400/60 transition-all duration-500" data-i18n data-hy="&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;&#1387; &#1354;&#1400;&#1408;&#1407;&#1377;&#1388;" data-en="Investor Portal">Investor Portal</a>
+          <a href="/funds" class="btn-gold-shimmer inline-block px-8 py-3 border border-gold-400/40 text-gold-400 text-[0.75rem] tracking-[0.15em] uppercase font-medium rounded hover:bg-gold-400/10 hover:border-gold-400/60 transition-all duration-500" data-i18n data-hy="&#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;&#1387; &#1354;&#1400;&#1408;&#1407;&#1377;&#1388;" data-en="Investor Portal">Investor Portal</a>
           <a href="/contact" class="inline-block px-8 py-3 text-card-body text-[0.75rem] tracking-[0.15em] uppercase font-medium hover:text-gold-400 transition-all duration-500" data-i18n data-hy="&#1343;&#1377;&#1402;&#1406;&#1381;&#1388; &#1396;&#1381;&#1382; &#1392;&#1381;&#1407;" data-en="Get in Touch">Get in Touch</a>
+          <a href="/about" class="inline-block px-8 py-3 text-card-body text-[0.75rem] tracking-[0.15em] uppercase font-medium hover:text-gold-400 transition-all duration-500" data-i18n data-hy="&#1348;&#1381;&#1408; &#1396;&#1377;&#1405;&#1387;&#1398;" data-en="About Us">About Us</a>
         </div>
       </div>
     </div>
@@ -144,7 +279,7 @@ import PageFooter from '../components/PageFooter.astro';
 
   <PageFooter />
 
-  <!-- Main script — imports all modules -->
+  <!-- Main script -->
   <script>
     import { initLenis, animateHero, initParallax, initScrollAnimations } from '../scripts/animations';
     import { initCustomCursor } from '../scripts/cursor';

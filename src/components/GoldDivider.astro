@@ -1,7 +1,20 @@
 ---
 /**
- * Gold gradient divider line — used between sections.
+ * Gold gradient divider line — Armenian-inspired ornate divider.
+ * Phase 3: Added center diamond motif inspired by khachkar geometry.
  */
+interface Props {
+  /** Use the khachkar-style divider variant */
+  ornate?: boolean;
+}
+
+const { ornate = false } = Astro.props;
 ---
 
-<div class="gold-divider gs-line-h"></div>
+{ornate ? (
+  <div class="khachkar-divider gs-line-h">
+    <div class="khachkar-divider-center"></div>
+  </div>
+) : (
+  <div class="gold-divider gs-line-h"></div>
+)}
