@@ -51,8 +51,8 @@ body {
 /* ═══════════ GLASS CARD ═══════════ */
 .glass-card {
   background: linear-gradient(135deg, rgba(19, 22, 40, 0.7) 0%, rgba(13, 15, 26, 0.5) 100%);
-  backdrop-filter: blur(24px) saturate(1.2);
-  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  backdrop-filter: blur(32px) saturate(1.3);
+  -webkit-backdrop-filter: blur(32px) saturate(1.3);
   border: 1px solid rgba(212, 175, 55, 0.08);
   border-radius: 20px;
   position: relative;
@@ -143,6 +143,86 @@ body {
   border-bottom-color: rgba(212, 175, 55, 0.08) !important;
 }
 
+/* ═══════════ NAV LINK HOVER ═══════════ */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #D4AF37, rgba(212, 175, 55, 0.3));
+  transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ═══════════ LANGUAGE SWITCHER ═══════════ */
+.lang-btn {
+  color: rgba(107, 114, 128, 0.7);
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.lang-btn:hover {
+  color: rgba(212, 175, 55, 0.8);
+}
+
+.lang-btn.active {
+  color: #D4AF37;
+  border-color: rgba(212, 175, 55, 0.3);
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.mobile-lang-btn {
+  color: rgba(156, 163, 175, 0.7);
+  background: transparent;
+  cursor: pointer;
+}
+
+.mobile-lang-btn:hover {
+  color: #D4AF37;
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+.mobile-lang-btn.active {
+  color: #D4AF37;
+  background: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+/* ═══════════ MOBILE MENU ═══════════ */
+.hamburger-line {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.mobile-nav-link {
+  position: relative;
+}
+
+.mobile-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: #D4AF37;
+  transition: width 0.3s ease;
+}
+
+.mobile-nav-link:hover::after {
+  width: 60%;
+}
+
 /* ═══════════ LOGO CIRCLE ═══════════ */
 .logo-circle {
   width: 44px;
@@ -177,6 +257,7 @@ body {
 /* ═══════════ HERO LOGO ═══════════ */
 .hero-logo-ring {
   position: relative;
+  transition: all 0.6s ease;
 }
 
 .hero-logo-ring::before {
@@ -197,9 +278,34 @@ body {
   animation: ringPulse 4s ease-in-out infinite 1s;
 }
 
+/* Gold shimmer effect on hero logo hover */
+.hero-logo-ring:hover {
+  box-shadow:
+    0 0 40px rgba(212, 175, 55, 0.15),
+    0 0 80px rgba(212, 175, 55, 0.05);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.hero-logo-ring:hover::before {
+  border-color: rgba(212, 175, 55, 0.2);
+  animation: ringShimmer 2s ease-in-out infinite;
+}
+
+.hero-logo-ring:hover::after {
+  border-color: rgba(212, 175, 55, 0.1);
+  animation: ringShimmer 2s ease-in-out infinite 0.5s;
+}
+
 @keyframes ringPulse {
   0%, 100% { transform: scale(1); opacity: 1; }
   50%      { transform: scale(1.08); opacity: 0.4; }
+}
+
+@keyframes ringShimmer {
+  0%, 100% { transform: scale(1); opacity: 1; border-color: rgba(212, 175, 55, 0.2); }
+  25%      { transform: scale(1.05); opacity: 0.8; border-color: rgba(245, 230, 163, 0.3); }
+  50%      { transform: scale(1.1); opacity: 0.5; border-color: rgba(212, 175, 55, 0.15); }
+  75%      { transform: scale(1.05); opacity: 0.8; border-color: rgba(245, 230, 163, 0.25); }
 }
 
 /* ═══════════ VALUE DIAMOND ═══════════ */
@@ -255,6 +361,31 @@ body {
 .gs-line-h {
   transform: scaleX(0);
   transform-origin: center;
+}
+
+/* ═══════════ NO-JS FALLBACK ═══════════ */
+/* If JS doesn't load, make content visible */
+noscript ~ * .gs-hero-el,
+noscript ~ * .gs-reveal,
+noscript ~ * .gs-reveal-left,
+noscript ~ * .gs-reveal-right,
+noscript ~ * .gs-reveal-scale,
+noscript ~ * .gs-line-h {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Also add a class-based fallback: after 3s, if GSAP hasn't kicked in */
+@media (prefers-reduced-motion: reduce) {
+  .gs-hero-el,
+  .gs-reveal,
+  .gs-reveal-left,
+  .gs-reveal-right,
+  .gs-reveal-scale,
+  .gs-line-h {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* ═══════════ NOISE OVERLAY ═══════════ */
