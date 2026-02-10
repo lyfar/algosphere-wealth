@@ -5,13 +5,16 @@
 interface Props {
   title: string;
   titleHy?: string;
+  titleRu?: string;
+  titleFr?: string;
+  titleAr?: string;
   iconPath: string;
   /** Additional SVG path (some icons have 2) */
   iconPath2?: string;
   class?: string;
 }
 
-const { title, titleHy, iconPath, iconPath2, class: className = '' } = Astro.props;
+const { title, titleHy, titleRu, titleFr, titleAr, iconPath, iconPath2, class: className = '' } = Astro.props;
 ---
 
 <div class:list={['glass-card p-10 lg:p-12 gs-reveal-scale', className]}>
@@ -27,6 +30,9 @@ const { title, titleHy, iconPath, iconPath2, class: className = '' } = Astro.pro
       data-i18n
       data-hy={titleHy || title}
       data-en={title}
+      data-ru={titleRu || title}
+      data-fr={titleFr || title}
+      data-ar={titleAr || title}
     >
       {titleHy || title}
     </h3>

@@ -6,11 +6,14 @@
 interface Props {
   label: string;
   labelHy?: string;
+  labelRu?: string;
+  labelFr?: string;
+  labelAr?: string;
   centered?: boolean;
   class?: string;
 }
 
-const { label, labelHy, centered = false, class: className = '' } = Astro.props;
+const { label, labelHy, labelRu, labelFr, labelAr, centered = false, class: className = '' } = Astro.props;
 ---
 
 <div class:list={['gs-reveal', centered && 'flex flex-col items-center', className]}>
@@ -20,6 +23,9 @@ const { label, labelHy, centered = false, class: className = '' } = Astro.props;
     data-i18n
     data-hy={labelHy || label}
     data-en={label}
+    data-ru={labelRu || label}
+    data-fr={labelFr || label}
+    data-ar={labelAr || label}
   >
     {labelHy || label}
   </p>

@@ -1,11 +1,18 @@
 /**
- * Language switcher — toggles between Armenian (hy) and English (en).
- * Uses data-i18n elements with data-hy / data-en attributes.
+ * Language switcher — supports Armenian (hy), English (en), Russian (ru), French (fr), and Arabic (ar).
+ * Uses data-i18n elements with data-hy / data-en / data-ru / data-fr / data-ar attributes.
  */
 
 export function switchLanguage(lang: string): void {
   localStorage.setItem('algosphere-lang', lang);
-  document.documentElement.lang = lang === 'hy' ? 'hy' : 'en';
+  document.documentElement.lang = lang;
+
+  // Set RTL for Arabic, remove for others
+  if (lang === 'ar') {
+    document.documentElement.setAttribute('dir', 'rtl');
+  } else {
+    document.documentElement.removeAttribute('dir');
+  }
 
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const text = (el as HTMLElement).dataset[lang] || (el as HTMLElement).dataset.en || '';
@@ -29,15 +36,11 @@ export function switchLanguage(lang: string): void {
 export function initLanguageSwitcher(): void {
   const savedLang = localStorage.getItem('algosphere-lang') || 'hy';
 
-  if (savedLang === 'en') {
-    switchLanguage('en');
-  } else {
-    // Make sure HY button is active by default
-    document.querySelectorAll('.lang-btn').forEach((b) => b.classList.remove('active'));
-    const hyBtn = document.getElementById('lang-hy');
-    if (hyBtn) hyBtn.classList.add('active');
-  }
+  switchLanguage(savedLang);
 
   document.getElementById('lang-hy')?.addEventListener('click', () => switchLanguage('hy'));
   document.getElementById('lang-en')?.addEventListener('click', () => switchLanguage('en'));
+  document.getElementById('lang-ru')?.addEventListener('click', () => switchLanguage('ru'));
+  document.getElementById('lang-fr')?.addEventListener('click', () => switchLanguage('fr'));
+  document.getElementById('lang-ar')?.addEventListener('click', () => switchLanguage('ar'));
 }
