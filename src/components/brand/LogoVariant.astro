@@ -1,0 +1,95 @@
+---
+/**
+ * LogoVariant — renders a single logo variant in 4 contexts:
+ * 1. Mark on dark background
+ * 2. Mark on light/white background
+ * 3. Horizontal lockup (mark + wordmark)
+ * 4. Vertical lockup (mark over wordmark)
+ *
+ * Props:
+ *  - name: variant display name
+ *  - context: usage context description
+ *  - paths: SVG inner content (the <path>/<line> elements)
+ *  - index: variant number for labeling
+ */
+interface Props {
+  name: string;
+  context: string;
+  paths: string;
+  index: number;
+}
+
+const { name, context, paths, index } = Astro.props;
+
+// Colors
+const gold = '#D4AF37';
+const dark = '#0A0A0A';
+const light = '#F5F5F5';
+
+// Generate light-mode paths by replacing gold with dark
+const lightPaths = paths
+  .replace(/#D4AF37/g, dark)
+  .replace(/#0A0A0A/g, light);
+---
+
+<div class="gs-reveal-scale mb-16">
+  <!-- Variant Header -->
+  <div class="flex items-baseline gap-4 mb-6">
+    <span class="text-gold-accent font-mono text-sm opacity-50">{String(index).padStart(2, '0')}</span>
+    <h3 class="font-heading text-2xl text-text-primary font-semibold">{name}</h3>
+    <span class="text-[0.68rem] tracking-[0.14em] uppercase text-card-body-muted">{context}</span>
+  </div>
+
+  <!-- 4-up Grid -->
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+    <!-- Dark Background -->
+    <div class="rounded-2xl border border-glass-border p-6 flex flex-col items-center justify-center min-h-[200px] transition-all duration-300 hover:border-gold-accent/20"
+         style={`background: ${dark};`}>
+      <svg width="80" height="80" viewBox="0 0 140 140" set:html={
+        `<circle cx="70" cy="70" r="64" fill="none" stroke="${gold}" stroke-width="1.5" opacity="0.6"/>` + paths
+      } />
+      <p class="mt-3 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">On Dark</p>
+    </div>
+
+    <!-- Light Background -->
+    <div class="rounded-2xl border border-gray-200 p-6 flex flex-col items-center justify-center min-h-[200px] transition-all duration-300 hover:border-gray-400"
+         style="background: #FFFFFF;">
+      <svg width="80" height="80" viewBox="0 0 140 140" set:html={
+        `<circle cx="70" cy="70" r="64" fill="none" stroke="${dark}" stroke-width="1.5" opacity="0.6"/>` + lightPaths
+      } />
+      <p class="mt-3 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #666;">On Light</p>
+    </div>
+
+    <!-- Horizontal Lockup -->
+    <div class="rounded-2xl border border-glass-border p-6 flex flex-col items-center justify-center min-h-[200px] transition-all duration-300 hover:border-gold-accent/20"
+         style={`background: ${dark};`}>
+      <div class="flex items-center gap-4">
+        <svg width="44" height="44" viewBox="0 0 140 140" set:html={
+          `<circle cx="70" cy="70" r="64" fill="none" stroke="${gold}" stroke-width="1.5" opacity="0.6"/>` + paths
+        } />
+        <div class="flex flex-col">
+          <span class="text-[0.85rem] tracking-[0.22em] uppercase font-semibold leading-tight" style={`color: ${light}; font-family: 'Cormorant Garamond', serif;`}>Algosphere</span>
+          <span class="text-[0.42rem] tracking-[0.28em] uppercase leading-tight mt-0.5 opacity-50" style={`color: ${gold};`}>Asset Management</span>
+        </div>
+      </div>
+      <p class="mt-3 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Horizontal</p>
+    </div>
+
+    <!-- Vertical Lockup -->
+    <div class="rounded-2xl border border-glass-border p-6 flex flex-col items-center justify-center min-h-[200px] transition-all duration-300 hover:border-gold-accent/20"
+         style={`background: ${dark};`}>
+      <div class="flex flex-col items-center gap-3">
+        <svg width="48" height="48" viewBox="0 0 140 140" set:html={
+          `<circle cx="70" cy="70" r="64" fill="none" stroke="${gold}" stroke-width="1.5" opacity="0.6"/>` + paths
+        } />
+        <div class="flex flex-col items-center">
+          <span class="text-[0.8rem] tracking-[0.22em] uppercase font-semibold leading-tight" style={`color: ${light}; font-family: 'Cormorant Garamond', serif;`}>Algosphere</span>
+          <span class="text-[0.4rem] tracking-[0.28em] uppercase leading-tight mt-1 opacity-50" style={`color: ${gold};`}>Asset Management</span>
+        </div>
+      </div>
+      <p class="mt-3 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Vertical</p>
+    </div>
+
+  </div>
+</div>

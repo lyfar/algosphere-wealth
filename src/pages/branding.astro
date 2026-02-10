@@ -14,6 +14,27 @@ import SectionHeader from '../components/SectionHeader.astro';
 import GoldDivider from '../components/GoldDivider.astro';
 import PageFooter from '../components/PageFooter.astro';
 import SubpageScripts from '../components/SubpageScripts.astro';
+import LogoVariant from '../components/brand/LogoVariant.astro';
+import { logoVariants } from '../data/logoVariants';
+
+// Brand colors for the palette section
+const brandColors = {
+  primary: [
+    { name: 'Deep Black', hex: '#0A0A0A', desc: 'Primary background' },
+    { name: 'Gold', hex: '#D4AF37', desc: 'Primary accent' },
+    { name: 'Ivory', hex: '#F5F5F5', desc: 'Primary text' },
+    { name: 'Silver', hex: '#BABABA', desc: 'Secondary text' },
+  ],
+  gold: [
+    { name: 'Gold Light', hex: '#F0D78C', desc: 'Highlights' },
+    { name: 'Gold Base', hex: '#D4AF37', desc: 'Core brand' },
+    { name: 'Gold Dark', hex: '#A48111', desc: 'Depth & shadow' },
+  ],
+  accent: [
+    { name: 'Burgundy', hex: '#722F37', desc: 'Armenian heritage • warmth' },
+    { name: 'Navy', hex: '#0D1B3E', desc: 'Trust • alternative sections' },
+  ],
+};
 ---
 
 <Layout title="Branding & Visual Identity — Algosphere Asset Management" description="Brand guidelines and visual identity system for Algosphere Asset Management.">
@@ -28,342 +49,39 @@ import SubpageScripts from '../components/SubpageScripts.astro';
 
   <GoldDivider />
 
-  <!-- Logo Variants -->
+  <!-- ═══════════════════════════════════════════
+       SECTION 1: LOGO VARIANTS
+       ═══════════════════════════════════════════ -->
   <section class="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
     <div class="absolute top-0 left-0 w-[500px] h-[500px] ambient-blob bg-gold-400"></div>
 
     <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
-      <SectionHeader label="Logo Variants" />
+      <SectionHeader label="Logo Mark — Proposed Variants" />
 
       <div class="gs-reveal mt-12 mb-16">
         <p class="text-[17px] text-card-body font-light leading-[1.75] max-w-[720px]">
-          The Algosphere mark is built on the letter <span class="text-gold-accent font-medium">A</span> — representing algorithmic thinking, Armenian heritage, and asset management excellence. The circle symbolizes completeness, precision, and our sphere of influence. Below are proposed logo variants for review.
+          The Algosphere mark is the letter <span class="text-gold-accent font-medium">A</span> inscribed in a circle — representing algorithmic thinking, Armenian heritage, and completeness. Each variant shown in four contexts: dark background, light background, horizontal lockup with wordmark, and vertical lockup.
         </p>
       </div>
 
-      <!-- Logo Grid — all SVGs: 140x140 viewBox, circle r=64 cx=70 cy=70, stroke=1.5 -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-        
-        <!-- 1. Elegant High-Contrast Serif (Didot / Bodoni feel) -->
-        <div class="gs-reveal-scale">
-          <div class="glass-card p-10 flex flex-col items-center justify-center min-h-[300px] group hover:border-gold-accent/30 transition-all duration-500">
-            <div class="relative">
-              <svg width="140" height="140" viewBox="0 0 140 140" class="transition-transform duration-700 group-hover:scale-105">
-                <circle cx="70" cy="70" r="64" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.6"/>
-                <!-- Didot-style A: extreme thin/thick contrast, hairline serifs -->
-                <path d="M 55 100 L 70 38 L 85 100" stroke="#D4AF37" stroke-width="1" fill="none"/>
-                <!-- Thick left stroke -->
-                <path d="M 55 100 L 70 38" stroke="#D4AF37" stroke-width="4" fill="none" stroke-linecap="butt"/>
-                <!-- Thin right stroke -->
-                <path d="M 70 38 L 85 100" stroke="#D4AF37" stroke-width="1" fill="none" stroke-linecap="butt"/>
-                <!-- Crossbar - thin -->
-                <line x1="59" y1="76" x2="80" y2="76" stroke="#D4AF37" stroke-width="0.8"/>
-                <!-- Base serifs -->
-                <line x1="49" y1="100" x2="61" y2="100" stroke="#D4AF37" stroke-width="1"/>
-                <line x1="79" y1="100" x2="91" y2="100" stroke="#D4AF37" stroke-width="0.8"/>
-                <!-- Apex serif -->
-                <line x1="66" y1="38" x2="74" y2="38" stroke="#D4AF37" stroke-width="0.6"/>
-              </svg>
-            </div>
-            <p class="mt-6 text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Didot Contrast</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60 text-center">High fashion • editorial</p>
-          </div>
-        </div>
+      <!-- All variants rendered via component -->
+      {logoVariants.map((v, i) => (
+        <LogoVariant
+          name={v.name}
+          context={v.context}
+          paths={v.paths}
+          index={i + 1}
+        />
+      ))}
 
-        <!-- 2. Classical Trajan (Roman inscription) -->
-        <div class="gs-reveal-scale">
-          <div class="glass-card p-10 flex flex-col items-center justify-center min-h-[300px] group hover:border-gold-accent/30 transition-all duration-500">
-            <div class="relative">
-              <svg width="140" height="140" viewBox="0 0 140 140" class="transition-transform duration-700 group-hover:scale-105">
-                <circle cx="70" cy="70" r="64" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.6"/>
-                <!-- Trajan A: wide stance, triangular serifs, roman proportions -->
-                <path d="M 49 100 L 70 36 L 91 100" stroke="#D4AF37" stroke-width="2.8" fill="none" stroke-linejoin="miter"/>
-                <!-- Crossbar -->
-                <line x1="56" y1="78" x2="84" y2="78" stroke="#D4AF37" stroke-width="1.8"/>
-                <!-- Triangular base serifs (left) -->
-                <path d="M 44 100 L 49 100 L 49 97" fill="none" stroke="#D4AF37" stroke-width="1.2"/>
-                <path d="M 54 100 L 49 100" stroke="#D4AF37" stroke-width="1.2"/>
-                <!-- Triangular base serifs (right) -->
-                <path d="M 86 100 L 91 100 L 91 97" fill="none" stroke="#D4AF37" stroke-width="1.2"/>
-                <path d="M 96 100 L 91 100" stroke="#D4AF37" stroke-width="1.2"/>
-              </svg>
-            </div>
-            <p class="mt-6 text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Trajan Classical</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60 text-center">Institutional • carved stone</p>
-          </div>
-        </div>
-
-        <!-- 3. Futura Geometric -->
-        <div class="gs-reveal-scale">
-          <div class="glass-card p-10 flex flex-col items-center justify-center min-h-[300px] group hover:border-gold-accent/30 transition-all duration-500">
-            <div class="relative">
-              <svg width="140" height="140" viewBox="0 0 140 140" class="transition-transform duration-700 group-hover:scale-105">
-                <circle cx="70" cy="70" r="64" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.6"/>
-                <!-- Futura A: perfect triangle, geometric, pointed apex -->
-                <path d="M 48 100 L 70 34 L 92 100" stroke="#D4AF37" stroke-width="3" fill="none" stroke-linejoin="miter" stroke-linecap="butt"/>
-                <!-- Crossbar - perfectly horizontal -->
-                <line x1="55" y1="78" x2="85" y2="78" stroke="#D4AF37" stroke-width="3"/>
-              </svg>
-            </div>
-            <p class="mt-6 text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Geometric Pure</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60 text-center">Modernist • tech</p>
-          </div>
-        </div>
-
-        <!-- 4. Art Deco Double Ring -->
-        <div class="gs-reveal-scale">
-          <div class="glass-card p-10 flex flex-col items-center justify-center min-h-[300px] group hover:border-gold-accent/30 transition-all duration-500">
-            <div class="relative">
-              <svg width="140" height="140" viewBox="0 0 140 140" class="transition-transform duration-700 group-hover:scale-105">
-                <circle cx="70" cy="70" r="64" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.5"/>
-                <circle cx="70" cy="70" r="59" fill="none" stroke="#D4AF37" stroke-width="0.5" opacity="0.35"/>
-                <!-- Art Deco A: angular, stepped, decorative -->
-                <path d="M 50 98 L 70 36 L 90 98" stroke="#D4AF37" stroke-width="3" fill="none" stroke-linejoin="miter" stroke-linecap="square"/>
-                <!-- Double crossbar (deco signature) -->
-                <line x1="56" y1="74" x2="84" y2="74" stroke="#D4AF37" stroke-width="1.5"/>
-                <line x1="58" y1="80" x2="82" y2="80" stroke="#D4AF37" stroke-width="1"/>
-                <!-- Decorative cap lines at base -->
-                <line x1="44" y1="98" x2="56" y2="98" stroke="#D4AF37" stroke-width="1.5"/>
-                <line x1="84" y1="98" x2="96" y2="98" stroke="#D4AF37" stroke-width="1.5"/>
-              </svg>
-            </div>
-            <p class="mt-6 text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Art Deco</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60 text-center">Opulent • 1920s glamour</p>
-          </div>
-        </div>
-
-        <!-- 5. Ultra Thin Hairline -->
-        <div class="gs-reveal-scale">
-          <div class="glass-card p-10 flex flex-col items-center justify-center min-h-[300px] group hover:border-gold-accent/30 transition-all duration-500">
-            <div class="relative">
-              <svg width="140" height="140" viewBox="0 0 140 140" class="transition-transform duration-700 group-hover:scale-105">
-                <circle cx="70" cy="70" r="64" fill="none" stroke="#D4AF37" stroke-width="0.75" opacity="0.7"/>
-                <!-- Hairline A: ultra-delicate, whisper thin -->
-                <path d="M 50 100 L 70 36 L 90 100" stroke="#D4AF37" stroke-width="0.8" fill="none" stroke-linejoin="miter"/>
-                <line x1="56" y1="78" x2="84" y2="78" stroke="#D4AF37" stroke-width="0.6"/>
-              </svg>
-            </div>
-            <p class="mt-6 text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Hairline</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60 text-center">Whisper • light contexts</p>
-          </div>
-        </div>
-
-        <!-- 6. Bold Monumental -->
-        <div class="gs-reveal-scale">
-          <div class="glass-card p-10 flex flex-col items-center justify-center min-h-[300px] group hover:border-gold-accent/30 transition-all duration-500">
-            <div class="relative">
-              <svg width="140" height="140" viewBox="0 0 140 140" class="transition-transform duration-700 group-hover:scale-105">
-                <circle cx="70" cy="70" r="64" fill="none" stroke="#D4AF37" stroke-width="2.5" opacity="0.5"/>
-                <!-- Bold A: heavy weight, commanding -->
-                <path d="M 46 100 L 70 34 L 94 100" stroke="#D4AF37" stroke-width="6" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-                <!-- Negative space crossbar -->
-                <line x1="54" y1="78" x2="86" y2="78" stroke="#0A0A0A" stroke-width="8"/>
-                <line x1="54" y1="78" x2="86" y2="78" stroke="#D4AF37" stroke-width="4"/>
-              </svg>
-            </div>
-            <p class="mt-6 text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Monumental</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60 text-center">Impact • signage • bold</p>
-          </div>
-        </div>
-
-        <!-- 7. Calligraphic Script -->
-        <div class="gs-reveal-scale">
-          <div class="glass-card p-10 flex flex-col items-center justify-center min-h-[300px] group hover:border-gold-accent/30 transition-all duration-500">
-            <div class="relative">
-              <svg width="140" height="140" viewBox="0 0 140 140" class="transition-transform duration-700 group-hover:scale-105">
-                <circle cx="70" cy="70" r="64" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.6"/>
-                <!-- Calligraphic A: flowing curves, variable stroke, pen-like -->
-                <path d="M 48 98 C 52 78, 58 48, 70 38 C 78 44, 85 68, 92 98" 
-                      stroke="#D4AF37" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                <!-- Flowing crossbar with curve -->
-                <path d="M 54 76 Q 70 70, 86 76" stroke="#D4AF37" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                <!-- Decorative entry stroke -->
-                <path d="M 42 102 Q 44 100, 48 98" stroke="#D4AF37" stroke-width="1" fill="none" stroke-linecap="round"/>
-                <!-- Exit flourish -->
-                <path d="M 92 98 Q 96 102, 100 100" stroke="#D4AF37" stroke-width="1" fill="none" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <p class="mt-6 text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Calligraphic</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60 text-center">Heritage • hand-crafted</p>
-          </div>
-        </div>
-
-        <!-- 8. Optima / Humanist (subtle flare) -->
-        <div class="gs-reveal-scale">
-          <div class="glass-card p-10 flex flex-col items-center justify-center min-h-[300px] group hover:border-gold-accent/30 transition-all duration-500">
-            <div class="relative">
-              <svg width="140" height="140" viewBox="0 0 140 140" class="transition-transform duration-700 group-hover:scale-105">
-                <circle cx="70" cy="70" r="64" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.6"/>
-                <!-- Optima A: no serifs but flared stems, elegant humanist -->
-                <path d="M 50 100 Q 52 96, 54 92 L 70 38 L 86 92 Q 88 96, 90 100" 
-                      stroke="#D4AF37" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-                <!-- Crossbar slightly curved -->
-                <path d="M 57 76 Q 70 73, 83 76" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-                <!-- Subtle flare at feet -->
-                <path d="M 46 100 Q 50 100, 54 100" stroke="#D4AF37" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-                <path d="M 86 100 Q 90 100, 94 100" stroke="#D4AF37" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <p class="mt-6 text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Optima Humanist</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60 text-center">Refined • warm sans-serif</p>
-          </div>
-        </div>
-
-        <!-- 9. Stencil / Cutout -->
-        <div class="gs-reveal-scale">
-          <div class="glass-card p-10 flex flex-col items-center justify-center min-h-[300px] group hover:border-gold-accent/30 transition-all duration-500">
-            <div class="relative">
-              <svg width="140" height="140" viewBox="0 0 140 140" class="transition-transform duration-700 group-hover:scale-105">
-                <circle cx="70" cy="70" r="64" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.6"/>
-                <!-- Stencil A: broken strokes creating stencil cutout feel -->
-                <!-- Left stroke (broken) -->
-                <path d="M 48 100 L 56 72" stroke="#D4AF37" stroke-width="3" fill="none" stroke-linecap="butt"/>
-                <path d="M 60 60 L 70 36" stroke="#D4AF37" stroke-width="3" fill="none" stroke-linecap="butt"/>
-                <!-- Right stroke (broken) -->
-                <path d="M 70 36 L 80 60" stroke="#D4AF37" stroke-width="3" fill="none" stroke-linecap="butt"/>
-                <path d="M 84 72 L 92 100" stroke="#D4AF37" stroke-width="3" fill="none" stroke-linecap="butt"/>
-                <!-- Crossbar (broken) -->
-                <line x1="55" y1="78" x2="66" y2="78" stroke="#D4AF37" stroke-width="2.5"/>
-                <line x1="74" y1="78" x2="85" y2="78" stroke="#D4AF37" stroke-width="2.5"/>
-              </svg>
-            </div>
-            <p class="mt-6 text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Stencil</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60 text-center">Industrial • distinctive</p>
-          </div>
-        </div>
-
-        <!-- 10. Inline / Engraved -->
-        <div class="gs-reveal-scale">
-          <div class="glass-card p-10 flex flex-col items-center justify-center min-h-[300px] group hover:border-gold-accent/30 transition-all duration-500">
-            <div class="relative">
-              <svg width="140" height="140" viewBox="0 0 140 140" class="transition-transform duration-700 group-hover:scale-105">
-                <circle cx="70" cy="70" r="64" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.6"/>
-                <!-- Inline A: thick stroke with inner line, engraved metal look -->
-                <!-- Outer A -->
-                <path d="M 48 100 L 70 36 L 92 100" stroke="#D4AF37" stroke-width="5" fill="none" stroke-linejoin="miter"/>
-                <line x1="55" y1="78" x2="85" y2="78" stroke="#D4AF37" stroke-width="4"/>
-                <!-- Inner cut line (creates inline/engraved effect) -->
-                <path d="M 52 98 L 70 42 L 88 98" stroke="#0A0A0A" stroke-width="1.5" fill="none" stroke-linejoin="miter"/>
-                <line x1="57" y1="78" x2="83" y2="78" stroke="#0A0A0A" stroke-width="1"/>
-              </svg>
-            </div>
-            <p class="mt-6 text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Engraved Inline</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60 text-center">Luxury • metal engravings</p>
-          </div>
-        </div>
-
-        <!-- 11. Copperplate / Ornamental -->
-        <div class="gs-reveal-scale">
-          <div class="glass-card p-10 flex flex-col items-center justify-center min-h-[300px] group hover:border-gold-accent/30 transition-all duration-500">
-            <div class="relative">
-              <svg width="140" height="140" viewBox="0 0 140 140" class="transition-transform duration-700 group-hover:scale-105">
-                <circle cx="70" cy="70" r="64" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.5"/>
-                <!-- Ornamental circle details -->
-                <circle cx="70" cy="70" r="58" fill="none" stroke="#D4AF37" stroke-width="0.3" opacity="0.3"/>
-                <!-- Small decorative dots at cardinal points -->
-                <circle cx="70" cy="8" r="1.5" fill="#D4AF37" opacity="0.4"/>
-                <circle cx="70" cy="132" r="1.5" fill="#D4AF37" opacity="0.4"/>
-                <circle cx="8" cy="70" r="1.5" fill="#D4AF37" opacity="0.4"/>
-                <circle cx="132" cy="70" r="1.5" fill="#D4AF37" opacity="0.4"/>
-                <!-- Elegant serif A with bracketed serifs -->
-                <path d="M 50 98 L 70 38 L 90 98" stroke="#D4AF37" stroke-width="2.5" fill="none" stroke-linejoin="miter"/>
-                <!-- Crossbar -->
-                <line x1="56" y1="76" x2="84" y2="76" stroke="#D4AF37" stroke-width="1.2"/>
-                <!-- Bracketed serifs (left foot) -->
-                <path d="M 44 98 Q 47 96, 50 98 Q 53 100, 56 98" stroke="#D4AF37" stroke-width="1" fill="none"/>
-                <!-- Bracketed serifs (right foot) -->
-                <path d="M 84 98 Q 87 96, 90 98 Q 93 100, 96 98" stroke="#D4AF37" stroke-width="1" fill="none"/>
-              </svg>
-            </div>
-            <p class="mt-6 text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Copperplate Ornamental</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60 text-center">Premium • stationery</p>
-          </div>
-        </div>
-
-        <!-- 12. Condensed Modern -->
-        <div class="gs-reveal-scale">
-          <div class="glass-card p-10 flex flex-col items-center justify-center min-h-[300px] group hover:border-gold-accent/30 transition-all duration-500">
-            <div class="relative">
-              <svg width="140" height="140" viewBox="0 0 140 140" class="transition-transform duration-700 group-hover:scale-105">
-                <circle cx="70" cy="70" r="64" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.6"/>
-                <!-- Condensed A: narrow, tall, modern sans -->
-                <path d="M 56 100 L 70 34 L 84 100" stroke="#D4AF37" stroke-width="3.5" fill="none" stroke-linejoin="miter" stroke-linecap="butt"/>
-                <!-- Crossbar -->
-                <line x1="60" y1="76" x2="80" y2="76" stroke="#D4AF37" stroke-width="3"/>
-              </svg>
-            </div>
-            <p class="mt-6 text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Condensed</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60 text-center">Modern • compact spaces</p>
-          </div>
-        </div>
-
-        <!-- 13. Wedge Serif (Rockwell-like) -->
-        <div class="gs-reveal-scale">
-          <div class="glass-card p-10 flex flex-col items-center justify-center min-h-[300px] group hover:border-gold-accent/30 transition-all duration-500">
-            <div class="relative">
-              <svg width="140" height="140" viewBox="0 0 140 140" class="transition-transform duration-700 group-hover:scale-105">
-                <circle cx="70" cy="70" r="64" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.6"/>
-                <!-- Slab/Wedge serif A: uniform strokes, heavy rectangular serifs -->
-                <path d="M 50 96 L 70 38 L 90 96" stroke="#D4AF37" stroke-width="3" fill="none" stroke-linejoin="miter"/>
-                <!-- Crossbar -->
-                <line x1="56" y1="76" x2="84" y2="76" stroke="#D4AF37" stroke-width="3"/>
-                <!-- Heavy slab serifs -->
-                <rect x="43" y="96" width="14" height="3" fill="#D4AF37" rx="0.5"/>
-                <rect x="83" y="96" width="14" height="3" fill="#D4AF37" rx="0.5"/>
-                <!-- Apex cap -->
-                <rect x="65" y="35" width="10" height="2.5" fill="#D4AF37" rx="0.5"/>
-              </svg>
-            </div>
-            <p class="mt-6 text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Slab Serif</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60 text-center">Strong • authoritative</p>
-          </div>
-        </div>
-
-        <!-- 14. Filled Triangle (Abstract) -->
-        <div class="gs-reveal-scale">
-          <div class="glass-card p-10 flex flex-col items-center justify-center min-h-[300px] group hover:border-gold-accent/30 transition-all duration-500">
-            <div class="relative">
-              <svg width="140" height="140" viewBox="0 0 140 140" class="transition-transform duration-700 group-hover:scale-105">
-                <circle cx="70" cy="70" r="64" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.6"/>
-                <!-- Abstract A: filled triangle with negative space cutout -->
-                <path d="M 46 100 L 70 34 L 94 100 Z" fill="#D4AF37" opacity="0.85"/>
-                <!-- Triangle cutout for the "A" counter -->
-                <path d="M 58 100 L 70 60 L 82 100 Z" fill="#0A0A0A"/>
-                <!-- Crossbar cutout -->
-                <rect x="54" y="76" width="32" height="5" fill="#0A0A0A"/>
-              </svg>
-            </div>
-            <p class="mt-6 text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Abstract Solid</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60 text-center">Icon • app • favicon</p>
-          </div>
-        </div>
-
-        <!-- 15. Ligature Monogram (A + sphere lines) -->
-        <div class="gs-reveal-scale">
-          <div class="glass-card p-10 flex flex-col items-center justify-center min-h-[300px] group hover:border-gold-accent/30 transition-all duration-500">
-            <div class="relative">
-              <svg width="140" height="140" viewBox="0 0 140 140" class="transition-transform duration-700 group-hover:scale-105">
-                <circle cx="70" cy="70" r="64" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.6"/>
-                <!-- Sphere latitude lines (algorithmicfeel) -->
-                <ellipse cx="70" cy="70" rx="64" ry="20" fill="none" stroke="#D4AF37" stroke-width="0.4" opacity="0.2"/>
-                <ellipse cx="70" cy="70" rx="64" ry="42" fill="none" stroke="#D4AF37" stroke-width="0.4" opacity="0.2"/>
-                <!-- Clean geometric A -->
-                <path d="M 50 98 L 70 38 L 90 98" stroke="#D4AF37" stroke-width="2.5" fill="none" stroke-linejoin="miter"/>
-                <line x1="56" y1="76" x2="84" y2="76" stroke="#D4AF37" stroke-width="1.5"/>
-              </svg>
-            </div>
-            <p class="mt-6 text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Algosphere Globe</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60 text-center">Brand mark • global vision</p>
-          </div>
-        </div>
-
-      </div>
     </div>
   </section>
 
   <GoldDivider />
 
-  <!-- Color Palette -->
+  <!-- ═══════════════════════════════════════════
+       SECTION 2: COLOR PALETTE
+       ═══════════════════════════════════════════ -->
   <section class="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
     <div class="absolute top-1/2 right-0 w-[500px] h-[500px] ambient-blob bg-burgundy-400"></div>
 
@@ -372,74 +90,88 @@ import SubpageScripts from '../components/SubpageScripts.astro';
 
       <div class="gs-reveal mt-12 mb-16">
         <p class="text-[17px] text-card-body font-light leading-[1.75] max-w-[720px]">
-          Our color system balances deep sophistication with metallic warmth. The palette evokes late-night trading floors, gilded libraries, and the timeless elegance of old-world finance.
+          The palette evokes late-night trading floors, gilded libraries, and the timeless elegance of old-world finance. Gold is the soul of the brand — used with restraint for maximum impact.
         </p>
       </div>
 
       <!-- Primary Colors -->
-      <div class="mb-12">
-        <h3 class="gs-reveal font-heading text-2xl text-text-primary font-semibold mb-8">Primary</h3>
+      <div class="mb-14">
+        <h3 class="gs-reveal font-heading text-2xl text-text-primary font-semibold mb-8">Core Palette</h3>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="gs-reveal-scale">
-            <div class="h-32 rounded-2xl border border-glass-border" style="background: #0A0A0A;"></div>
-            <p class="mt-4 text-[0.75rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Background</p>
-            <p class="mt-1 font-mono text-[0.8rem] text-gold-accent">#0A0A0A</p>
-          </div>
-          <div class="gs-reveal-scale">
-            <div class="h-32 rounded-2xl border border-glass-border" style="background: #D4AF37;"></div>
-            <p class="mt-4 text-[0.75rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Gold Primary</p>
-            <p class="mt-1 font-mono text-[0.8rem] text-gold-accent">#D4AF37</p>
-          </div>
-          <div class="gs-reveal-scale">
-            <div class="h-32 rounded-2xl border border-glass-border" style="background: #F5F5F5;"></div>
-            <p class="mt-4 text-[0.75rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Text Primary</p>
-            <p class="mt-1 font-mono text-[0.8rem] text-gold-accent">#F5F5F5</p>
-          </div>
-          <div class="gs-reveal-scale">
-            <div class="h-32 rounded-2xl border border-glass-border" style="background: #BABABA;"></div>
-            <p class="mt-4 text-[0.75rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Text Secondary</p>
-            <p class="mt-1 font-mono text-[0.8rem] text-gold-accent">#BABABA</p>
-          </div>
+          {brandColors.primary.map((c) => (
+            <div class="gs-reveal-scale">
+              <div class="h-28 rounded-2xl border border-glass-border transition-transform duration-300 hover:scale-[1.02]" style={`background: ${c.hex};`} />
+              <p class="mt-4 text-[0.75rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">{c.name}</p>
+              <p class="mt-1 font-mono text-[0.8rem] text-gold-accent">{c.hex}</p>
+              <p class="mt-1 text-[0.65rem] text-card-body-muted/60">{c.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
 
       <!-- Gold Variations -->
-      <div class="mb-12">
-        <h3 class="gs-reveal font-heading text-2xl text-text-primary font-semibold mb-8">Gold Variations</h3>
+      <div class="mb-14">
+        <h3 class="gs-reveal font-heading text-2xl text-text-primary font-semibold mb-8">Gold System</h3>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="gs-reveal-scale">
-            <div class="h-32 rounded-2xl border border-glass-border" style="background: #F0D78C;"></div>
-            <p class="mt-4 text-[0.75rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Gold Light</p>
-            <p class="mt-1 font-mono text-[0.8rem] text-gold-accent">#F0D78C</p>
-          </div>
-          <div class="gs-reveal-scale">
-            <div class="h-32 rounded-2xl border border-glass-border" style="background: #D4AF37;"></div>
-            <p class="mt-4 text-[0.75rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Gold Base</p>
-            <p class="mt-1 font-mono text-[0.8rem] text-gold-accent">#D4AF37</p>
-          </div>
-          <div class="gs-reveal-scale">
-            <div class="h-32 rounded-2xl border border-glass-border" style="background: #A48111;"></div>
-            <p class="mt-4 text-[0.75rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Gold Dark</p>
-            <p class="mt-1 font-mono text-[0.8rem] text-gold-accent">#A48111</p>
-          </div>
+          {brandColors.gold.map((c) => (
+            <div class="gs-reveal-scale">
+              <div class="h-28 rounded-2xl border border-glass-border transition-transform duration-300 hover:scale-[1.02]" style={`background: ${c.hex};`} />
+              <p class="mt-4 text-[0.75rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">{c.name}</p>
+              <p class="mt-1 font-mono text-[0.8rem] text-gold-accent">{c.hex}</p>
+              <p class="mt-1 text-[0.65rem] text-card-body-muted/60">{c.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
 
       <!-- Accent Colors -->
       <div>
-        <h3 class="gs-reveal font-heading text-2xl text-text-primary font-semibold mb-8">Accent Colors</h3>
+        <h3 class="gs-reveal font-heading text-2xl text-text-primary font-semibold mb-8">Cultural Accents</h3>
         <div class="grid sm:grid-cols-2 gap-6">
-          <div class="gs-reveal-scale">
-            <div class="h-32 rounded-2xl border border-glass-border" style="background: #722F37;"></div>
-            <p class="mt-4 text-[0.75rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Burgundy</p>
-            <p class="mt-1 font-mono text-[0.8rem] text-gold-accent">#722F37</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60">Used sparingly for depth and contrast</p>
+          {brandColors.accent.map((c) => (
+            <div class="gs-reveal-scale">
+              <div class="h-28 rounded-2xl border border-glass-border transition-transform duration-300 hover:scale-[1.02]" style={`background: ${c.hex};`} />
+              <p class="mt-4 text-[0.75rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">{c.name}</p>
+              <p class="mt-1 font-mono text-[0.8rem] text-gold-accent">{c.hex}</p>
+              <p class="mt-1 text-[0.65rem] text-card-body-muted/60">{c.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Color Combinations Preview -->
+      <div class="mt-14">
+        <h3 class="gs-reveal font-heading text-2xl text-text-primary font-semibold mb-8">Approved Combinations</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Gold on Dark -->
+          <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px]" style="background: #0A0A0A;">
+            <span class="font-heading text-3xl font-semibold" style="color: #D4AF37;">Algosphere</span>
+            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Gold on Black</p>
           </div>
-          <div class="gs-reveal-scale">
-            <div class="h-32 rounded-2xl border border-glass-border" style="background: #0D1B3E;"></div>
-            <p class="mt-4 text-[0.75rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Navy</p>
-            <p class="mt-1 font-mono text-[0.8rem] text-gold-accent">#0D1B3E</p>
-            <p class="mt-2 text-[0.68rem] text-card-body-muted/60">Alternative background for sections</p>
+          <!-- Light on Dark -->
+          <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px]" style="background: #0A0A0A;">
+            <span class="font-heading text-3xl font-semibold" style="color: #F5F5F5;">Algosphere</span>
+            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Ivory on Black</p>
+          </div>
+          <!-- Dark on Light -->
+          <div class="gs-reveal-scale rounded-2xl border border-gray-200 p-8 flex flex-col items-center justify-center min-h-[140px]" style="background: #FFFFFF;">
+            <span class="font-heading text-3xl font-semibold" style="color: #0A0A0A;">Algosphere</span>
+            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #666;">Black on White</p>
+          </div>
+          <!-- Gold on Navy -->
+          <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px]" style="background: #0D1B3E;">
+            <span class="font-heading text-3xl font-semibold" style="color: #D4AF37;">Algosphere</span>
+            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Gold on Navy</p>
+          </div>
+          <!-- Gold on Burgundy -->
+          <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px]" style="background: #722F37;">
+            <span class="font-heading text-3xl font-semibold" style="color: #F0D78C;">Algosphere</span>
+            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: rgba(255,255,255,0.4);">Light Gold on Burgundy</p>
+          </div>
+          <!-- Ivory on Navy -->
+          <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px]" style="background: #0D1B3E;">
+            <span class="font-heading text-3xl font-semibold" style="color: #F5F5F5;">Algosphere</span>
+            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Ivory on Navy</p>
           </div>
         </div>
       </div>
@@ -448,7 +180,9 @@ import SubpageScripts from '../components/SubpageScripts.astro';
 
   <GoldDivider />
 
-  <!-- Typography -->
+  <!-- ═══════════════════════════════════════════
+       SECTION 3: TYPOGRAPHY
+       ═══════════════════════════════════════════ -->
   <section class="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
     <div class="absolute top-0 left-1/4 w-[400px] h-[400px] ambient-blob bg-gold-400"></div>
 
@@ -457,57 +191,64 @@ import SubpageScripts from '../components/SubpageScripts.astro';
 
       <div class="gs-reveal mt-12 mb-16">
         <p class="text-[17px] text-card-body font-light leading-[1.75] max-w-[720px]">
-          Typography is the voice of our brand. We use two carefully selected typefaces that balance classical elegance with modern precision.
+          Typography is the voice of our brand. Two carefully selected typefaces balance classical elegance with modern precision.
         </p>
       </div>
 
-      <!-- Heading Font -->
-      <div class="mb-20">
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Heading Font -->
         <div class="gs-reveal glass-card p-10 lg:p-12">
-          <p class="text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium mb-6">Primary Heading</p>
-          <h2 class="font-heading text-5xl sm:text-6xl lg:text-7xl text-text-primary font-semibold mb-6 leading-[1.08]">
-            Cormorant Garamond
-          </h2>
-          <p class="text-[17px] text-card-body font-light leading-[1.75] mb-8">
-            An elegant serif inspired by Garamond's classical proportions. Used for headlines, hero titles, and anywhere we need timeless sophistication and gravitas.
+          <p class="text-[0.68rem] tracking-[0.16em] uppercase text-gold-accent font-medium mb-2">Heading</p>
+          <h2 class="font-heading text-4xl sm:text-5xl text-text-primary font-semibold mb-4 leading-[1.08]">Cormorant Garamond</h2>
+          <p class="text-[15px] text-card-body font-light leading-[1.75] mb-6">
+            Classical serif with high-contrast strokes. Used for headlines, hero titles, and brand personality moments.
           </p>
-          <div class="grid sm:grid-cols-2 gap-8 pt-8 border-t border-glass-border">
-            <div>
-              <p class="text-[0.68rem] tracking-[0.14em] uppercase text-card-body-muted mb-3">Weights</p>
-              <p class="font-heading text-2xl text-text-primary mb-1" style="font-weight: 400;">Regular 400</p>
-              <p class="font-heading text-2xl text-text-primary mb-1" style="font-weight: 500;">Medium 500</p>
-              <p class="font-heading text-2xl text-text-primary" style="font-weight: 600;">Semibold 600</p>
-            </div>
-            <div>
-              <p class="text-[0.68rem] tracking-[0.14em] uppercase text-card-body-muted mb-3">Sample</p>
-              <p class="font-heading text-5xl text-text-primary" style="font-weight: 600;">Aa Бб</p>
-            </div>
+          <div class="space-y-2 pt-6 border-t border-glass-border">
+            <p class="font-heading text-xl text-text-primary" style="font-weight: 400;">Regular 400 — Where Vision Meets Legacy</p>
+            <p class="font-heading text-xl text-text-primary" style="font-weight: 500;">Medium 500 — Where Vision Meets Legacy</p>
+            <p class="font-heading text-xl text-text-primary" style="font-weight: 600;">Semibold 600 — Where Vision Meets Legacy</p>
+          </div>
+        </div>
+
+        <!-- Body Font -->
+        <div class="gs-reveal glass-card p-10 lg:p-12">
+          <p class="text-[0.68rem] tracking-[0.16em] uppercase text-gold-accent font-medium mb-2">Body</p>
+          <h2 class="text-4xl sm:text-5xl text-text-primary font-semibold mb-4 leading-[1.08]" style="font-family: Inter, sans-serif;">Inter</h2>
+          <p class="text-[15px] text-card-body font-light leading-[1.75] mb-6">
+            Modern geometric sans-serif for screen legibility. Used for body text, UI elements, data displays, and legal.
+          </p>
+          <div class="space-y-2 pt-6 border-t border-glass-border">
+            <p class="text-xl text-text-primary" style="font-weight: 300;">Light 300 — Closed-End Investment Fund</p>
+            <p class="text-xl text-text-primary" style="font-weight: 400;">Regular 400 — Closed-End Investment Fund</p>
+            <p class="text-xl text-text-primary" style="font-weight: 500;">Medium 500 — Closed-End Investment Fund</p>
+            <p class="text-xl text-text-primary" style="font-weight: 600;">Semibold 600 — Closed-End Investment Fund</p>
           </div>
         </div>
       </div>
 
-      <!-- Body Font -->
-      <div>
-        <div class="gs-reveal glass-card p-10 lg:p-12">
-          <p class="text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium mb-6">Primary Body</p>
-          <h2 class="text-5xl sm:text-6xl lg:text-7xl text-text-primary font-semibold mb-6 leading-[1.08]" style="font-family: Inter, sans-serif;">
-            Inter
-          </h2>
-          <p class="text-[17px] text-card-body font-light leading-[1.75] mb-8">
-            A modern geometric sans-serif designed for screen legibility. Used for body text, UI elements, and data displays. Its neutral clarity ensures information is communicated with precision.
-          </p>
-          <div class="grid sm:grid-cols-2 gap-8 pt-8 border-t border-glass-border">
-            <div>
-              <p class="text-[0.68rem] tracking-[0.14em] uppercase text-card-body-muted mb-3">Weights</p>
-              <p class="text-2xl text-text-primary mb-1" style="font-weight: 300;">Light 300</p>
-              <p class="text-2xl text-text-primary mb-1" style="font-weight: 400;">Regular 400</p>
-              <p class="text-2xl text-text-primary mb-1" style="font-weight: 500;">Medium 500</p>
-              <p class="text-2xl text-text-primary" style="font-weight: 600;">Semibold 600</p>
-            </div>
-            <div>
-              <p class="text-[0.68rem] tracking-[0.14em] uppercase text-card-body-muted mb-3">Sample</p>
-              <p class="text-5xl text-text-primary" style="font-weight: 500;">Aa Бб</p>
-            </div>
+      <!-- Type Scale -->
+      <div class="gs-reveal mt-12">
+        <h3 class="font-heading text-2xl text-text-primary font-semibold mb-8">Type Scale</h3>
+        <div class="glass-card p-10 lg:p-12 space-y-6">
+          <div class="flex items-baseline gap-6 border-b border-glass-border pb-4">
+            <span class="text-[0.6rem] font-mono text-card-body-muted w-12 shrink-0">4.5rem</span>
+            <span class="font-heading text-[4.5rem] text-text-primary font-semibold leading-none">Aa</span>
+          </div>
+          <div class="flex items-baseline gap-6 border-b border-glass-border pb-4">
+            <span class="text-[0.6rem] font-mono text-card-body-muted w-12 shrink-0">2.5rem</span>
+            <span class="font-heading text-[2.5rem] text-text-primary font-semibold leading-tight">Section Heading</span>
+          </div>
+          <div class="flex items-baseline gap-6 border-b border-glass-border pb-4">
+            <span class="text-[0.6rem] font-mono text-card-body-muted w-12 shrink-0">1.25rem</span>
+            <span class="font-heading text-[1.25rem] text-text-primary font-semibold">Card Title</span>
+          </div>
+          <div class="flex items-baseline gap-6 border-b border-glass-border pb-4">
+            <span class="text-[0.6rem] font-mono text-card-body-muted w-12 shrink-0">17px</span>
+            <span class="text-[17px] text-card-body font-light">Body text — the core reading size for all paragraph content across the site.</span>
+          </div>
+          <div class="flex items-baseline gap-6">
+            <span class="text-[0.6rem] font-mono text-card-body-muted w-12 shrink-0">0.75rem</span>
+            <span class="text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Section Label • Caption</span>
           </div>
         </div>
       </div>
@@ -516,7 +257,9 @@ import SubpageScripts from '../components/SubpageScripts.astro';
 
   <GoldDivider />
 
-  <!-- Usage Guidelines -->
+  <!-- ═══════════════════════════════════════════
+       SECTION 4: USAGE GUIDELINES
+       ═══════════════════════════════════════════ -->
   <section class="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
     <div class="absolute bottom-0 right-1/3 w-[500px] h-[500px] ambient-blob bg-navy-400"></div>
 
@@ -543,7 +286,7 @@ import SubpageScripts from '../components/SubpageScripts.astro';
               <h3 class="font-heading text-xl text-card-title font-semibold">Clear Space</h3>
             </div>
             <p class="text-[16px] text-card-body font-light leading-[1.75]">
-              Maintain a minimum clear space around the logo equal to the width of the circle stroke. This ensures the mark breathes and remains legible in all contexts.
+              Maintain a minimum clear space equal to <strong class="text-gold-accent">½ the mark diameter</strong> on all sides. The logo must breathe — never crowd it with other elements.
             </p>
           </div>
         </div>
@@ -560,9 +303,9 @@ import SubpageScripts from '../components/SubpageScripts.astro';
               <h3 class="font-heading text-xl text-card-title font-semibold">Minimum Size</h3>
             </div>
             <p class="text-[16px] text-card-body font-light leading-[1.75]">
-              <strong class="text-gold-accent">Digital:</strong> 32×32px minimum<br/>
-              <strong class="text-gold-accent">Print:</strong> 15mm minimum<br/>
-              Below these sizes, the circle stroke and letterform lose clarity.
+              <strong class="text-gold-accent">Digital:</strong> 32×32px (mark only), 120px wide (horizontal lockup)<br/>
+              <strong class="text-gold-accent">Print:</strong> 12mm (mark only), 40mm wide (horizontal lockup)<br/>
+              Below these sizes, the letterform loses definition.
             </p>
           </div>
         </div>
@@ -579,10 +322,10 @@ import SubpageScripts from '../components/SubpageScripts.astro';
               <h3 class="font-heading text-xl text-card-title font-semibold">Do</h3>
             </div>
             <ul class="space-y-3 text-[16px] text-card-body font-light leading-[1.75]">
-              <li class="flex items-start gap-2"><span class="text-gold-accent mt-1">•</span><span>Use approved logo variants only</span></li>
-              <li class="flex items-start gap-2"><span class="text-gold-accent mt-1">•</span><span>Maintain aspect ratio when scaling</span></li>
-              <li class="flex items-start gap-2"><span class="text-gold-accent mt-1">•</span><span>Use on dark backgrounds (#0A0A0A or darker)</span></li>
-              <li class="flex items-start gap-2"><span class="text-gold-accent mt-1">•</span><span>Ensure sufficient contrast in all applications</span></li>
+              <li class="flex items-start gap-2"><span class="text-gold-accent mt-1">•</span><span>Use only approved colour combinations</span></li>
+              <li class="flex items-start gap-2"><span class="text-gold-accent mt-1">•</span><span>Maintain aspect ratio — always scale uniformly</span></li>
+              <li class="flex items-start gap-2"><span class="text-gold-accent mt-1">•</span><span>Use vector (SVG/PDF) for all digital and print</span></li>
+              <li class="flex items-start gap-2"><span class="text-gold-accent mt-1">•</span><span>Pair mark with wordmark for first impressions</span></li>
             </ul>
           </div>
         </div>
@@ -599,10 +342,10 @@ import SubpageScripts from '../components/SubpageScripts.astro';
               <h3 class="font-heading text-xl text-card-title font-semibold">Don't</h3>
             </div>
             <ul class="space-y-3 text-[16px] text-card-body font-light leading-[1.75]">
-              <li class="flex items-start gap-2"><span class="text-[#722F37] mt-1">•</span><span>Modify, stretch, or distort the logo</span></li>
-              <li class="flex items-start gap-2"><span class="text-[#722F37] mt-1">•</span><span>Change colors or add effects (gradients, shadows)</span></li>
-              <li class="flex items-start gap-2"><span class="text-[#722F37] mt-1">•</span><span>Use on busy or low-contrast backgrounds</span></li>
-              <li class="flex items-start gap-2"><span class="text-[#722F37] mt-1">•</span><span>Rotate or place at non-standard angles</span></li>
+              <li class="flex items-start gap-2"><span class="text-[#722F37] mt-1">•</span><span>Add drop shadows, glows, or 3D effects</span></li>
+              <li class="flex items-start gap-2"><span class="text-[#722F37] mt-1">•</span><span>Recolour outside the approved palette</span></li>
+              <li class="flex items-start gap-2"><span class="text-[#722F37] mt-1">•</span><span>Place on busy imagery without a container</span></li>
+              <li class="flex items-start gap-2"><span class="text-[#722F37] mt-1">•</span><span>Rotate, skew, or add outline strokes</span></li>
             </ul>
           </div>
         </div>
