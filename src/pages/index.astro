@@ -345,8 +345,10 @@ import PageFooter from '../components/PageFooter.astro';
     import { createStarfield, initParticles } from '../scripts/particles';
     import { initNavbar, initMobileMenu } from '../scripts/navigation';
     import { switchLanguage, initLanguageSwitcher } from '../scripts/language';
+    import { initTheme } from '../scripts/theme';
 
     document.addEventListener('DOMContentLoaded', () => {
+      initTheme(); // Apply saved theme from branding page
       createStarfield();
       initParticles();
       initLenis();
