@@ -102,7 +102,7 @@ export const THEMES: ThemeConfig[] = [
 const STORAGE_KEY = 'algosphere-theme';
 
 /** Parse hex (#RRGGBB) to {r,g,b} 0-255 */
-function hexToRGB(hex: string): { r: number; g: number; b: number } {
+export function hexToRGB(hex: string): { r: number; g: number; b: number } {
   const n = parseInt(hex.slice(1), 16);
   return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
 }
@@ -136,6 +136,12 @@ export function saveTheme(id: string): void {
 export function applyThemeToPage(theme: ThemeConfig): void {
   const root = document.documentElement;
   const { r: ar, g: ag, b: ab } = hexToRGB(theme.accent);
+  const { r: tr, g: tg, b: tb } = hexToRGB(theme.textOnDark);
+
+  // Derive secondary/muted text from textOnDark
+  const textSecondary = `rgba(${tr}, ${tg}, ${tb}, 0.75)`;
+  const textMuted = `rgba(${tr}, ${tg}, ${tb}, 0.55)`;
+  const textFaint = `rgba(${tr}, ${tg}, ${tb}, 0.40)`;
 
   // Core accent colors (override the gold-* tokens)
   root.style.setProperty('--color-gold-400', theme.accent);
@@ -151,13 +157,28 @@ export function applyThemeToPage(theme: ThemeConfig): void {
   root.style.setProperty('--color-bg-card', adjustBrightness(theme.bgDark, 16));
   root.style.setProperty('--color-bg-elevated', adjustBrightness(theme.bgDark, 26));
 
-  // Text
+  // Text — ALL text tokens must update
   root.style.setProperty('--color-text-primary', theme.textOnDark);
+  root.style.setProperty('--color-text-secondary', textSecondary);
+  root.style.setProperty('--color-text-muted', textMuted);
 
-  // Section label & nav
-  root.style.setProperty('--color-section-label', `rgba(${ar}, ${ag}, ${ab}, 0.65)`);
+  // Semantic text tokens
+  root.style.setProperty('--color-nav-text', textMuted);
   root.style.setProperty('--color-nav-text-hover', theme.accent);
   root.style.setProperty('--color-nav-text-active', theme.accent);
+  root.style.setProperty('--color-section-label', `rgba(${ar}, ${ag}, ${ab}, 0.65)`);
+  root.style.setProperty('--color-card-title', theme.textOnDark);
+  root.style.setProperty('--color-card-body', textSecondary);
+  root.style.setProperty('--color-card-body-muted', textMuted);
+  root.style.setProperty('--color-footer-text', textMuted);
+  root.style.setProperty('--color-footer-muted', textFaint);
+  root.style.setProperty('--color-hero-tagline', textMuted);
+  root.style.setProperty('--color-hero-accent', textFaint);
+  root.style.setProperty('--color-est-text', textFaint);
+
+  // Glass borders — subtle white on dark bg
+  root.style.setProperty('--color-glass-bg', `rgba(${tr}, ${tg}, ${tb}, 0.04)`);
+  root.style.setProperty('--color-glass-border', `rgba(${tr}, ${tg}, ${tb}, 0.08)`);
 
   // Secondary / cultural accent
   root.style.setProperty('--color-accent-burgundy', theme.secondary);
