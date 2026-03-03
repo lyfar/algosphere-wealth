@@ -162,15 +162,9 @@ export function applyThemeToPage(theme: ThemeConfig): void {
   // Secondary / cultural accent
   root.style.setProperty('--color-accent-burgundy', theme.secondary);
 
-  // Navy section backgrounds: derive from bgDark but bluer/deeper
-  if (theme.id === 'gold-classic') {
-    root.style.setProperty('--color-bg-navy', '#0D1B3E');
-    root.style.setProperty('--color-bg-navy-light', '#132347');
-  } else {
-    // Use a slightly lighter version of bgDark for navy sections
-    root.style.setProperty('--color-bg-navy', adjustBrightness(theme.bgDark, 8));
-    root.style.setProperty('--color-bg-navy-light', adjustBrightness(theme.bgDark, 14));
-  }
+  // Navy section backgrounds: subtle lift from bgDark, no blue tint
+  root.style.setProperty('--color-bg-navy', adjustBrightness(theme.bgDark, 8));
+  root.style.setProperty('--color-bg-navy-light', adjustBrightness(theme.bgDark, 14));
 
   // Update the gold gradient text globally
   updateGoldGradient(theme);

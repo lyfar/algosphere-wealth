@@ -12,9 +12,9 @@
   --color-bg-card: #1A1A1A;
   --color-bg-elevated: #242424;
 
-  /* ── Navy Section Backgrounds (Phase 3) ── */
-  --color-bg-navy: #0D1B3E;
-  --color-bg-navy-light: #132347;
+  /* ── Navy Section Backgrounds (Phase 3) — subtle lift, no blue tint ── */
+  --color-bg-navy: #121212;
+  --color-bg-navy-light: #181818;
 
   /* ── Armenian Cultural Accents (Phase 3) ── */
   --color-accent-burgundy: #722F37;
