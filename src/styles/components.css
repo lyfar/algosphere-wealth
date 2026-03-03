@@ -17,7 +17,7 @@
 .cursor-dot {
   width: 6px;
   height: 6px;
-  background: #D4AF37;
+  background: var(--color-gold-400);
   transform: translate(-50%, -50%);
   transition: width 0.2s, height 0.2s, background 0.2s;
 }
@@ -25,7 +25,7 @@
 .cursor-circle {
   width: 34px;
   height: 34px;
-  border: 1px solid rgba(212, 175, 55, 0.5);
+  border: 1px solid rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.5);
   transform: translate(-50%, -50%);
   transition: width 0.3s, height 0.3s, border-color 0.3s, opacity 0.3s;
 }
@@ -33,13 +33,13 @@
 body.cursor-hover .cursor-dot {
   width: 10px;
   height: 10px;
-  background: #F0D78C;
+  background: var(--color-gold-light);
 }
 
 body.cursor-hover .cursor-circle {
   width: 50px;
   height: 50px;
-  border-color: rgba(212, 175, 55, 0.3);
+  border-color: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.3);
 }
 
 @media (max-width: 768px) {
@@ -52,7 +52,7 @@ body.cursor-hover .cursor-circle {
 /* ═══════════ GOLD DIVIDER (Phase 3: Armenian-inspired ornate) ═══════════ */
 .gold-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.3) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.3) 50%, transparent 100%);
   margin: 0 auto;
   width: 40%;
   max-width: 500px;
@@ -68,8 +68,8 @@ body.cursor-hover .cursor-circle {
   transform: translate(-50%, -50%) rotate(45deg);
   width: 6px;
   height: 6px;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  background: rgba(212, 175, 55, 0.06);
+  border: 1px solid rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.3);
+  background: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.06);
 }
 
 /* Outer diamond ring */
@@ -81,7 +81,7 @@ body.cursor-hover .cursor-circle {
   transform: translate(-50%, -50%) rotate(45deg);
   width: 12px;
   height: 12px;
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.15);
 }
 
 /* ═══════════ GLASS CARD — LUXURY ═══════════ */
@@ -110,13 +110,13 @@ body.cursor-hover .cursor-circle {
 }
 
 .glass-card:hover {
-  border-color: rgba(212, 175, 55, 0.18);
+  border-color: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.18);
   background: rgba(255, 255, 255, 0.06);
   transform: translateY(-4px);
   box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.5),
-    0 0 40px rgba(212, 175, 55, 0.04),
-    inset 0 0 30px rgba(212, 175, 55, 0.015);
+    0 0 40px rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.04),
+    inset 0 0 30px rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.015);
 }
 
 .glass-card:hover::before {
@@ -129,7 +129,7 @@ body.cursor-hover .cursor-circle {
   position: absolute;
   inset: -1px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, transparent 40%, transparent 60%, rgba(212, 175, 55, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.1) 0%, transparent 40%, transparent 60%, rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.05) 100%);
   opacity: 0;
   transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1);
   pointer-events: none;
@@ -154,7 +154,7 @@ body.cursor-hover .cursor-circle {
 .section-accent {
   width: 36px;
   height: 1px;
-  background: linear-gradient(90deg, #D4AF37, rgba(212, 175, 55, 0.15));
+  background: linear-gradient(90deg, var(--color-gold-400), rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.15));
   margin-bottom: 1.25rem;
 }
 
@@ -162,7 +162,7 @@ body.cursor-hover .cursor-circle {
 .logo-circle {
   width: 40px;
   height: 40px;
-  border: 1px solid rgba(212, 175, 55, 0.5);
+  border: 1px solid rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.5);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -171,8 +171,8 @@ body.cursor-hover .cursor-circle {
 }
 
 .logo-circle:hover {
-  box-shadow: 0 0 24px rgba(212, 175, 55, 0.12);
-  border-color: rgba(212, 175, 55, 0.8);
+  box-shadow: 0 0 24px rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.12);
+  border-color: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.8);
 }
 
 /* ═══════════ HERO LOGO ═══════════ */
@@ -186,7 +186,7 @@ body.cursor-hover .cursor-circle {
   position: absolute;
   inset: -8px;
   border-radius: 50%;
-  border: 1px solid rgba(212, 175, 55, 0.06);
+  border: 1px solid rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.06);
   animation: ringPulse 5s ease-in-out infinite;
 }
 
@@ -208,15 +208,15 @@ body.cursor-hover .cursor-circle {
   top: 7px;
   width: 7px;
   height: 7px;
-  border: 1px solid rgba(212, 175, 55, 0.4);
+  border: 1px solid rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.4);
   transform: rotate(45deg);
   transition: all 0.4s ease;
 }
 
 .value-item:hover::before {
-  background: rgba(212, 175, 55, 0.15);
-  border-color: rgba(212, 175, 55, 0.7);
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.15);
+  background: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.15);
+  border-color: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.7);
+  box-shadow: 0 0 10px rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.15);
 }
 
 /* ═══════════ CONTACT ROW HOVER ═══════════ */
@@ -225,7 +225,7 @@ body.cursor-hover .cursor-circle {
 }
 
 .contact-row:hover .contact-icon {
-  color: rgba(212, 175, 55, 0.8);
+  color: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.8);
   transform: scale(1.05);
 }
 
@@ -252,7 +252,7 @@ body.cursor-hover .cursor-circle {
   left: 0;
   width: 0;
   height: 1px;
-  background: linear-gradient(90deg, #D4AF37, rgba(212, 175, 55, 0.2));
+  background: linear-gradient(90deg, var(--color-gold-400), rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.2));
   transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -275,7 +275,7 @@ body.cursor-hover .cursor-circle {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(212,175,55,0.05) 0%, transparent 100%);
+  background: linear-gradient(135deg, rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.05) 0%, transparent 100%);
   opacity: 0;
   transition: opacity 0.5s ease;
 }
@@ -294,13 +294,13 @@ body.cursor-hover .cursor-circle {
 }
 
 .lang-btn:hover {
-  color: rgba(212, 175, 55, 0.7);
+  color: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.7);
 }
 
 .lang-btn.active {
-  color: #D4AF37;
-  border-color: rgba(212, 175, 55, 0.25);
-  background: rgba(212, 175, 55, 0.04);
+  color: var(--color-gold-400);
+  border-color: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.25);
+  background: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.04);
 }
 
 .mobile-lang-btn {
@@ -310,14 +310,14 @@ body.cursor-hover .cursor-circle {
 }
 
 .mobile-lang-btn:hover {
-  color: #D4AF37;
-  border-color: rgba(212, 175, 55, 0.5);
+  color: var(--color-gold-400);
+  border-color: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.5);
 }
 
 .mobile-lang-btn.active {
-  color: #D4AF37;
-  background: rgba(212, 175, 55, 0.08);
-  border-color: rgba(212, 175, 55, 0.4);
+  color: var(--color-gold-400);
+  background: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.08);
+  border-color: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.4);
 }
 
 /* ═══════════ MOBILE MENU ═══════════ */
@@ -333,7 +333,7 @@ body.cursor-hover .cursor-circle {
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, rgba(212,175,55,0.5), rgba(212,175,55,0.85));
+  background: linear-gradient(90deg, rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.5), rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.85));
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -369,7 +369,7 @@ button:hover .ham-2 { bottom: 3px; }
   transform: translateX(-50%);
   width: 0;
   height: 1px;
-  background: #D4AF37;
+  background: var(--color-gold-400);
   transition: width 0.4s ease;
 }
 
@@ -389,7 +389,7 @@ select option {
 
 /* Checkbox styling */
 input[type="checkbox"] {
-  accent-color: #D4AF37;
+  accent-color: var(--color-gold-400);
 }
 
 /* ═══════════ PHASE 3: MICRO-INTERACTIONS ═══════════ */
@@ -407,7 +407,7 @@ input[type="checkbox"] {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.08) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.08) 50%, transparent 100%);
   transition: left 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   pointer-events: none;
 }
@@ -429,7 +429,7 @@ input[type="checkbox"] {
   left: 0;
   width: 0;
   height: 1px;
-  background: linear-gradient(90deg, var(--color-gold-400), rgba(212, 175, 55, 0.2));
+  background: linear-gradient(90deg, var(--color-gold-400), rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.2));
   transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -452,7 +452,7 @@ a, button, [role="button"] {
 
 .section-navy .glass-card:hover {
   background: rgba(255, 255, 255, 0.055);
-  border-color: rgba(212, 175, 55, 0.2);
+  border-color: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.2);
 }
 
 /* Navy section ambient adjustments */
@@ -463,6 +463,17 @@ a, button, [role="button"] {
 /* Footer link hover with gold accent transition */
 footer a {
   transition: color 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ═══════════ THEME-AWARE UTILITY CLASSES ═══════════ */
+.hero-radial-glow {
+  background: radial-gradient(ellipse at center, rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.04) 0%, transparent 60%);
+}
+
+.gold-line-h {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.5), transparent);
 }
 
 /* ═══════════ PHASE 3: GOLD DIVIDER ON NAVY SECTIONS ═══════════ */

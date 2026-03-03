@@ -52,6 +52,12 @@ export function initParticles(): void {
     });
   }
 
+  // Cache theme color for particles (read once, not every frame)
+  const cs = getComputedStyle(document.documentElement);
+  let pR = cs.getPropertyValue('--gold-r').trim() || '212';
+  let pG = cs.getPropertyValue('--gold-g').trim() || '175';
+  let pB = cs.getPropertyValue('--gold-b').trim() || '55';
+
   function frame() {
     ctx!.clearRect(0, 0, w, h);
     for (let i = 0; i < pts.length; i++) {
@@ -61,7 +67,7 @@ export function initParticles(): void {
         const d = Math.sqrt(dx * dx + dy * dy);
         if (d < 160) {
           ctx!.beginPath();
-          ctx!.strokeStyle = `rgba(212,175,55,${0.04 * (1 - d / 160)})`;
+          ctx!.strokeStyle = `rgba(${pR},${pG},${pB},${0.04 * (1 - d / 160)})`;
           ctx!.lineWidth = 0.5;
           ctx!.moveTo(pts[i].x, pts[i].y);
           ctx!.lineTo(pts[j].x, pts[j].y);
@@ -72,7 +78,7 @@ export function initParticles(): void {
     for (const p of pts) {
       ctx!.beginPath();
       ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx!.fillStyle = `rgba(212,175,55,${p.a})`;
+      ctx!.fillStyle = `rgba(${pR},${pG},${pB},${p.a})`;
       ctx!.fill();
       p.x += p.vx;
       p.y += p.vy;

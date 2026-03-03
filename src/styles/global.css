@@ -46,6 +46,14 @@
   --color-gold-accent: rgba(212, 175, 55, 0.85);
   --color-gold-soft: rgba(212, 175, 55, 0.65);
 
+  /* ── Raw RGB channels for alpha compositing (updated by theme engine) ── */
+  --gold-r: 212;
+  --gold-g: 175;
+  --gold-b: 55;
+  --text-r: 245;
+  --text-g: 245;
+  --text-b: 245;
+
   /* ── Glass ── */
   --color-glass-bg: rgba(255, 255, 255, 0.05);
   --color-glass-border: rgba(255, 255, 255, 0.08);
@@ -81,15 +89,15 @@ body {
 }
 
 ::selection {
-  background-color: rgba(212, 175, 55, 0.25);
+  background-color: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.25);
   color: #fff;
 }
 
 /* ═══════════ SCROLLBAR ═══════════ */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--color-bg-primary); }
-::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.2); border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(212, 175, 55, 0.4); }
+::-webkit-scrollbar-thumb { background: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.2); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.4); }
 
 /* ═══════════ TYPOGRAPHY ═══════════ */
 h1, h2, h3, h4 {
@@ -100,8 +108,9 @@ h1, h2, h3, h4 {
 }
 
 /* ═══════════ GOLD GRADIENT TEXT ═══════════ */
+/* Default gold gradient; overridden by theme engine when a non-gold theme is active */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+  background: linear-gradient(135deg, var(--color-gold-dark), var(--color-gold-light), var(--color-gold-400), var(--color-gold-light), var(--color-gold-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -261,7 +270,7 @@ body::after {
   right: 50%;
   margin-right: 20px;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.25) 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.25) 100%);
 }
 
 .khachkar-divider::after {
@@ -271,14 +280,14 @@ body::after {
   left: 50%;
   margin-left: 20px;
   height: 1px;
-  background: linear-gradient(90deg, rgba(212, 175, 55, 0.25) 0%, transparent 100%);
+  background: linear-gradient(90deg, rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.25) 0%, transparent 100%);
 }
 
 /* Center ornament — khachkar-inspired diamond */
 .khachkar-divider-center {
   width: 10px;
   height: 10px;
-  border: 1px solid rgba(212, 175, 55, 0.35);
+  border: 1px solid rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.35);
   transform: rotate(45deg);
   position: relative;
   z-index: 2;
@@ -289,7 +298,7 @@ body::after {
   content: '';
   position: absolute;
   inset: 2px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(var(--gold-r), var(--gold-g), var(--gold-b), 0.2);
 }
 
 /* ═══════════ WARM GOLD GRADIENT TEXT (Phase 3) ═══════════ */

@@ -197,6 +197,14 @@ export function applyThemeToPage(theme: ThemeConfig): void {
   // Scrollbar thumb
   updateScrollbar(theme);
 
+  // Raw RGB channels for CSS files that use rgba(var(--gold-r), var(--gold-g), var(--gold-b), alpha)
+  root.style.setProperty('--gold-r', String(ar));
+  root.style.setProperty('--gold-g', String(ag));
+  root.style.setProperty('--gold-b', String(ab));
+  root.style.setProperty('--text-r', String(tr));
+  root.style.setProperty('--text-g', String(tg));
+  root.style.setProperty('--text-b', String(tb));
+
   // Selection color
   root.style.setProperty('--selection-bg', `rgba(${ar}, ${ag}, ${ab}, 0.25)`);
 }

@@ -16,7 +16,7 @@ const { title, titleHy, subtitle, subtitleHy, label, labelHy } = Astro.props;
 
 <section class="relative pt-40 pb-24 sm:pt-48 sm:pb-32 overflow-hidden noise-overlay">
   <!-- Starfield-like ambient dots -->
-  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.03)_0%,transparent_60%)]"></div>
+  <div class="absolute inset-0 hero-radial-glow"></div>
   <div class="absolute top-0 right-1/4 w-[400px] h-[400px] ambient-blob bg-gold-400"></div>
 
   <div class="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-20">
@@ -41,6 +41,6 @@ const { title, titleHy, subtitle, subtitleHy, label, labelHy } = Astro.props;
     )}
 
     <!-- Gold line -->
-    <div class="gs-line-h mt-10" style="width: 80px; height: 1px; background: linear-gradient(90deg, rgba(212,175,55,0.5), transparent);"></div>
+    <div class="gs-line-h mt-10 gold-line-h"></div>
   </div>
 </section>
