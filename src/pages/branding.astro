@@ -1,6 +1,7 @@
 ---
 /**
- * Branding & Visual Identity — Logo variants, color palette, typography, usage guidelines.
+ * Branding page — Theme selector + approved logo + typography + usage guidelines.
+ * Artour picks his preferred color scheme here; it becomes the final brand direction.
  * Accessible only via direct link (not in navigation).
  */
 import Layout from '../layouts/Layout.astro';
@@ -10,186 +11,327 @@ import '../styles/animations.css';
 
 import Navigation from '../components/Navigation.astro';
 import PageHero from '../components/PageHero.astro';
-import SectionHeader from '../components/SectionHeader.astro';
 import GoldDivider from '../components/GoldDivider.astro';
 import PageFooter from '../components/PageFooter.astro';
 import SubpageScripts from '../components/SubpageScripts.astro';
-import LogoVariant from '../components/brand/LogoVariant.astro';
-import { logoVariants } from '../data/logoVariants';
 
-// Brand colors for the palette section
-const brandColors = {
-  primary: [
-    { name: 'Deep Black', hex: '#0A0A0A', desc: 'Primary background' },
-    { name: 'Gold', hex: '#D4AF37', desc: 'Primary accent' },
-    { name: 'Ivory', hex: '#F5F5F5', desc: 'Primary text' },
-    { name: 'Silver', hex: '#BABABA', desc: 'Secondary text' },
-  ],
-  gold: [
-    { name: 'Gold Light', hex: '#F0D78C', desc: 'Highlights' },
-    { name: 'Gold Base', hex: '#D4AF37', desc: 'Core brand' },
-    { name: 'Gold Dark', hex: '#A48111', desc: 'Depth & shadow' },
-  ],
-  accent: [
-    { name: 'Burgundy', hex: '#722F37', desc: 'Armenian heritage • warmth' },
-    { name: 'Navy', hex: '#0D1B3E', desc: 'Trust • alternative sections' },
-  ],
-};
+/**
+ * 6 color themes for wealth management.
+ * Each has: primary accent, dark bg, light bg, secondary accent, text on dark, text on light.
+ * Color science: high contrast, WCAG AA, appropriate gravitas for finance.
+ */
+const themes = [
+  {
+    id: 'gold-classic',
+    name: 'Gold Classic',
+    desc: 'Timeless. The original palette of old-world finance.',
+    accent: '#D4AF37',
+    accentLight: '#F0D78C',
+    accentDark: '#A48111',
+    bgDark: '#0A0A0A',
+    bgLight: '#F5F0E8',
+    textOnDark: '#F5F5F5',
+    textOnLight: '#1A1A1A',
+    secondary: '#722F37',
+  },
+  {
+    id: 'deep-navy',
+    name: 'Deep Navy',
+    desc: 'Trust. The confidence of institutional banking.',
+    accent: '#5B8DB8',
+    accentLight: '#8EBAE0',
+    accentDark: '#2E5A7E',
+    bgDark: '#0B1628',
+    bgLight: '#EFF4F9',
+    textOnDark: '#E8ECF0',
+    textOnLight: '#0B1628',
+    secondary: '#D4AF37',
+  },
+  {
+    id: 'emerald',
+    name: 'Emerald',
+    desc: 'Growth. Prosperity with measured restraint.',
+    accent: '#3D8B6E',
+    accentLight: '#6BB89A',
+    accentDark: '#1F5C44',
+    bgDark: '#0A1410',
+    bgLight: '#EFF6F2',
+    textOnDark: '#E8F0EC',
+    textOnLight: '#0A1410',
+    secondary: '#C4A35A',
+  },
+  {
+    id: 'burgundy',
+    name: 'Burgundy',
+    desc: 'Heritage. Armenian warmth meets financial authority.',
+    accent: '#8B3A42',
+    accentLight: '#C06B75',
+    accentDark: '#5C1F26',
+    bgDark: '#120A0B',
+    bgLight: '#F5EEEF',
+    textOnDark: '#F0E8E9',
+    textOnLight: '#120A0B',
+    secondary: '#D4AF37',
+  },
+  {
+    id: 'platinum',
+    name: 'Platinum',
+    desc: 'Precision. Monochromatic clarity for modern wealth.',
+    accent: '#9CA3AF',
+    accentLight: '#D1D5DB',
+    accentDark: '#6B7280',
+    bgDark: '#09090B',
+    bgLight: '#F4F4F5',
+    textOnDark: '#E4E4E7',
+    textOnLight: '#18181B',
+    secondary: '#D4AF37',
+  },
+  {
+    id: 'sapphire',
+    name: 'Sapphire & Gold',
+    desc: 'Regal. The crown jewels of investment management.',
+    accent: '#2E4A8E',
+    accentLight: '#5A7AC4',
+    accentDark: '#1B2D5A',
+    bgDark: '#080C1A',
+    bgLight: '#EBEEF6',
+    textOnDark: '#E0E4F0',
+    textOnLight: '#080C1A',
+    secondary: '#D4AF37',
+  },
+];
 ---
 
-<Layout title="Branding & Visual Identity — Algosphere Asset Management" description="Brand guidelines and visual identity system for Algosphere Asset Management.">
+<Layout title="Branding & Color Themes — Algosphere Asset Management" description="Choose the brand color direction for Algosphere Asset Management.">
 
   <Navigation />
 
   <PageHero
-    title="Branding & Visual Identity"
-    subtitle="Our visual language embodies algorithmic precision, timeless elegance, and the heritage of Armenian craftsmanship. Every element is designed to convey trust, sophistication, and mathematical discipline."
-    label="Brand Guidelines"
+    title="Brand Direction"
+    subtitle="Choose the color palette that defines Algosphere. Each theme is engineered for wealth management: contrast, legibility, and gravitas. Pick one — it becomes the brand."
+    label="Color & Identity"
   />
 
   <GoldDivider />
 
   <!-- ═══════════════════════════════════════════
-       SECTION 1: LOGO VARIANTS
+       SECTION 1: THEME SELECTOR
        ═══════════════════════════════════════════ -->
-  <section class="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
+  <section class="relative py-16 sm:py-20 overflow-hidden">
+    <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
+
+      <!-- Theme pills -->
+      <div class="flex flex-wrap justify-center gap-3 mb-6" id="theme-pills">
+        {themes.map((t, i) => (
+          <button
+            class:list={[
+              'theme-pill px-5 py-2.5 rounded-full text-[0.72rem] tracking-[0.12em] uppercase font-medium transition-all duration-400 border cursor-pointer',
+              i === 0
+                ? 'border-gold-accent/40 text-gold-accent bg-gold-400/[0.08]'
+                : 'border-glass-border text-card-body-muted hover:border-gold-accent/20 hover:text-text-primary bg-transparent',
+            ]}
+            data-theme={t.id}
+            data-accent={t.accent}
+            data-accent-light={t.accentLight}
+            data-accent-dark={t.accentDark}
+            data-bg-dark={t.bgDark}
+            data-bg-light={t.bgLight}
+            data-text-on-dark={t.textOnDark}
+            data-text-on-light={t.textOnLight}
+            data-secondary={t.secondary}
+          >
+            <span class="inline-block w-2.5 h-2.5 rounded-full mr-2 align-middle" style={`background: ${t.accent};`}></span>
+            {t.name}
+          </button>
+        ))}
+      </div>
+
+      <!-- Theme description -->
+      <p class="text-center text-[15px] text-card-body font-light mb-16" id="theme-desc">
+        {themes[0].desc}
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2: LOGO SHOWCASE (single approved logo)
+       ═══════════════════════════════════════════ -->
+  <section class="relative py-16 sm:py-24 overflow-hidden" id="logo-showcase">
     <div class="absolute top-0 left-0 w-[500px] h-[500px] ambient-blob bg-gold-400"></div>
 
     <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
-      <SectionHeader label="Logo Mark — Proposed Variants" />
 
-      <div class="gs-reveal mt-12 mb-16">
+      <div class="gs-reveal mb-6">
+        <div class="section-accent" id="accent-line-1"></div>
+        <p class="section-label">Logo Mark</p>
+      </div>
+
+      <div class="gs-reveal mt-8 mb-12">
         <p class="text-[17px] text-card-body font-light leading-[1.75] max-w-[720px]">
-          The Algosphere mark is the letter <span class="text-gold-accent font-medium">A</span> inscribed in a circle — representing algorithmic thinking, Armenian heritage, and completeness. Each variant shown in four contexts: dark background, light background, horizontal lockup with wordmark, and vertical lockup.
+          The approved Algosphere mark in four standard contexts. When you switch themes above, the accent color updates across all lockups.
         </p>
       </div>
 
-      <!-- All variants rendered via component -->
-      {logoVariants.map((v, i) => (
-        <LogoVariant
-          name={v.name}
-          context={v.context}
-          paths={v.paths}
-          index={i + 1}
-        />
-      ))}
+      <!-- 4-up logo grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
+        <!-- On Dark -->
+        <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[220px] transition-all duration-500"
+             id="logo-dark-bg" style="background: #0A0A0A;">
+          <img src="/logo-mark.svg" alt="Algosphere mark" class="h-16 w-auto logo-recolor" />
+          <p class="mt-4 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">On Dark</p>
+        </div>
+
+        <!-- On Light -->
+        <div class="gs-reveal-scale rounded-2xl border border-gray-200 p-8 flex flex-col items-center justify-center min-h-[220px] transition-all duration-500"
+             id="logo-light-bg" style="background: #FFFFFF;">
+          <img src="/logo-mark.svg" alt="Algosphere mark" class="h-16 w-auto logo-recolor-dark" style="filter: brightness(0.15);" />
+          <p class="mt-4 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #666;">On Light</p>
+        </div>
+
+        <!-- Horizontal Lockup -->
+        <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[220px] transition-all duration-500"
+             id="logo-h-lockup" style="background: #0A0A0A;">
+          <div class="flex items-center gap-4">
+            <img src="/logo-mark.svg" alt="" class="h-10 w-auto logo-recolor" />
+            <div class="flex flex-col">
+              <span class="text-[0.85rem] tracking-[0.22em] uppercase font-semibold leading-tight lockup-title" style="color: #F5F5F5; font-family: 'Cormorant Garamond', serif;">Algosphere</span>
+              <span class="text-[0.42rem] tracking-[0.28em] uppercase leading-tight mt-0.5 opacity-50 lockup-sub" style="color: #D4AF37;">Asset Management</span>
+            </div>
+          </div>
+          <p class="mt-4 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Horizontal</p>
+        </div>
+
+        <!-- Vertical Lockup -->
+        <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[220px] transition-all duration-500"
+             id="logo-v-lockup" style="background: #0A0A0A;">
+          <div class="flex flex-col items-center gap-3">
+            <img src="/logo-mark.svg" alt="" class="h-12 w-auto logo-recolor" />
+            <div class="flex flex-col items-center">
+              <span class="text-[0.8rem] tracking-[0.22em] uppercase font-semibold leading-tight lockup-title" style="color: #F5F5F5; font-family: 'Cormorant Garamond', serif;">Algosphere</span>
+              <span class="text-[0.4rem] tracking-[0.28em] uppercase leading-tight mt-1 opacity-50 lockup-sub" style="color: #D4AF37;">Asset Management</span>
+            </div>
+          </div>
+          <p class="mt-4 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Vertical</p>
+        </div>
+
+      </div>
     </div>
   </section>
 
   <GoldDivider />
 
   <!-- ═══════════════════════════════════════════
-       SECTION 2: COLOR PALETTE
+       SECTION 3: COLOR PALETTE (dynamic)
        ═══════════════════════════════════════════ -->
-  <section class="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
+  <section class="relative py-24 sm:py-32 overflow-hidden" id="palette-section">
     <div class="absolute top-1/2 right-0 w-[500px] h-[500px] ambient-blob bg-burgundy-400"></div>
 
     <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
-      <SectionHeader label="Color Palette" />
 
-      <div class="gs-reveal mt-12 mb-16">
+      <div class="gs-reveal mb-6">
+        <div class="section-accent" id="accent-line-2"></div>
+        <p class="section-label">Color Palette</p>
+      </div>
+
+      <div class="gs-reveal mt-8 mb-16">
         <p class="text-[17px] text-card-body font-light leading-[1.75] max-w-[720px]">
-          The palette evokes late-night trading floors, gilded libraries, and the timeless elegance of old-world finance. Gold is the soul of the brand — used with restraint for maximum impact.
+          The active palette for this theme. Primary accent drives headlines, CTAs, and brand moments. Supporting tones handle backgrounds, borders, and depth.
         </p>
       </div>
 
-      <!-- Primary Colors -->
-      <div class="mb-14">
-        <h3 class="gs-reveal font-heading text-2xl text-text-primary font-semibold mb-8">Core Palette</h3>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {brandColors.primary.map((c) => (
-            <div class="gs-reveal-scale">
-              <div class="h-28 rounded-2xl border border-glass-border transition-transform duration-300 hover:scale-[1.02]" style={`background: ${c.hex};`} />
-              <p class="mt-4 text-[0.75rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">{c.name}</p>
-              <p class="mt-1 font-mono text-[0.8rem] text-gold-accent">{c.hex}</p>
-              <p class="mt-1 text-[0.65rem] text-card-body-muted/60">{c.desc}</p>
-            </div>
-          ))}
+      <!-- Palette swatches (6 swatches, dynamically colored) -->
+      <div class="grid sm:grid-cols-3 lg:grid-cols-6 gap-5" id="palette-swatches">
+        <div class="gs-reveal-scale">
+          <div class="h-24 rounded-2xl border border-glass-border transition-all duration-500" id="swatch-accent" style="background: #D4AF37;"></div>
+          <p class="mt-3 text-[0.72rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Accent</p>
+          <p class="mt-1 font-mono text-[0.78rem] text-gold-accent" id="swatch-accent-hex">#D4AF37</p>
+        </div>
+        <div class="gs-reveal-scale">
+          <div class="h-24 rounded-2xl border border-glass-border transition-all duration-500" id="swatch-accent-light" style="background: #F0D78C;"></div>
+          <p class="mt-3 text-[0.72rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Light</p>
+          <p class="mt-1 font-mono text-[0.78rem] text-gold-accent" id="swatch-accent-light-hex">#F0D78C</p>
+        </div>
+        <div class="gs-reveal-scale">
+          <div class="h-24 rounded-2xl border border-glass-border transition-all duration-500" id="swatch-accent-dark" style="background: #A48111;"></div>
+          <p class="mt-3 text-[0.72rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Dark</p>
+          <p class="mt-1 font-mono text-[0.78rem] text-gold-accent" id="swatch-accent-dark-hex">#A48111</p>
+        </div>
+        <div class="gs-reveal-scale">
+          <div class="h-24 rounded-2xl border border-glass-border transition-all duration-500" id="swatch-bg-dark" style="background: #0A0A0A;"></div>
+          <p class="mt-3 text-[0.72rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Background</p>
+          <p class="mt-1 font-mono text-[0.78rem] text-gold-accent" id="swatch-bg-dark-hex">#0A0A0A</p>
+        </div>
+        <div class="gs-reveal-scale">
+          <div class="h-24 rounded-2xl border border-glass-border transition-all duration-500" id="swatch-bg-light" style="background: #F5F0E8;"></div>
+          <p class="mt-3 text-[0.72rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Light BG</p>
+          <p class="mt-1 font-mono text-[0.78rem] text-gold-accent" id="swatch-bg-light-hex">#F5F0E8</p>
+        </div>
+        <div class="gs-reveal-scale">
+          <div class="h-24 rounded-2xl border border-glass-border transition-all duration-500" id="swatch-secondary" style="background: #722F37;"></div>
+          <p class="mt-3 text-[0.72rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Secondary</p>
+          <p class="mt-1 font-mono text-[0.78rem] text-gold-accent" id="swatch-secondary-hex">#722F37</p>
         </div>
       </div>
 
-      <!-- Gold Variations -->
-      <div class="mb-14">
-        <h3 class="gs-reveal font-heading text-2xl text-text-primary font-semibold mb-8">Gold System</h3>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {brandColors.gold.map((c) => (
-            <div class="gs-reveal-scale">
-              <div class="h-28 rounded-2xl border border-glass-border transition-transform duration-300 hover:scale-[1.02]" style={`background: ${c.hex};`} />
-              <p class="mt-4 text-[0.75rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">{c.name}</p>
-              <p class="mt-1 font-mono text-[0.8rem] text-gold-accent">{c.hex}</p>
-              <p class="mt-1 text-[0.65rem] text-card-body-muted/60">{c.desc}</p>
-            </div>
-          ))}
+      <!-- Live Combination Preview -->
+      <div class="mt-16">
+        <h3 class="gs-reveal font-heading text-2xl text-text-primary font-semibold mb-8">Live Combinations</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="combo-grid">
+          <!-- Accent on Dark -->
+          <div class="gs-reveal-scale combo-card rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px] transition-all duration-500" id="combo-accent-dark" style="background: #0A0A0A;">
+            <span class="font-heading text-3xl font-semibold combo-text-accent" style="color: #D4AF37;">Algosphere</span>
+            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Accent on Dark</p>
+          </div>
+          <!-- Text on Dark -->
+          <div class="gs-reveal-scale combo-card rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px] transition-all duration-500" id="combo-text-dark" style="background: #0A0A0A;">
+            <span class="font-heading text-3xl font-semibold combo-text-primary" style="color: #F5F5F5;">Algosphere</span>
+            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Text on Dark</p>
+          </div>
+          <!-- Text on Light -->
+          <div class="gs-reveal-scale combo-card rounded-2xl border border-gray-200 p-8 flex flex-col items-center justify-center min-h-[140px] transition-all duration-500" id="combo-text-light" style="background: #FFFFFF;">
+            <span class="font-heading text-3xl font-semibold combo-text-on-light" style="color: #0A0A0A;">Algosphere</span>
+            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #666;">Text on Light</p>
+          </div>
+          <!-- Accent on Secondary -->
+          <div class="gs-reveal-scale combo-card rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px] transition-all duration-500" id="combo-accent-secondary" style="background: #722F37;">
+            <span class="font-heading text-3xl font-semibold combo-text-accent-light" style="color: #F0D78C;">Algosphere</span>
+            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: rgba(255,255,255,0.4);">Accent on Secondary</p>
+          </div>
+          <!-- Secondary on Dark -->
+          <div class="gs-reveal-scale combo-card rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px] transition-all duration-500" id="combo-secondary-dark" style="background: #0A0A0A;">
+            <span class="font-heading text-3xl font-semibold combo-text-secondary" style="color: #722F37;">Algosphere</span>
+            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Secondary on Dark</p>
+          </div>
+          <!-- Full hero preview -->
+          <div class="gs-reveal-scale combo-card rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px] transition-all duration-500" id="combo-hero" style="background: #0A0A0A;">
+            <span class="text-[0.6rem] tracking-[0.2em] uppercase font-medium mb-1 combo-text-accent" style="color: #D4AF37;">Where Vision Meets</span>
+            <span class="font-heading text-2xl font-semibold combo-text-primary" style="color: #F5F5F5;">Legacy</span>
+            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Hero Preview</p>
+          </div>
         </div>
       </div>
 
-      <!-- Accent Colors -->
-      <div>
-        <h3 class="gs-reveal font-heading text-2xl text-text-primary font-semibold mb-8">Cultural Accents</h3>
-        <div class="grid sm:grid-cols-2 gap-6">
-          {brandColors.accent.map((c) => (
-            <div class="gs-reveal-scale">
-              <div class="h-28 rounded-2xl border border-glass-border transition-transform duration-300 hover:scale-[1.02]" style={`background: ${c.hex};`} />
-              <p class="mt-4 text-[0.75rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">{c.name}</p>
-              <p class="mt-1 font-mono text-[0.8rem] text-gold-accent">{c.hex}</p>
-              <p class="mt-1 text-[0.65rem] text-card-body-muted/60">{c.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <!-- Color Combinations Preview -->
-      <div class="mt-14">
-        <h3 class="gs-reveal font-heading text-2xl text-text-primary font-semibold mb-8">Approved Combinations</h3>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <!-- Gold on Dark -->
-          <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px]" style="background: #0A0A0A;">
-            <span class="font-heading text-3xl font-semibold" style="color: #D4AF37;">Algosphere</span>
-            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Gold on Black</p>
-          </div>
-          <!-- Light on Dark -->
-          <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px]" style="background: #0A0A0A;">
-            <span class="font-heading text-3xl font-semibold" style="color: #F5F5F5;">Algosphere</span>
-            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Ivory on Black</p>
-          </div>
-          <!-- Dark on Light -->
-          <div class="gs-reveal-scale rounded-2xl border border-gray-200 p-8 flex flex-col items-center justify-center min-h-[140px]" style="background: #FFFFFF;">
-            <span class="font-heading text-3xl font-semibold" style="color: #0A0A0A;">Algosphere</span>
-            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #666;">Black on White</p>
-          </div>
-          <!-- Gold on Navy -->
-          <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px]" style="background: #0D1B3E;">
-            <span class="font-heading text-3xl font-semibold" style="color: #D4AF37;">Algosphere</span>
-            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Gold on Navy</p>
-          </div>
-          <!-- Gold on Burgundy -->
-          <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px]" style="background: #722F37;">
-            <span class="font-heading text-3xl font-semibold" style="color: #F0D78C;">Algosphere</span>
-            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: rgba(255,255,255,0.4);">Light Gold on Burgundy</p>
-          </div>
-          <!-- Ivory on Navy -->
-          <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px]" style="background: #0D1B3E;">
-            <span class="font-heading text-3xl font-semibold" style="color: #F5F5F5;">Algosphere</span>
-            <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase opacity-40" style="color: #999;">Ivory on Navy</p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
   <GoldDivider />
 
   <!-- ═══════════════════════════════════════════
-       SECTION 3: TYPOGRAPHY
+       SECTION 4: TYPOGRAPHY (unchanged)
        ═══════════════════════════════════════════ -->
-  <section class="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
+  <section class="relative py-24 sm:py-32 overflow-hidden">
     <div class="absolute top-0 left-1/4 w-[400px] h-[400px] ambient-blob bg-gold-400"></div>
 
     <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
-      <SectionHeader label="Typography" />
 
-      <div class="gs-reveal mt-12 mb-16">
+      <div class="gs-reveal mb-6">
+        <div class="section-accent" id="accent-line-3"></div>
+        <p class="section-label">Typography</p>
+      </div>
+
+      <div class="gs-reveal mt-8 mb-16">
         <p class="text-[17px] text-card-body font-light leading-[1.75] max-w-[720px]">
           Typography is the voice of our brand. Two carefully selected typefaces balance classical elegance with modern precision.
         </p>
@@ -198,7 +340,7 @@ const brandColors = {
       <div class="grid lg:grid-cols-2 gap-8">
         <!-- Heading Font -->
         <div class="gs-reveal glass-card p-10 lg:p-12">
-          <p class="text-[0.68rem] tracking-[0.16em] uppercase text-gold-accent font-medium mb-2">Heading</p>
+          <p class="text-[0.68rem] tracking-[0.16em] uppercase font-medium mb-2 typo-accent" style="color: rgba(212, 175, 55, 0.85);">Heading</p>
           <h2 class="font-heading text-4xl sm:text-5xl text-text-primary font-semibold mb-4 leading-[1.08]">Cormorant Garamond</h2>
           <p class="text-[15px] text-card-body font-light leading-[1.75] mb-6">
             Classical serif with high-contrast strokes. Used for headlines, hero titles, and brand personality moments.
@@ -212,7 +354,7 @@ const brandColors = {
 
         <!-- Body Font -->
         <div class="gs-reveal glass-card p-10 lg:p-12">
-          <p class="text-[0.68rem] tracking-[0.16em] uppercase text-gold-accent font-medium mb-2">Body</p>
+          <p class="text-[0.68rem] tracking-[0.16em] uppercase font-medium mb-2 typo-accent" style="color: rgba(212, 175, 55, 0.85);">Body</p>
           <h2 class="text-4xl sm:text-5xl text-text-primary font-semibold mb-4 leading-[1.08]" style="font-family: Inter, sans-serif;">Inter</h2>
           <p class="text-[15px] text-card-body font-light leading-[1.75] mb-6">
             Modern geometric sans-serif for screen legibility. Used for body text, UI elements, data displays, and legal.
@@ -248,7 +390,7 @@ const brandColors = {
           </div>
           <div class="flex items-baseline gap-6">
             <span class="text-[0.6rem] font-mono text-card-body-muted w-12 shrink-0">0.75rem</span>
-            <span class="text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Section Label • Caption</span>
+            <span class="text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Section Label · Caption</span>
           </div>
         </div>
       </div>
@@ -258,35 +400,39 @@ const brandColors = {
   <GoldDivider />
 
   <!-- ═══════════════════════════════════════════
-       SECTION 4: USAGE GUIDELINES
+       SECTION 5: USAGE GUIDELINES
        ═══════════════════════════════════════════ -->
-  <section class="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
+  <section class="relative py-24 sm:py-32 overflow-hidden">
     <div class="absolute bottom-0 right-1/3 w-[500px] h-[500px] ambient-blob bg-navy-400"></div>
 
     <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
-      <SectionHeader label="Usage Guidelines" />
 
-      <div class="gs-reveal mt-12 mb-16">
+      <div class="gs-reveal mb-6">
+        <div class="section-accent" id="accent-line-4"></div>
+        <p class="section-label">Usage Guidelines</p>
+      </div>
+
+      <div class="gs-reveal mt-8 mb-16">
         <p class="text-[17px] text-card-body font-light leading-[1.75] max-w-[720px]">
           Consistent application of our visual identity ensures brand recognition and trust. Follow these guidelines to maintain the integrity of the Algosphere mark.
         </p>
       </div>
 
       <div class="grid lg:grid-cols-2 gap-8 lg:gap-10">
-        
+
         <!-- Clear Space -->
         <div class="gs-reveal-scale">
           <div class="glass-card p-10 lg:p-12 h-full">
             <div class="flex items-center gap-3 mb-6">
               <div class="w-10 h-10 border border-glass-border rounded-xl flex items-center justify-center bg-gold-400/[0.03]">
-                <svg class="w-5 h-5 text-gold-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <svg class="w-5 h-5 guideline-icon" style="color: rgba(212,175,55,0.85);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25" />
                 </svg>
               </div>
               <h3 class="font-heading text-xl text-card-title font-semibold">Clear Space</h3>
             </div>
             <p class="text-[16px] text-card-body font-light leading-[1.75]">
-              Maintain a minimum clear space equal to <strong class="text-gold-accent">½ the mark diameter</strong> on all sides. The logo must breathe — never crowd it with other elements.
+              Maintain a minimum clear space equal to <strong class="guideline-strong" style="color: rgba(212,175,55,0.85);">½ the mark width</strong> on all sides. The logo must breathe.
             </p>
           </div>
         </div>
@@ -296,43 +442,42 @@ const brandColors = {
           <div class="glass-card p-10 lg:p-12 h-full">
             <div class="flex items-center gap-3 mb-6">
               <div class="w-10 h-10 border border-glass-border rounded-xl flex items-center justify-center bg-gold-400/[0.03]">
-                <svg class="w-5 h-5 text-gold-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <svg class="w-5 h-5 guideline-icon" style="color: rgba(212,175,55,0.85);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
                 </svg>
               </div>
               <h3 class="font-heading text-xl text-card-title font-semibold">Minimum Size</h3>
             </div>
             <p class="text-[16px] text-card-body font-light leading-[1.75]">
-              <strong class="text-gold-accent">Digital:</strong> 32×32px (mark only), 120px wide (horizontal lockup)<br/>
-              <strong class="text-gold-accent">Print:</strong> 12mm (mark only), 40mm wide (horizontal lockup)<br/>
-              Below these sizes, the letterform loses definition.
+              <strong class="guideline-strong" style="color: rgba(212,175,55,0.85);">Digital:</strong> 32×32px (mark only), 120px wide (horizontal lockup)<br/>
+              <strong class="guideline-strong" style="color: rgba(212,175,55,0.85);">Print:</strong> 12mm (mark only), 40mm wide (horizontal lockup)
             </p>
           </div>
         </div>
 
         <!-- Do -->
         <div class="gs-reveal-scale">
-          <div class="glass-card p-10 lg:p-12 h-full border-l-2 border-l-gold-accent/40">
+          <div class="glass-card p-10 lg:p-12 h-full do-card" style="border-left: 2px solid rgba(212,175,55,0.4);">
             <div class="flex items-center gap-3 mb-6">
               <div class="w-10 h-10 border border-glass-border rounded-xl flex items-center justify-center bg-gold-400/[0.03]">
-                <svg class="w-5 h-5 text-gold-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <svg class="w-5 h-5 guideline-icon" style="color: rgba(212,175,55,0.85);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <h3 class="font-heading text-xl text-card-title font-semibold">Do</h3>
             </div>
             <ul class="space-y-3 text-[16px] text-card-body font-light leading-[1.75]">
-              <li class="flex items-start gap-2"><span class="text-gold-accent mt-1">•</span><span>Use only approved colour combinations</span></li>
-              <li class="flex items-start gap-2"><span class="text-gold-accent mt-1">•</span><span>Maintain aspect ratio — always scale uniformly</span></li>
-              <li class="flex items-start gap-2"><span class="text-gold-accent mt-1">•</span><span>Use vector (SVG/PDF) for all digital and print</span></li>
-              <li class="flex items-start gap-2"><span class="text-gold-accent mt-1">•</span><span>Pair mark with wordmark for first impressions</span></li>
+              <li class="flex items-start gap-2"><span class="guideline-bullet mt-1" style="color: rgba(212,175,55,0.85);">•</span><span>Use only approved colour combinations</span></li>
+              <li class="flex items-start gap-2"><span class="guideline-bullet mt-1" style="color: rgba(212,175,55,0.85);">•</span><span>Maintain aspect ratio — always scale uniformly</span></li>
+              <li class="flex items-start gap-2"><span class="guideline-bullet mt-1" style="color: rgba(212,175,55,0.85);">•</span><span>Use vector (SVG/PDF) for all digital and print</span></li>
+              <li class="flex items-start gap-2"><span class="guideline-bullet mt-1" style="color: rgba(212,175,55,0.85);">•</span><span>Pair mark with wordmark for first impressions</span></li>
             </ul>
           </div>
         </div>
 
         <!-- Don't -->
         <div class="gs-reveal-scale">
-          <div class="glass-card p-10 lg:p-12 h-full border-l-2 border-l-[#722F37]">
+          <div class="glass-card p-10 lg:p-12 h-full" style="border-left: 2px solid #722F37;">
             <div class="flex items-center gap-3 mb-6">
               <div class="w-10 h-10 border border-glass-border rounded-xl flex items-center justify-center bg-[#722F37]/10">
                 <svg class="w-5 h-5 text-[#722F37]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -359,3 +504,174 @@ const brandColors = {
 </Layout>
 
 <SubpageScripts />
+
+<!-- Theme Switcher Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const pills = document.querySelectorAll<HTMLButtonElement>('.theme-pill');
+    const descEl = document.getElementById('theme-desc');
+
+    // Theme descriptions (must match server order)
+    const descriptions: Record<string, string> = {
+      'gold-classic': 'Timeless. The original palette of old-world finance.',
+      'deep-navy': 'Trust. The confidence of institutional banking.',
+      'emerald': 'Growth. Prosperity with measured restraint.',
+      'burgundy': 'Heritage. Armenian warmth meets financial authority.',
+      'platinum': 'Precision. Monochromatic clarity for modern wealth.',
+      'sapphire': 'Regal. The crown jewels of investment management.',
+    };
+
+    function hexToHSL(hex: string): { h: number; s: number; l: number } {
+      let r = parseInt(hex.slice(1, 3), 16) / 255;
+      let g = parseInt(hex.slice(3, 5), 16) / 255;
+      let b = parseInt(hex.slice(5, 7), 16) / 255;
+      const max = Math.max(r, g, b), min = Math.min(r, g, b);
+      let h = 0, s = 0;
+      const l = (max + min) / 2;
+      if (max !== min) {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+          case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+          case g: h = ((b - r) / d + 2) / 6; break;
+          case b: h = ((r - g) / d + 4) / 6; break;
+        }
+      }
+      return { h: h * 360, s: s * 100, l: l * 100 };
+    }
+
+    function applyTheme(btn: HTMLButtonElement) {
+      const id = btn.dataset.theme!;
+      const accent = btn.dataset.accent!;
+      const accentLight = btn.dataset.accentLight!;
+      const accentDark = btn.dataset.accentDark!;
+      const bgDark = btn.dataset.bgDark!;
+      const bgLight = btn.dataset.bgLight!;
+      const textOnDark = btn.dataset.textOnDark!;
+      const textOnLight = btn.dataset.textOnLight!;
+      const secondary = btn.dataset.secondary!;
+
+      // Update pills
+      pills.forEach(p => {
+        if (p === btn) {
+          p.className = 'theme-pill px-5 py-2.5 rounded-full text-[0.72rem] tracking-[0.12em] uppercase font-medium transition-all duration-400 border cursor-pointer';
+          p.style.borderColor = accent + '66';
+          p.style.color = accent;
+          p.style.background = accent + '14';
+        } else {
+          p.className = 'theme-pill px-5 py-2.5 rounded-full text-[0.72rem] tracking-[0.12em] uppercase font-medium transition-all duration-400 border cursor-pointer border-glass-border text-card-body-muted hover:text-text-primary bg-transparent';
+          p.style.borderColor = '';
+          p.style.color = '';
+          p.style.background = '';
+        }
+      });
+
+      // Description
+      if (descEl) descEl.textContent = descriptions[id] || '';
+
+      // Logo backgrounds
+      const logoDark = document.getElementById('logo-dark-bg');
+      const logoLight = document.getElementById('logo-light-bg');
+      const logoH = document.getElementById('logo-h-lockup');
+      const logoV = document.getElementById('logo-v-lockup');
+
+      if (logoDark) logoDark.style.background = bgDark;
+      if (logoLight) logoLight.style.background = bgLight;
+      if (logoH) logoH.style.background = bgDark;
+      if (logoV) logoV.style.background = bgDark;
+
+      // Logo SVG recolor via CSS filter: approximate hue rotation
+      // For the "On Dark" logos, tint toward accent color
+      const accentHSL = hexToHSL(accent);
+      const goldHSL = hexToHSL('#D4AF37');
+      const hueShift = accentHSL.h - goldHSL.h;
+      const satRatio = accentHSL.s / Math.max(goldHSL.s, 1);
+
+      document.querySelectorAll<HTMLElement>('.logo-recolor').forEach(el => {
+        if (id === 'gold-classic') {
+          el.style.filter = '';
+        } else {
+          el.style.filter = `hue-rotate(${hueShift}deg) saturate(${satRatio.toFixed(2)})`;
+        }
+      });
+
+      // Lockup text colors
+      document.querySelectorAll<HTMLElement>('.lockup-title').forEach(el => {
+        el.style.color = textOnDark;
+      });
+      document.querySelectorAll<HTMLElement>('.lockup-sub').forEach(el => {
+        el.style.color = accent;
+      });
+
+      // Palette swatches
+      const setS = (elId: string, color: string) => {
+        const el = document.getElementById(elId);
+        if (el) el.style.background = color;
+        const hexEl = document.getElementById(elId + '-hex');
+        if (hexEl) {
+          hexEl.textContent = color.toUpperCase();
+          hexEl.style.color = accent;
+        }
+      };
+      setS('swatch-accent', accent);
+      setS('swatch-accent-light', accentLight);
+      setS('swatch-accent-dark', accentDark);
+      setS('swatch-bg-dark', bgDark);
+      setS('swatch-bg-light', bgLight);
+      setS('swatch-secondary', secondary);
+
+      // Combination previews
+      const combos: Record<string, { bg: string; text: string }> = {
+        'combo-accent-dark': { bg: bgDark, text: accent },
+        'combo-text-dark': { bg: bgDark, text: textOnDark },
+        'combo-text-light': { bg: bgLight, text: textOnLight },
+        'combo-accent-secondary': { bg: secondary, text: accentLight },
+        'combo-secondary-dark': { bg: bgDark, text: secondary },
+        'combo-hero': { bg: bgDark, text: textOnDark },
+      };
+
+      for (const [elId, colors] of Object.entries(combos)) {
+        const card = document.getElementById(elId);
+        if (!card) continue;
+        card.style.background = colors.bg;
+        const textEls = card.querySelectorAll<HTMLElement>('.combo-text-accent, .combo-text-primary, .combo-text-on-light, .combo-text-accent-light, .combo-text-secondary');
+        // Set per-class
+        card.querySelectorAll<HTMLElement>('.combo-text-accent').forEach(el => { el.style.color = accent; });
+        card.querySelectorAll<HTMLElement>('.combo-text-primary').forEach(el => { el.style.color = textOnDark; });
+        card.querySelectorAll<HTMLElement>('.combo-text-on-light').forEach(el => { el.style.color = textOnLight; });
+        card.querySelectorAll<HTMLElement>('.combo-text-accent-light').forEach(el => { el.style.color = accentLight; });
+        card.querySelectorAll<HTMLElement>('.combo-text-secondary').forEach(el => { el.style.color = secondary; });
+      }
+
+      // Section accent lines
+      document.querySelectorAll<HTMLElement>('.section-accent').forEach(el => {
+        el.style.background = `linear-gradient(90deg, ${accent}, ${accent}26)`;
+      });
+
+      // Typography accent labels
+      document.querySelectorAll<HTMLElement>('.typo-accent').forEach(el => {
+        el.style.color = accent + 'D9';
+      });
+
+      // Guideline icon colors
+      document.querySelectorAll<HTMLElement>('.guideline-icon').forEach(el => {
+        el.style.color = accent + 'D9';
+      });
+      document.querySelectorAll<HTMLElement>('.guideline-strong').forEach(el => {
+        el.style.color = accent + 'D9';
+      });
+      document.querySelectorAll<HTMLElement>('.guideline-bullet').forEach(el => {
+        el.style.color = accent + 'D9';
+      });
+
+      // Do card border
+      document.querySelectorAll<HTMLElement>('.do-card').forEach(el => {
+        el.style.borderLeftColor = accent + '66';
+      });
+    }
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => applyTheme(pill));
+    });
+  });
+</script>
