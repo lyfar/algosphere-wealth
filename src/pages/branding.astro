@@ -395,20 +395,20 @@ const themes = THEMES;
 
         <!-- Don't -->
         <div class="gs-reveal-scale">
-          <div class="glass-card p-10 lg:p-12 h-full" style="border-left: 2px solid #722F37;">
+          <div class="glass-card p-10 lg:p-12 h-full dont-card" style="border-left: 2px solid var(--dont-color, #722F37);">
             <div class="flex items-center gap-3 mb-6">
-              <div class="w-10 h-10 border border-glass-border rounded-xl flex items-center justify-center bg-[#722F37]/10">
-                <svg class="w-5 h-5 text-[#722F37]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <div class="w-10 h-10 border border-glass-border rounded-xl flex items-center justify-center" style="background: color-mix(in srgb, var(--dont-color, #722F37) 10%, transparent);">
+                <svg class="w-5 h-5" style="color: var(--dont-color, #722F37);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
                 </svg>
               </div>
               <h3 class="font-heading text-xl text-card-title font-semibold">Don't</h3>
             </div>
             <ul class="space-y-3 text-[16px] text-card-body font-light leading-[1.75]">
-              <li class="flex items-start gap-2"><span class="text-[#722F37] mt-1">•</span><span>Add drop shadows, glows, or 3D effects</span></li>
-              <li class="flex items-start gap-2"><span class="text-[#722F37] mt-1">•</span><span>Recolour outside the approved palette</span></li>
-              <li class="flex items-start gap-2"><span class="text-[#722F37] mt-1">•</span><span>Place on busy imagery without a container</span></li>
-              <li class="flex items-start gap-2"><span class="text-[#722F37] mt-1">•</span><span>Rotate, skew, or add outline strokes</span></li>
+              <li class="flex items-start gap-2"><span class="dont-bullet mt-1">•</span><span>Add drop shadows, glows, or 3D effects</span></li>
+              <li class="flex items-start gap-2"><span class="dont-bullet mt-1">•</span><span>Recolour outside the approved palette</span></li>
+              <li class="flex items-start gap-2"><span class="dont-bullet mt-1">•</span><span>Place on busy imagery without a container</span></li>
+              <li class="flex items-start gap-2"><span class="dont-bullet mt-1">•</span><span>Rotate, skew, or add outline strokes</span></li>
             </ul>
           </div>
         </div>
@@ -537,6 +537,13 @@ const themes = THEMES;
       });
       document.querySelectorAll<HTMLElement>('.do-card').forEach(el => {
         el.style.borderLeftColor = theme.accent + '66';
+      });
+
+      // Don't card: use a contrasting "warning" color derived from secondary or a fixed warm red
+      const dontColor = theme.secondary === '#D4AF37' ? '#9B3A3A' : theme.secondary;
+      document.documentElement.style.setProperty('--dont-color', dontColor);
+      document.querySelectorAll<HTMLElement>('.dont-bullet').forEach(el => {
+        el.style.color = dontColor;
       });
 
       // 9) Combo card labels — must contrast with their card bg
