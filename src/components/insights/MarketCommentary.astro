@@ -1,0 +1,82 @@
+---
+// Market Commentary Grid - 3 article cards
+import SectionHeader from '../SectionHeader.astro';
+---
+<section class="relative py-24 sm:py-32 lg:py-40 overflow-hidden section-navy">
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] ambient-blob bg-gold-400"></div>
+
+    <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
+      <div class="text-center mb-16 lg:mb-24">
+        <SectionHeader label="Market Commentary" labelHy="&#1351;&#1400;&#1410;&#1391;&#1377;&#1397;&#1387; &#1348;&#1381;&#1391;&#1398;&#1377;&#1378;&#1377;&#1398;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;" centered>
+          <h2 class="font-heading text-3xl sm:text-4xl lg:text-[3rem] text-text-primary font-semibold leading-[1.1]">
+            <span data-i18n data-hy="&#1364;&#1377;&#1404;&#1377;&#1405;&#1397;&#1377;&#1391; <span class='text-gold-gradient'>&#1358;&#1381;&#1408;&#1388;&#1400;&#1410;&#1390;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1398;&#1381;&#1408;</span>" data-en="Quarterly <span class='text-gold-gradient'>Commentary</span>">Quarterly <span class="text-gold-gradient">Commentary</span></span>
+          </h2>
+        </SectionHeader>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Article Card 1 -->
+        <article class="gs-reveal-scale glass-card p-8 flex flex-col">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-[0.6rem] tracking-[0.15em] uppercase text-gold-soft border border-gold-400/20 px-2.5 py-0.5 rounded" data-i18n data-hy="&#1351;&#1400;&#1410;&#1391;&#1377;" data-en="Market">Market</span>
+            <span class="text-card-body-muted text-[11px] font-light">Q4 2024</span>
+          </div>
+          <h3 class="font-heading text-xl text-card-title font-semibold mb-4 leading-[1.2]" data-i18n
+              data-hy="&#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;&#1387; &#1407;&#1398;&#1407;&#1381;&#1405;&#1377;&#1391;&#1377;&#1398; &#1377;&#1395;&#1387;&#1398;. Q4 &#1377;&#1396;&#1411;&#1400;&#1411;&#1400;&#1389;&#1400;&#1410;&#1396;"
+              data-en="Armenian Economic Review: Q4 Recap and 2025 Outlook">
+            Armenian Economic Review: Q4 Recap and 2025 Outlook
+          </h3>
+          <p class="text-card-body-muted text-[14px] font-light leading-[1.7] flex-1" data-i18n
+             data-hy="&#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;&#1387; &#1407;&#1398;&#1407;&#1381;&#1405;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1384; &#1399;&#1377;&#1408;&#1400;&#1410;&#1398;&#1377;&#1391;&#1400;&#1410;&#1396; &#1383; &#1377;&#1395;&#1381;&#1388;&#1417;"
+             data-en="GDP growth moderated to a more sustainable pace while remaining well above regional averages. The technology sector continues to attract foreign direct investment, and the Central Bank maintained its accommodative stance amidst controlled inflation.">
+            GDP growth moderated to a more sustainable pace while remaining well above regional averages. The technology sector continues to attract foreign direct investment, and the Central Bank maintained its accommodative stance amidst controlled inflation.
+          </p>
+          <div class="flex items-center gap-2 mt-6 pt-5 border-t border-white/[0.06]">
+            <span class="text-gold-soft text-[12px] font-light" data-i18n data-hy="&#1351;&#1400;&#1410;&#1407;&#1400;&#1406;" data-en="Coming Soon">Coming Soon</span>
+          </div>
+        </article>
+
+        <!-- Article Card 2 -->
+        <article class="gs-reveal-scale glass-card p-8 flex flex-col">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-[0.6rem] tracking-[0.15em] uppercase text-gold-soft border border-gold-400/20 px-2.5 py-0.5 rounded" data-i18n data-hy="&#1356;&#1377;&#1382;&#1396;&#1377;&#1406;&#1377;&#1408;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;" data-en="Strategy">Strategy</span>
+            <span class="text-card-body-muted text-[11px] font-light">Q1 2025</span>
+          </div>
+          <h3 class="font-heading text-xl text-card-title font-semibold mb-4 leading-[1.2]" data-i18n
+              data-hy="&#1357;&#1411;&#1397;&#1400;&#1410;&#1404;&#1412;&#1387; &#1343;&#1377;&#1402;&#1387;&#1407;&#1377;&#1388;. &#1334;&#1387;&#1398;&#1377;&#1407;&#1381;&#1394;&#1377;&#1406;&#1400;&#1408;&#1406;&#1377;&#1390; &#1350;&#1381;&#1408;&#1380;&#1408;&#1400;&#1394;&#1398;&#1381;&#1408;"
+              data-en="Diaspora Capital: Bridging Emotional Connection and Institutional Investment">
+            Diaspora Capital: Bridging Emotional Connection and Institutional Investment
+          </h3>
+          <p class="text-card-body-muted text-[14px] font-light leading-[1.7] flex-1" data-i18n
+             data-hy="&#1344;&#1377;&#1397;&#1391;&#1377;&#1391;&#1377;&#1398; &#1405;&#1411;&#1397;&#1400;&#1410;&#1404;&#1412;&#1387; &#1398;&#1381;&#1408;&#1380;&#1408;&#1400;&#1410;&#1396;&#1377;&#1397;&#1387;&#1398; &#1398;&#1381;&#1408;&#1400;&#1410;&#1386;&#1384;&#1417;"
+             data-en="Exploring how the Armenian diaspora's deep cultural ties can be channeled through professional fund structures. We analyze successful diaspora investment models from Israel and Ireland, and propose frameworks for Armenia's unique context.">
+            Exploring how the Armenian diaspora's deep cultural ties can be channeled through professional fund structures. We analyze successful diaspora investment models from Israel and Ireland, and propose frameworks for Armenia's unique context.
+          </p>
+          <div class="flex items-center gap-2 mt-6 pt-5 border-t border-white/[0.06]">
+            <span class="text-gold-soft text-[12px] font-light" data-i18n data-hy="&#1351;&#1400;&#1410;&#1407;&#1400;&#1406;" data-en="Coming Soon">Coming Soon</span>
+          </div>
+        </article>
+
+        <!-- Article Card 3 -->
+        <article class="gs-reveal-scale glass-card p-8 flex flex-col">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-[0.6rem] tracking-[0.15em] uppercase text-gold-soft border border-gold-400/20 px-2.5 py-0.5 rounded" data-i18n data-hy="&#1339;&#1398;&#1380;&#1400;&#1410;&#1405;&#1407;&#1408;&#1387;&#1377;" data-en="Industry">Industry</span>
+            <span class="text-card-body-muted text-[11px] font-light">2025</span>
+          </div>
+          <h3 class="font-heading text-xl text-card-title font-semibold mb-4 leading-[1.2]" data-i18n
+              data-hy="&#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;&#1387; &#1329;&#1391;&#1407;&#1387;&#1406;&#1398;&#1381;&#1408;&#1387; &#1343;&#1377;&#1404;&#1377;&#1406;&#1377;&#1408;&#1396;&#1377;&#1398; &#1340;&#1377;&#1398;&#1380;&#1399;&#1377;&#1411;&#1407;&#1384;"
+              data-en="The Armenian Asset Management Landscape: Five Players, Infinite Potential">
+            The Armenian Asset Management Landscape: Five Players, Infinite Potential
+          </h3>
+          <p class="text-card-body-muted text-[14px] font-light leading-[1.7] flex-1" data-i18n
+             data-hy="&#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;&#1387; &#1377;&#1391;&#1407;&#1387;&#1406;&#1398;&#1381;&#1408;&#1387; &#1391;&#1377;&#1404;&#1377;&#1406;&#1377;&#1408;&#1396;&#1377;&#1398; &#1399;&#1400;&#1410;&#1391;&#1377;&#1397;&#1387; &#1406;&#1381;&#1408;&#1388;&#1400;&#1410;&#1390;&#1400;&#1410;&#1385;&#1397;&#1400;&#1410;&#1398;&#1417;"
+             data-en="With only five licensed fund managers in the country, Armenia's asset management industry is at a nascent but pivotal stage. We examine the regulatory framework, competitive dynamics, and the immense growth runway that lies ahead.">
+            With only five licensed fund managers in the country, Armenia's asset management industry is at a nascent but pivotal stage. We examine the regulatory framework, competitive dynamics, and the immense growth runway that lies ahead.
+          </p>
+          <div class="flex items-center gap-2 mt-6 pt-5 border-t border-white/[0.06]">
+            <span class="text-gold-soft text-[12px] font-light" data-i18n data-hy="&#1351;&#1400;&#1410;&#1407;&#1400;&#1406;" data-en="Coming Soon">Coming Soon</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
