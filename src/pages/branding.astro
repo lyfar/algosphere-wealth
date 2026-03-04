@@ -489,7 +489,18 @@ const themes = THEMES;
       setS('swatch-bg-light', theme.bgLight);
       setS('swatch-secondary', theme.secondary);
 
-      // 7) Combination cards
+      // 7) Combination cards — with contrast-aware text colors
+      // Helper: get luminance to decide if text should be light or dark on a given bg
+      function luminance(hex: string): number {
+        const { r, g, b } = hexToRGB(hex);
+        return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      }
+      // Pick contrasting text for any background
+      const textForSecondary = luminance(theme.secondary) > 0.5 ? theme.bgDark : theme.textOnDark;
+      const labelForSecondary = luminance(theme.secondary) > 0.5
+        ? `rgba(${hexToRGB(theme.bgDark).r}, ${hexToRGB(theme.bgDark).g}, ${hexToRGB(theme.bgDark).b}, 0.5)`
+        : `rgba(${tr}, ${tg}, ${tb}, 0.4)`;
+
       const combos: Record<string, { bg: string }> = {
         'combo-accent-dark': { bg: theme.bgDark },
         'combo-text-dark': { bg: theme.bgDark },
@@ -505,8 +516,16 @@ const themes = THEMES;
         card.querySelectorAll<HTMLElement>('.combo-text-accent').forEach(el => { el.style.color = theme.accent; });
         card.querySelectorAll<HTMLElement>('.combo-text-primary').forEach(el => { el.style.color = theme.textOnDark; });
         card.querySelectorAll<HTMLElement>('.combo-text-on-light').forEach(el => { el.style.color = theme.textOnLight; });
-        card.querySelectorAll<HTMLElement>('.combo-text-accent-light').forEach(el => { el.style.color = theme.accentLight; });
+        card.querySelectorAll<HTMLElement>('.combo-text-accent-light').forEach(el => { el.style.color = textForSecondary; });
         card.querySelectorAll<HTMLElement>('.combo-text-secondary').forEach(el => { el.style.color = theme.secondary; });
+      }
+
+      // Fix label on secondary card specifically
+      const secCard = document.getElementById('combo-accent-secondary');
+      if (secCard) {
+        secCard.querySelectorAll<HTMLElement>('.combo-label-on-dark').forEach(el => {
+          el.style.color = labelForSecondary;
+        });
       }
 
       // 8) Branding page accent elements
