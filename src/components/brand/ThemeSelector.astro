@@ -1,0 +1,43 @@
+---
+/**
+ * Theme Selector — card grid for choosing brand color theme.
+ * Each card shows accent/secondary color bars, name, and description.
+ */
+import { THEMES } from '../../scripts/theme';
+const themes = THEMES;
+---
+
+<section class="relative py-16 sm:py-20 overflow-hidden">
+  <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
+
+    <!-- Theme cards grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="theme-cards">
+      {themes.map((t) => (
+        <button
+          class="theme-card group rounded-2xl border border-glass-border p-6 text-left transition-all duration-400 cursor-pointer hover:border-glass-border/60"
+          data-theme={t.id}
+          data-accent={t.accent}
+          data-accent-light={t.accentLight}
+          data-accent-dark={t.accentDark}
+          data-bg-dark={t.bgDark}
+          data-bg-light={t.bgLight}
+          data-text-on-dark={t.textOnDark}
+          data-text-on-light={t.textOnLight}
+          data-secondary={t.secondary}
+        >
+          <!-- Color bar -->
+          <div class="flex gap-1.5 mb-4">
+            <span class="h-2 flex-1 rounded-full" style={`background: ${t.accent};`}></span>
+            <span class="h-2 w-8 rounded-full" style={`background: ${t.accentLight}; opacity: 0.7;`}></span>
+            <span class="h-2 w-5 rounded-full" style={`background: ${t.secondary}; opacity: 0.5;`}></span>
+          </div>
+          <!-- Name -->
+          <p class="font-heading text-lg font-semibold text-text-primary mb-1 theme-card-name">{t.name}</p>
+          <!-- Tagline -->
+          <p class="text-[0.78rem] text-card-body font-light leading-[1.6] theme-card-desc">{t.desc}</p>
+        </button>
+      ))}
+    </div>
+
+  </div>
+</section>

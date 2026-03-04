@@ -1,0 +1,69 @@
+---
+/**
+ * Logo Showcase — 4-up grid: on dark, on light, horizontal lockup, vertical lockup.
+ * Logo mark always stays gold; lockup text adapts to selected theme.
+ */
+---
+
+<section class="relative py-16 sm:py-24 overflow-hidden" id="logo-showcase">
+  <div class="absolute top-0 left-0 w-[500px] h-[500px] ambient-blob bg-gold-400"></div>
+
+  <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
+
+    <div class="gs-reveal mb-6">
+      <div class="section-accent" id="accent-line-1"></div>
+      <p class="section-label">Logo Mark</p>
+    </div>
+
+    <div class="gs-reveal mt-8 mb-12">
+      <p class="text-[17px] text-card-body font-light leading-[1.75] max-w-[720px]">
+        The approved Algosphere mark in four standard contexts. When you switch themes above, the accent color updates across all lockups.
+      </p>
+    </div>
+
+    <!-- 4-up logo grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <!-- On Dark -->
+      <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[220px] transition-all duration-500"
+           id="logo-dark-bg" style="background: #0A0A0A;">
+        <img src="/logo-mark.svg" alt="Algosphere mark" class="h-16 w-auto" />
+        <p class="mt-4 text-[0.6rem] tracking-[0.12em] uppercase logo-label-dark" style="color: rgba(255,255,255,0.35);">On Dark</p>
+      </div>
+
+      <!-- On Light -->
+      <div class="gs-reveal-scale rounded-2xl border border-gray-200 p-8 flex flex-col items-center justify-center min-h-[220px] transition-all duration-500"
+           id="logo-light-bg" style="background: #FFFFFF;">
+        <img src="/logo-mark.svg" alt="Algosphere mark" class="h-16 w-auto" />
+        <p class="mt-4 text-[0.6rem] tracking-[0.12em] uppercase" style="color: #999;">On Light</p>
+      </div>
+
+      <!-- Horizontal Lockup -->
+      <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[220px] transition-all duration-500"
+           id="logo-h-lockup" style="background: #0A0A0A;">
+        <div class="flex items-center gap-4">
+          <img src="/logo-mark.svg" alt="" class="h-10 w-auto" />
+          <div class="flex flex-col">
+            <span class="text-[0.85rem] tracking-[0.22em] uppercase font-semibold leading-tight lockup-title" style="color: #F5F5F5; font-family: 'Cormorant Garamond', serif;">Algosphere</span>
+            <span class="text-[0.42rem] tracking-[0.28em] uppercase leading-tight mt-0.5 lockup-sub" style="color: #D4AF37;">Asset Management</span>
+          </div>
+        </div>
+        <p class="mt-4 text-[0.6rem] tracking-[0.12em] uppercase logo-label-dark" style="color: rgba(255,255,255,0.35);">Horizontal</p>
+      </div>
+
+      <!-- Vertical Lockup -->
+      <div class="gs-reveal-scale rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[220px] transition-all duration-500"
+           id="logo-v-lockup" style="background: #0A0A0A;">
+        <div class="flex flex-col items-center gap-3">
+          <img src="/logo-mark.svg" alt="" class="h-12 w-auto" />
+          <div class="flex flex-col items-center">
+            <span class="text-[0.8rem] tracking-[0.22em] uppercase font-semibold leading-tight lockup-title" style="color: #F5F5F5; font-family: 'Cormorant Garamond', serif;">Algosphere</span>
+            <span class="text-[0.4rem] tracking-[0.28em] uppercase leading-tight mt-1 lockup-sub" style="color: #D4AF37;">Asset Management</span>
+          </div>
+        </div>
+        <p class="mt-4 text-[0.6rem] tracking-[0.12em] uppercase logo-label-dark" style="color: rgba(255,255,255,0.35);">Vertical</p>
+      </div>
+
+    </div>
+  </div>
+</section>

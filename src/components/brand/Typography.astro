@@ -1,0 +1,82 @@
+---
+/**
+ * Typography — heading/body font showcase + type scale reference.
+ * Cormorant Garamond (heading) + Inter (body).
+ */
+---
+
+<section class="relative py-24 sm:py-32 overflow-hidden">
+  <div class="absolute top-0 left-1/4 w-[400px] h-[400px] ambient-blob bg-gold-400"></div>
+
+  <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
+
+    <div class="gs-reveal mb-6">
+      <div class="section-accent" id="accent-line-3"></div>
+      <p class="section-label">Typography</p>
+    </div>
+
+    <div class="gs-reveal mt-8 mb-16">
+      <p class="text-[17px] text-card-body font-light leading-[1.75] max-w-[720px]">
+        Typography is the voice of our brand. Two carefully selected typefaces balance classical elegance with modern precision.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8">
+      <!-- Heading Font -->
+      <div class="gs-reveal glass-card p-10 lg:p-12">
+        <p class="text-[0.68rem] tracking-[0.16em] uppercase font-medium mb-2 typo-accent" style="color: var(--color-gold-accent);">Heading</p>
+        <h2 class="font-heading text-4xl sm:text-5xl text-text-primary font-semibold mb-4 leading-[1.08]">Cormorant Garamond</h2>
+        <p class="text-[15px] text-card-body font-light leading-[1.75] mb-6">
+          Classical serif with high-contrast strokes. Used for headlines, hero titles, and brand personality moments.
+        </p>
+        <div class="space-y-2 pt-6 border-t border-glass-border">
+          <p class="font-heading text-xl text-text-primary" style="font-weight: 400;">Regular 400 — Where Vision Meets Legacy</p>
+          <p class="font-heading text-xl text-text-primary" style="font-weight: 500;">Medium 500 — Where Vision Meets Legacy</p>
+          <p class="font-heading text-xl text-text-primary" style="font-weight: 600;">Semibold 600 — Where Vision Meets Legacy</p>
+        </div>
+      </div>
+
+      <!-- Body Font -->
+      <div class="gs-reveal glass-card p-10 lg:p-12">
+        <p class="text-[0.68rem] tracking-[0.16em] uppercase font-medium mb-2 typo-accent" style="color: var(--color-gold-accent);">Body</p>
+        <h2 class="text-4xl sm:text-5xl text-text-primary font-semibold mb-4 leading-[1.08]" style="font-family: Inter, sans-serif;">Inter</h2>
+        <p class="text-[15px] text-card-body font-light leading-[1.75] mb-6">
+          Modern geometric sans-serif for screen legibility. Used for body text, UI elements, data displays, and legal.
+        </p>
+        <div class="space-y-2 pt-6 border-t border-glass-border">
+          <p class="text-xl text-text-primary" style="font-weight: 300;">Light 300 — Closed-End Investment Fund</p>
+          <p class="text-xl text-text-primary" style="font-weight: 400;">Regular 400 — Closed-End Investment Fund</p>
+          <p class="text-xl text-text-primary" style="font-weight: 500;">Medium 500 — Closed-End Investment Fund</p>
+          <p class="text-xl text-text-primary" style="font-weight: 600;">Semibold 600 — Closed-End Investment Fund</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Type Scale -->
+    <div class="gs-reveal mt-12">
+      <h3 class="font-heading text-2xl text-text-primary font-semibold mb-8">Type Scale</h3>
+      <div class="glass-card p-10 lg:p-12 space-y-6">
+        <div class="flex items-baseline gap-6 border-b border-glass-border pb-4">
+          <span class="text-[0.6rem] font-mono text-card-body-muted w-12 shrink-0">4.5rem</span>
+          <span class="font-heading text-[4.5rem] text-text-primary font-semibold leading-none">Aa</span>
+        </div>
+        <div class="flex items-baseline gap-6 border-b border-glass-border pb-4">
+          <span class="text-[0.6rem] font-mono text-card-body-muted w-12 shrink-0">2.5rem</span>
+          <span class="font-heading text-[2.5rem] text-text-primary font-semibold leading-tight">Section Heading</span>
+        </div>
+        <div class="flex items-baseline gap-6 border-b border-glass-border pb-4">
+          <span class="text-[0.6rem] font-mono text-card-body-muted w-12 shrink-0">1.25rem</span>
+          <span class="font-heading text-[1.25rem] text-text-primary font-semibold">Card Title</span>
+        </div>
+        <div class="flex items-baseline gap-6 border-b border-glass-border pb-4">
+          <span class="text-[0.6rem] font-mono text-card-body-muted w-12 shrink-0">17px</span>
+          <span class="text-[17px] text-card-body font-light">Body text — the core reading size for all paragraph content across the site.</span>
+        </div>
+        <div class="flex items-baseline gap-6">
+          <span class="text-[0.6rem] font-mono text-card-body-muted w-12 shrink-0">0.75rem</span>
+          <span class="text-[0.75rem] tracking-[0.16em] uppercase text-card-body-muted font-medium">Section Label · Caption</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

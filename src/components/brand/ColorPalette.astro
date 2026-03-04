@@ -1,0 +1,97 @@
+---
+/**
+ * Color Palette — 6 swatches + live combination preview cards.
+ * All colors update dynamically via the theme switcher JS.
+ */
+---
+
+<section class="relative py-24 sm:py-32 overflow-hidden" id="palette-section">
+  <div class="absolute top-1/2 right-0 w-[500px] h-[500px] ambient-blob bg-burgundy-400"></div>
+
+  <div class="section-inner max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
+
+    <div class="gs-reveal mb-6">
+      <div class="section-accent" id="accent-line-2"></div>
+      <p class="section-label">Color Palette</p>
+    </div>
+
+    <div class="gs-reveal mt-8 mb-16">
+      <p class="text-[17px] text-card-body font-light leading-[1.75] max-w-[720px]">
+        The active palette for this theme. Primary accent drives headlines, CTAs, and brand moments. Supporting tones handle backgrounds, borders, and depth.
+      </p>
+    </div>
+
+    <!-- Palette swatches (6 swatches, dynamically colored) -->
+    <div class="grid sm:grid-cols-3 lg:grid-cols-6 gap-5" id="palette-swatches">
+      <div class="gs-reveal-scale">
+        <div class="h-24 rounded-2xl border border-glass-border transition-all duration-500" id="swatch-accent" style="background: #D4AF37;"></div>
+        <p class="mt-3 text-[0.72rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Accent</p>
+        <p class="mt-1 font-mono text-[0.78rem] text-gold-accent" id="swatch-accent-hex">#D4AF37</p>
+      </div>
+      <div class="gs-reveal-scale">
+        <div class="h-24 rounded-2xl border border-glass-border transition-all duration-500" id="swatch-accent-light" style="background: #F0D78C;"></div>
+        <p class="mt-3 text-[0.72rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Light</p>
+        <p class="mt-1 font-mono text-[0.78rem] text-gold-accent" id="swatch-accent-light-hex">#F0D78C</p>
+      </div>
+      <div class="gs-reveal-scale">
+        <div class="h-24 rounded-2xl border border-glass-border transition-all duration-500" id="swatch-accent-dark" style="background: #A48111;"></div>
+        <p class="mt-3 text-[0.72rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Dark</p>
+        <p class="mt-1 font-mono text-[0.78rem] text-gold-accent" id="swatch-accent-dark-hex">#A48111</p>
+      </div>
+      <div class="gs-reveal-scale">
+        <div class="h-24 rounded-2xl border border-glass-border transition-all duration-500" id="swatch-bg-dark" style="background: #0A0A0A;"></div>
+        <p class="mt-3 text-[0.72rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Background</p>
+        <p class="mt-1 font-mono text-[0.78rem] text-gold-accent" id="swatch-bg-dark-hex">#0A0A0A</p>
+      </div>
+      <div class="gs-reveal-scale">
+        <div class="h-24 rounded-2xl border border-glass-border transition-all duration-500" id="swatch-bg-light" style="background: #F5F0E8;"></div>
+        <p class="mt-3 text-[0.72rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Light BG</p>
+        <p class="mt-1 font-mono text-[0.78rem] text-gold-accent" id="swatch-bg-light-hex">#F5F0E8</p>
+      </div>
+      <div class="gs-reveal-scale">
+        <div class="h-24 rounded-2xl border border-glass-border transition-all duration-500" id="swatch-secondary" style="background: #722F37;"></div>
+        <p class="mt-3 text-[0.72rem] tracking-[0.14em] uppercase text-card-body-muted font-medium">Secondary</p>
+        <p class="mt-1 font-mono text-[0.78rem] text-gold-accent" id="swatch-secondary-hex">#722F37</p>
+      </div>
+    </div>
+
+    <!-- Live Combination Preview -->
+    <div class="mt-16">
+      <h3 class="gs-reveal font-heading text-2xl text-text-primary font-semibold mb-8">Live Combinations</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="combo-grid">
+        <!-- Accent on Dark -->
+        <div class="gs-reveal-scale combo-card rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px] transition-all duration-500" id="combo-accent-dark" style="background: #0A0A0A;">
+          <span class="font-heading text-3xl font-semibold combo-text-accent" style="color: #D4AF37;">Algosphere</span>
+          <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase combo-label-on-dark">Accent on Dark</p>
+        </div>
+        <!-- Text on Dark -->
+        <div class="gs-reveal-scale combo-card rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px] transition-all duration-500" id="combo-text-dark" style="background: #0A0A0A;">
+          <span class="font-heading text-3xl font-semibold combo-text-primary" style="color: #F5F5F5;">Algosphere</span>
+          <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase combo-label-on-dark">Text on Dark</p>
+        </div>
+        <!-- Text on Light -->
+        <div class="gs-reveal-scale combo-card rounded-2xl border border-gray-200 p-8 flex flex-col items-center justify-center min-h-[140px] transition-all duration-500" id="combo-text-light" style="background: #FFFFFF;">
+          <span class="font-heading text-3xl font-semibold combo-text-on-light" style="color: #0A0A0A;">Algosphere</span>
+          <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase combo-label-on-light">Text on Light</p>
+        </div>
+        <!-- Accent on Secondary -->
+        <div class="gs-reveal-scale combo-card rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px] transition-all duration-500" id="combo-accent-secondary" style="background: #722F37;">
+          <span class="font-heading text-3xl font-semibold combo-text-accent-light" style="color: #F0D78C;">Algosphere</span>
+          <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase combo-label-on-dark">Accent on Secondary</p>
+        </div>
+        <!-- Secondary on Dark -->
+        <div class="gs-reveal-scale combo-card rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px] transition-all duration-500" id="combo-secondary-dark" style="background: #0A0A0A;">
+          <span class="font-heading text-3xl font-semibold combo-text-secondary" style="color: #722F37;">Algosphere</span>
+          <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase combo-label-on-dark">Secondary on Dark</p>
+        </div>
+        <!-- Full hero preview -->
+        <div class="gs-reveal-scale combo-card rounded-2xl border border-glass-border p-8 flex flex-col items-center justify-center min-h-[140px] transition-all duration-500" id="combo-hero" style="background: #0A0A0A;">
+          <span class="text-[0.6rem] tracking-[0.2em] uppercase font-medium mb-1 combo-text-accent" style="color: #D4AF37;">Where Vision Meets</span>
+          <span class="font-heading text-2xl font-semibold combo-text-primary" style="color: #F5F5F5;">Legacy</span>
+          <p class="mt-2 text-[0.6rem] tracking-[0.12em] uppercase combo-label-on-dark">Hero Preview</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
