@@ -34,17 +34,17 @@
   --color-card-body: #BABABA;
   --color-card-body-muted: #999999;
   --color-footer-text: #999999;
-  --color-footer-muted: #777777;
+  --color-footer-muted: #848484;
   --color-hero-tagline: #999999;
-  --color-hero-accent: #888888;
-  --color-est-text: #777777;
+  --color-hero-accent: #848484;
+  --color-est-text: #848484;
 
   /* ── Gold palette ── */
   --color-gold-400: #D4AF37;
   --color-gold-light: #F0D78C;
   --color-gold-dark: #A48111;
   --color-gold-accent: rgba(212, 175, 55, 0.85);
-  --color-gold-soft: rgba(212, 175, 55, 0.65);
+  --color-gold-soft: rgba(212, 175, 55, 0.80);
 
   /* ── Raw RGB channels for alpha compositing (updated by theme engine) ── */
   --gold-r: 212;

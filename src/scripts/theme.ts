@@ -62,9 +62,9 @@ export const THEMES: ThemeConfig[] = [
     id: 'burgundy',
     name: 'Burgundy',
     desc: 'Heritage. Armenian warmth meets financial authority.',
-    accent: '#8B3A42',
-    accentLight: '#C06B75',
-    accentDark: '#5C1F26',
+    accent: '#C05560',
+    accentLight: '#D88890',
+    accentDark: '#8B3A42',
     bgDark: '#120A0B',
     bgLight: '#F5EEEF',
     textOnDark: '#F0E8E9',
@@ -88,9 +88,9 @@ export const THEMES: ThemeConfig[] = [
     id: 'sapphire',
     name: 'Sapphire & Gold',
     desc: 'Regal. The crown jewels of investment management.',
-    accent: '#2E4A8E',
-    accentLight: '#5A7AC4',
-    accentDark: '#1B2D5A',
+    accent: '#5A7CC8',
+    accentLight: '#8AA4D8',
+    accentDark: '#3A5CA0',
     bgDark: '#080C1A',
     bgLight: '#EBEEF6',
     textOnDark: '#E0E4F0',
@@ -141,14 +141,14 @@ export function applyThemeToPage(theme: ThemeConfig): void {
   // Derive secondary/muted text from textOnDark
   const textSecondary = `rgba(${tr}, ${tg}, ${tb}, 0.75)`;
   const textMuted = `rgba(${tr}, ${tg}, ${tb}, 0.55)`;
-  const textFaint = `rgba(${tr}, ${tg}, ${tb}, 0.40)`;
+  const textFaint = `rgba(${tr}, ${tg}, ${tb}, 0.52)`;
 
   // Core accent colors (override the gold-* tokens)
   root.style.setProperty('--color-gold-400', theme.accent);
   root.style.setProperty('--color-gold-light', theme.accentLight);
   root.style.setProperty('--color-gold-dark', theme.accentDark);
   root.style.setProperty('--color-gold-accent', `rgba(${ar}, ${ag}, ${ab}, 0.85)`);
-  root.style.setProperty('--color-gold-soft', `rgba(${ar}, ${ag}, ${ab}, 0.65)`);
+  root.style.setProperty('--color-gold-soft', `rgba(${ar}, ${ag}, ${ab}, 0.80)`);
   root.style.setProperty('--color-gold-warm', theme.accent);
 
   // Backgrounds
