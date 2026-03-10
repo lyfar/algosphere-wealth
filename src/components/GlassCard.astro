@@ -17,16 +17,16 @@ interface Props {
 const { title, titleHy, titleRu, titleFr, titleAr, iconPath, iconPath2, class: className = '' } = Astro.props;
 ---
 
-<div class:list={['glass-card p-10 lg:p-12 gs-reveal-scale', className]}>
-  <div class="mb-8">
-    <div class="w-14 h-14 border border-glass-border rounded-2xl flex items-center justify-center bg-gold-400/[0.06] mb-5">
-      <svg class="w-7 h-7 text-gold-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+<div class:list={['glass-card p-7 lg:p-8 gs-reveal-scale', className]}>
+  <div class="flex items-start gap-4 mb-4">
+    <div class="w-10 h-10 shrink-0 border border-glass-border rounded-xl flex items-center justify-center bg-gold-400/[0.06]">
+      <svg class="w-5 h-5 text-gold-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
         <path stroke-linecap="round" stroke-linejoin="round" d={iconPath} />
         {iconPath2 && <path stroke-linecap="round" stroke-linejoin="round" d={iconPath2} />}
       </svg>
     </div>
     <h3
-      class="font-heading text-xl lg:text-[1.35rem] text-card-title font-semibold leading-tight"
+      class="font-heading text-lg text-card-title font-semibold leading-snug pt-1.5"
       data-i18n
       data-hy={titleHy || title}
       data-en={title}
